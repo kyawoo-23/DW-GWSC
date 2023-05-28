@@ -77,7 +77,7 @@
                 <a href="">Contact</a>
             </div>
         </div>
-        <div>
+        <div id="mobileSearchForm">
             <form class="nav-search-form mobile-nav-search-form">
                 <div class="anydayBtn">Anyday</div>
                 <div class="anywhereBtn">Anywhere</div>
