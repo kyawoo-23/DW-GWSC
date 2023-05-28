@@ -28,14 +28,23 @@
                 <img class="logo-icon" src="./assets/static/icons/logo.svg" alt="GWSC logo">
             </div>
             <div class="nav-search-bar">
-
+                <form class="nav-search-form">
+                    <div class="anydayBtn">Anyday</div>
+                    <div class="anywhereBtn">Anywhere</div>
+                    <button class="btn-circle btn-circle-secondary">
+                        <img class="icon-sm" src="./assets/static/icons/search.svg" alt="search icon">
+                    </button>
+                </form>
             </div>
             <div class="nav-info">
                 <a href="" class="nav-user-info">
                     <img class="nav-user-img" src="https://loremflickr.com/320/240" alt="user img">
                     <span>Kyaw Oo</span>
                 </a>
-                <!-- <a href="" class="btn login-link-btn">Login</a> -->
+                <a href="" class="btn-circle btn-circle-secondary">
+                    <img class="icon-sm" src="./assets/static/icons/logout.svg" alt="logout icon">
+                </a>
+                <!-- <a href="" class="btn btn-secondary">Login</a> -->
             </div>
             <div class="nav-menu">
                 <div class="burger">
@@ -68,33 +77,91 @@
                 <a href="">Contact</a>
             </div>
         </div>
+        <div>
+            <form class="nav-search-form mobile-nav-search-form">
+                <div class="anydayBtn">Anyday</div>
+                <div class="anywhereBtn">Anywhere</div>
+                <button class="btn-circle btn-circle-secondary">
+                    <img class="icon-sm" src="./assets/static/icons/search.svg" alt="search icon">
+                </button>
+            </form>
+        </div>
     </nav>
 
     <nav class="mobile-navbar">
-        <a href="" class="nav-user-info">
-            <img class="nav-user-img" src="https://loremflickr.com/320/240" alt="user img">
-            <span>Kyaw Oo</span>
-        </a>
-        <div class="mobile-nav-item active">
-            <a href="">Home</a>
+        <div class="mobile-nav-container">
+            <div class="mobile-nav-item active">
+                <a href="">Home</a>
+            </div>
+            <div class="mobile-nav-item">
+                <a href="">Information</a>
+            </div>
+            <div class="mobile-nav-item">
+                <a href="">Pitch types</a>
+            </div>
+            <div class="mobile-nav-item">
+                <a href="">Features</a>
+            </div>
+            <div class="mobile-nav-item">
+                <a href="">Local Attractions</a>
+            </div>
+            <div class="mobile-nav-item">
+                <a href="">Reviews</a>
+            </div>
+            <div class="mobile-nav-item">
+                <a href="">Contact</a>
+            </div>
+            <div class="mobile-nav-item">
+                <a href="" class="btn btn-secondary">Login</a>
+            </div>
+            <div class="mobile-nav-user">
+                <a href="" class="nav-user-info">
+                    <img class="nav-user-img" src="https://loremflickr.com/320/240" alt="user img">
+                    <span>Kyaw Oo</span>
+                </a>
+                <a href="" class="btn-circle btn-circle-secondary">
+                    <img class="icon-sm" src="./assets/static/icons/logout.svg" alt="logout icon">
+                </a>
+            </div>
         </div>
-        <div class="mobile-nav-item">
-            <a href="">Information</a>
-        </div>
-        <div class="mobile-nav-item">
-            <a href="">Pitch types</a>
-        </div>
-        <div class="mobile-nav-item">
-            <a href="">Features</a>
-        </div>
-        <div class="mobile-nav-item">
-            <a href="">Local Attractions</a>
-        </div>
-        <div class="mobile-nav-item">
-            <a href="">Reviews</a>
-        </div>
-        <div class="mobile-nav-item">
-            <a href="">Contact</a>
-        </div>
-        <a href="" class="btn login-link-btn">Logout</a>
     </nav>
+
+    <dialog class="modal" id="anydayModal">
+        <form class="modal-form" id="anydayModalForm">
+            <div class="modal-header">
+                Please choose your travel date
+                <button formmethod="dialog" type="button" class="close-btn">
+                    <img class="icon-sm" src="./assets/static/icons/xmark.svg" alt="close icon">
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="date" class="search-day" name="searchDay" required>
+            </div>
+            <div class="modal-footer">
+                <button formmethod="dialog" type="reset" id="resetSearchDayBtn" class="btn-lg btn-muted">Clear</button>
+                <button formmethod="dialog" type="submit" class="btn-lg btn-primary">Choose</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="modal" id="anywhereModal">
+        <form class="modal-form" id="anywhereModalForm">
+            <div class="modal-header">
+                Please choose your travel destination
+                <button formmethod="dialog" type="button" class="close-btn">
+                    <img class="icon-sm" src="./assets/static/icons/xmark.svg" alt="close icon">
+                </button>
+            </div>
+            <div class="modal-body">
+                <select class="search-site" name="searchSite" required>
+                    <option value="">Available sites</option>
+                    <option value="Myanmar">Myanmar</option>
+                    <option value="Japan">Japan</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button formmethod="dialog" type="reset" id="resetSearchSiteBtn" class="btn-lg btn-muted">Clear</button>
+                <button formmethod="dialog" type="submit" class="btn-lg btn-primary">Choose</button>
+            </div>
+        </form>
+    </dialog>

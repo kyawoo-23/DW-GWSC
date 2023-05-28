@@ -11,7 +11,10 @@
   --muted: #717171;
   --body-color: #f7f7f7;
   --global-padding: 100px;
+  --modal-padding: 20px;
   --sm-radius: 10px;
+  --svg-white: invert(100%) sepia(7%) saturate(26%) hue-rotate(200deg)
+    brightness(105%) contrast(107%);
 }
 
 * {
@@ -31,7 +34,74 @@ a {
   color: #000;
 }
 
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-sm {
+  width: 18px;
+  height: 18px;
+}
+
+dialog {
+  border: none !important;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.modal {
+  margin: auto;
+  width: 40vw;
+  border-radius: var(--sm-radius);
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-header {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  background-color: var(--primary);
+  padding: var(--modal-padding);
+  color: #fff;
+}
+
+.modal-body {
+  padding: var(--modal-padding);
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding: var(--modal-padding);
+  background-color: var(--body-color);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  filter: var(--svg-white);
+}
+
 nav.navbar {
+  top: 0;
+  position: sticky;
   background-color: #fff;
   padding: 10px var(--global-padding);
   box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.1);
@@ -82,6 +152,7 @@ nav.navbar > .foot {
 .mobile-nav-item.active {
   background-color: var(--primary-dark);
   border-radius: var(--sm-radius);
+  width: fit-content;
 }
 .nav-item.active a,
 .mobile-nav-item.active a {
@@ -119,6 +190,7 @@ nav.navbar > .foot {
 .nav-info {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .btn {
@@ -126,9 +198,54 @@ nav.navbar > .foot {
   border-radius: var(--sm-radius);
 }
 
-.login-link-btn {
+.btn-lg {
+  padding: 8px 22px;
+  border-radius: var(--sm-radius);
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+}
+.btn-secondary {
   background-color: var(--secondary);
   color: #fff;
+}
+.btn-grey {
+  background-color: var(--grey);
+  color: #fff;
+}
+.btn-muted {
+  background-color: var(--muted);
+  color: #fff;
+}
+.btn-danger {
+  background-color: var(--danger);
+  color: #fff;
+}
+.btn-warning {
+  background-color: var(--warning);
+  color: #fff;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.btn-circle-secondary {
+  background-color: var(--secondary);
+  outline: var(--secondary);
+}
+
+.btn-circle img {
+  filter: var(--svg-white);
 }
 
 .nav-menu {
@@ -136,7 +253,7 @@ nav.navbar > .foot {
 }
 
 .burger {
-  width: 35px;
+  width: 30px;
   height: 26px;
   margin: 10px;
   position: relative;
@@ -188,6 +305,8 @@ nav.navbar > .foot {
 }
 
 .mobile-navbar {
+  opacity: 0;
+  pointer-events: none;
   position: fixed;
   z-index: 4;
   inset: 0;
@@ -198,14 +317,91 @@ nav.navbar > .foot {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 25px;
-  flex-direction: column;
   height: 100%;
-  font-size: 1.2rem;
 }
 
 .mobile-navbar.open {
   transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-nav-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  gap: 25px;
+  flex-direction: column;
+}
+
+.mobile-nav-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-search-form {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  background-color: var(--primary);
+  color: #fff;
+  padding: 4px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.nav-search-form > div {
+  position: relative;
+  padding-right: 25px;
+  padding-left: 25px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.nav-search-form > div:first-child::after {
+  position: absolute;
+  content: "";
+  border-right: 1.5px solid var(--primary-dark);
+  height: 20px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.mobile-nav-search-form {
+  margin: auto;
+  display: none;
+  margin-top: 10px;
+  width: fit-content;
+}
+
+.search-day,
+.search-site {
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: var(--sm-radius);
+  border: 2px solid var(--primary-dark);
+  margin: auto;
+  height: 45px;
+  width: 100%;
+}
+
+.search-day:focus,
+.search-site:focus {
+  outline: none;
+  border: 2px solid var(--primary-dark);
+}
+
+.search-site {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAMAAACtdX32AAAAdVBMVEUAAAD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhMdQaAAAAJ3RSTlMAAAECAwQGBwsOFBwkJTg5RUZ4eYCHkJefpaytrsXGy8zW3+Do8vNn0bsyAAAAYElEQVR42tXROwJDQAAA0Ymw1p9kiT+L5P5HVEi3qJn2lcPjtIuzUIJ/rhIGy762N3XaThqMN1ZPALsZPEzG1x8LrFL77DHBnEMxBewz0fJ6LyFHTPL7xhwzWYrJ9z22AqmQBV757MHfAAAAAElFTkSuQmCC);
+  background-position: 100%;
+  background-repeat: no-repeat;
 }
 
 @media only screen and (max-width: 992px) {
@@ -217,10 +413,11 @@ nav.navbar > .foot {
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 25px;
+    justify-content: center;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 690px) {
   :root {
     --global-padding: 25px;
   }
@@ -240,5 +437,21 @@ nav.navbar > .foot {
   .nav-menu {
     display: flex;
     align-items: center;
+  }
+
+  .nav-search-bar {
+    display: none;
+  }
+
+  .mobile-nav-search-form {
+    display: flex;
+  }
+
+  .modal {
+    width: 80vw;
+  }
+
+  .modal-footer {
+    justify-content: center;
   }
 }
