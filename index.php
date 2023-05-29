@@ -81,6 +81,16 @@
                 </div>
             </div>
         </section>
+        <section class="intro">
+            <div class="intro-card">
+                <div class="intro-card-details">
+                    <img class="logo-icon-lg" src="./assets/static/icons/logo.svg" alt="">
+                    <p class="intro-body">Welcome to Global Wild Swimming and Camping, your ultimate destination for
+                        unforgettable outdoor adventures!</p>
+                </div>
+                <a href="" class="intro-card-button">Available sites</a>
+            </div>
+        </section>
     </div>
 </main>
 
