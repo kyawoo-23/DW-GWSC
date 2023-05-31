@@ -11,6 +11,7 @@ $create ="CREATE TABLE Pitch
 	Price int,
 	StartDate date,
 	EndDate date,
+	PrimaryImage varchar(30),
 	Image varchar(100),
 	Description varchar(50),
 	IsFeatured bool not null default false,
