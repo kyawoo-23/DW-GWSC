@@ -35,6 +35,14 @@ html {
   font-family: "Fredoka", sans-serif;
 }
 
+body {
+  background-image: radial-gradient(
+    var(--primary-dark) 0.6px,
+    var(--body-color) 0.6px
+  );
+  background-size: 10px 10px;
+}
+
 a {
   text-decoration: none;
   color: #000;
@@ -658,7 +666,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  background-color: var(--primary);
+  background-color: var(--primary-dark);
   border-radius: 24px;
   padding: 1.6rem;
 }
@@ -672,7 +680,7 @@ main {
 }
 
 .featured-pitch-info a {
-  color: var(--primary);
+  color: var(--primary-dark);
   padding: 10px 24px;
   margin-top: 6px;
   width: fit-content;
@@ -689,6 +697,7 @@ main {
 .login-container {
   margin-top: 30px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -707,11 +716,16 @@ main {
   width: 50%;
 }
 
-.login-form {
+.login-form,
+.signup-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 25px;
+}
+
+.login-form div:first-child {
+  margin-bottom: 5px;
 }
 
 div.input-block {
@@ -758,6 +772,8 @@ div.input-block input:focus + span.placeholder {
   display: flex;
   align-items: center;
   gap: 15px;
+  width: 350px;
+  justify-content: flex-end;
 }
 
 .btn-clear {
@@ -768,7 +784,25 @@ div.input-block input:focus + span.placeholder {
 .btn-login {
   padding: 12px 24px;
   color: #fff;
-  background-color: var(--primary);
+  background-color: var(--secondary);
+}
+
+.no-account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.no-account a {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.signup-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
 }
 
 @media only screen and (max-width: 992px) {
@@ -853,5 +887,23 @@ div.input-block input:focus + span.placeholder {
 
   .featured-pitch-info {
     width: 80%;
+  }
+
+  .login-container {
+    gap: 30px;
+  }
+
+  .login-form,
+  .login-img {
+    width: 100%;
+  }
+
+  .login-img img {
+    width: 250px;
+  }
+
+  .login-form {
+    align-items: center;
+    text-align: center;
   }
 }
