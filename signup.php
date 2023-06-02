@@ -35,27 +35,37 @@
             </div>
             <div class="signup-row">
                 <div class="input-block">
-                    <input type="password" name="userPassword1" required spellcheck="false" />
+                    <input type="password" name="userPassword1" id="passwordInput" required spellcheck="false" />
                     <span class="placeholder">Password</span>
+                    <img class="password-toggle-icon" src="./assets/static/icons/eye-slash.svg" alt="eye slash"
+                        id="passwordToggle">
                 </div>
                 <div class="input-block">
-                    <input type="password" name="userPassword2" required spellcheck="false" />
+                    <input type="password" name="userPassword2" id="passwordInput2" required spellcheck="false" />
                     <span class="placeholder">Confirm password</span>
+                    <img class="password-toggle-icon" src="./assets/static/icons/eye-slash.svg" alt="eye slash"
+                        id="passwordToggle2">
                 </div>
             </div>
 
-            <div>
-                <label for="Profile picture">Profile picture</label>
-                <input type="file" required />
+            <div class="signup-row" id="password-no-match">
+                <small>Passwords do not match</small>
             </div>
 
-            <div class="login-btn-gp">
+            <div class="signup-row">
+                <div class="input-file">
+                    <label for="userPic">Profile picture</label>
+                    <input type="file" name="userPic" id="userPic" required spellcheck="false" />
+                </div>
+            </div>
+
+            <div class="signup-btn-gp">
                 <button class="btn btn-clear" type="reset">Clear</button>
-                <button class="btn btn-login" type="submit">Login</button>
+                <button class="btn btn-login" type="submit">Register</button>
             </div>
 
             <div class="no-account">
-                Don't have an account? <a href="">Sign up</a>
+                Already have an account? <a href="login.php">Login here</a>
             </div>
         </form>
     </div>

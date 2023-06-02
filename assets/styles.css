@@ -21,6 +21,7 @@
   --section-margin: 80px;
   --swimming: #0f41b8;
   --camping: #039c54;
+  --input-size: 350px;
 }
 
 * {
@@ -735,7 +736,7 @@ div.input-block {
 div.input-block input {
   font-weight: 400;
   font-size: 1rem;
-  width: 350px;
+  width: var(--input-size);
   padding: 16px;
   border-radius: 1rem;
   border: 2px solid #d9d9d9;
@@ -768,12 +769,20 @@ div.input-block input:focus + span.placeholder {
   color: var(--primary-dark);
 }
 
-.login-btn-gp {
+.login-btn-gp,
+.signup-btn-gp {
   display: flex;
   align-items: center;
   gap: 15px;
-  width: 350px;
   justify-content: flex-end;
+}
+
+.login-btn-gp {
+  width: var(--input-size);
+}
+
+.signup-btn-gp {
+  width: calc(var(--input-size) * 2 + 15px);
 }
 
 .btn-clear {
@@ -805,6 +814,44 @@ div.input-block input:focus + span.placeholder {
   gap: 15px;
 }
 
+.password-toggle-icon {
+  cursor: pointer;
+  width: 20px;
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+}
+
+.input-file {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
+}
+
+.input-file label {
+  width: var(--input-size);
+  text-align: end;
+}
+
+.input-file input {
+  font-weight: 400;
+  font-size: 1rem;
+  width: var(--input-size);
+  padding: 16px;
+  border-radius: 1rem;
+  border: 2px solid #d9d9d9;
+  background-color: transparent;
+  outline: none;
+}
+
+#password-no-match {
+  display: none;
+  margin-left: auto;
+  color: var(--danger);
+}
+
 @media only screen and (max-width: 992px) {
   :root {
     --global-padding: 50px;
@@ -821,6 +868,7 @@ div.input-block input:focus + span.placeholder {
 @media screen and (max-width: 690px) {
   :root {
     --global-padding: 25px;
+    --input-size: 280px;
   }
 
   nav.navbar > .head {
@@ -905,5 +953,24 @@ div.input-block input:focus + span.placeholder {
   .login-form {
     align-items: center;
     text-align: center;
+  }
+
+  .signup-form {
+    align-items: center;
+  }
+  .signup-row {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .input-file {
+    flex-direction: column;
+  }
+  .input-file label {
+    text-align: left;
+  }
+
+  .signup-btn-gp {
+    width: var(--input-size);
   }
 }

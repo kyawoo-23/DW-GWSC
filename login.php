@@ -18,8 +18,11 @@
                 <span class="placeholder">Email address</span>
             </div>
             <div class="input-block">
-                <input type="password" name="input-text" id="input-text" required spellcheck="false" />
+                <input class="password-input" type="password" name="input-text" id="passwordInput" required
+                    spellcheck="false" />
                 <span class="placeholder">Password</span>
+                <img class="password-toggle-icon" src="./assets/static/icons/eye-slash.svg" alt="eye slash"
+                    id="passwordToggle">
             </div>
 
             <div class="login-btn-gp">
