@@ -55,7 +55,7 @@
             <div class="signup-row">
                 <div class="input-file">
                     <label for="userPic">Profile picture</label>
-                    <input type="file" name="userPic" id="userPic" required spellcheck="false" />
+                    <input type="file" accept="image/*" name="userPic" id="userPic" required spellcheck="false" />
                 </div>
             </div>
 

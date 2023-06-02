@@ -33,7 +33,6 @@ function checkPasswordsMatch() {
 
   if (password !== confirmPassword) {
     $("#password-no-match").show()
-    // console.log("Passwords do not match")
   } else {
     $("#password-no-match").hide()
   }
