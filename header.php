@@ -41,6 +41,9 @@
                     <img class="nav-user-img" src="https://loremflickr.com/320/240" alt="user img">
                     <span>Kyaw Oo</span>
                 </a>
+                <a href="" class="btn-circle btn-circle-primary">
+                    <img class="icon-sm" src="./assets/static/icons/booking.svg" alt="booking icon">
+                </a>
                 <a href="" class="btn-circle btn-circle-secondary">
                     <img class="icon-sm" src="./assets/static/icons/logout.svg" alt="logout icon">
                 </a>
@@ -118,6 +121,9 @@
                 <a href="" class="nav-user-info">
                     <img class="nav-user-img" src="https://loremflickr.com/320/240" alt="user img">
                     <span>Kyaw Oo</span>
+                </a>
+                <a href="" class="btn-circle btn-circle-primary">
+                    <img class="icon-sm" src="./assets/static/icons/booking.svg" alt="booking icon">
                 </a>
                 <a href="" class="btn-circle btn-circle-secondary">
                     <img class="icon-sm" src="./assets/static/icons/logout.svg" alt="logout icon">

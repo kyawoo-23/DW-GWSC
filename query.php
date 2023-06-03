@@ -14,6 +14,7 @@ $create ="CREATE TABLE Pitch
 	PrimaryImage varchar(30),
 	Image varchar(100),
 	Description varchar(50),
+	IsAvailable bool not null default true,
 	IsFeatured bool not null default false,
 	Foreign key (PitchTypeId) References PitchType(Id),
 	Foreign key (SiteId) References Site(Id),

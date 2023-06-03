@@ -130,18 +130,111 @@
                 </div>
             </div>
 
-            <div class="featured-pitch">
-                <img src="./assets/static/images/slide2.jpg" alt="">
-                <div class="featured-pitch-info">
-                    <h2>Camping</h2>
-                    <p>Embrace natureaksdljaslf lasjflajs dflj aslf lasl flas flasjdj las dfflas fa sfl aslf flasf las
-                        dflal
-                        alsfd
-                        's aquatic oasis</p>
-                    <a class="btn btn-white" href="">Go to details</a>
+            <div class="featured-pitch-list">
+                <div class="pitch-card">
+                    <div class="pitch-card-img">
+                        <img src="./assets/static/images/slide3.jpg" alt="">
+                    </div>
+                    <div class="pitch-card-body">
+                        <h3 class="pitch-card-title">Pitch title</h3>
+                        <a class="btn btn-white" href="">Details</a>
+                    </div>
+                </div>
+
+                <div class="pitch-card">
+                    <div class="pitch-card-img">
+                        <img src="./assets/static/images/slide3.jpg" alt="">
+                    </div>
+                    <div class="pitch-card-body">
+                        <h3 class="pitch-card-title">Pitch title alsd lka sflj aslf las fdl a sdl;a fd;l a fa ls</h3>
+                        <a class="btn btn-white" href="">Details</a>
+                    </div>
+                </div>
+
+                <div class="pitch-card">
+                    <div class="pitch-card-img">
+                        <img src="./assets/static/images/slide3.jpg" alt="">
+                    </div>
+                    <div class="pitch-card-body">
+                        <h3 class="pitch-card-title">Pitch title</h3>
+                        <a class="btn btn-white" href="">Details</a>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">What our customers say</h2>
+        <div class="testimonial">
+            <div>
+                <ul>
+                    <li class="testimonial-card active">
+                        <div class="testimonial-content">
+                            <img class="testimonial-img" src="./assets/static/images/slide4.jpg" alt="">
+                            <div class="testimonial-body">
+                                <p class="testimonial-review">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Tenetur, ipsa eum ratione
+                                    tempore exercitationem voluptates eligendi? Ab perspiciatis illo officia suscipit
+                                    quam, dignissimos enim quisquam mollitia delectus sapiente dolores placeat</p>
+                                <div class="testimonial-user">
+                                    <span class="testimonial-title">Kyaw Oo</span>
+
+                                    <span class="star-container">
+                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
+                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
+                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="testimonial-card">
+                        <div class="testimonial-content">
+                            <img class="testimonial-img" src="./assets/static/images/slide4.jpg" alt="">
+                            <div class="testimonial-body">
+                                <p class="testimonial-review">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Tenetur, ipsa eum ratione
+                                    tempore exercitationem voluptates eligendi? Ab perspiciatis illo officia suscipit
+                                    quam, dignissimos enim quisquam mollitia delectus sapiente dolores placeat</p>
+                                <div class="testimonial-user">
+                                    <span class="testimonial-title">Kyaw Oo</span>
+
+                                    <span class="star-container">
+                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
+                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
+                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="testimonial-card">
+                        <div class="testimonial-content">
+                            <img class="testimonial-img" src="./assets/static/images/slide4.jpg" alt="">
+                            <div class="testimonial-body">
+                                <p class="testimonial-review">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Tenetur, ipsa eum ratione
+                                    tempore exercitationem voluptates eligendi? Ab perspiciatis illo officia suscipit
+                                    quam, dignissimos enim quisquam mollitia delectus sapiente dolores placeat</p>
+                                <div class="testimonial-user">
+                                    <span class="testimonial-title">Kyaw Oo</span>
+
+                                    <span class="star-container">
+                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
+                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
+                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <button class="prev"><img class="icon-sm" src="./assets/static/icons/arrow.svg" alt="prev"></button>
+            <button class="next"><img class="icon-sm" src="./assets/static/icons/arrow.svg" alt="next"></button>
+        </div>
+
     </section>
 </main>
 
