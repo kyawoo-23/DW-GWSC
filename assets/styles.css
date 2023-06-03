@@ -155,6 +155,9 @@ nav.navbar > .foot {
 .nav-item a:hover {
   color: var(--primary-dark);
 }
+.nav-item.admin a:hover {
+  color: var(--secondary);
+}
 
 .nav-item a:after {
   content: "";
@@ -171,11 +174,19 @@ nav.navbar > .foot {
   background-color: var(--primary);
 }
 
+.nav-item.admin a:hover::after {
+  background-color: var(--secondary);
+}
+
 .nav-item.active,
 .mobile-nav-item.active {
   background-color: var(--primary-dark);
   border-radius: var(--sm-radius);
   width: fit-content;
+}
+.nav-item.admin.active,
+.mobile-nav-item.admin.active {
+  background-color: var(--secondary);
 }
 .nav-item.active a,
 .mobile-nav-item.active a {
@@ -188,19 +199,29 @@ nav.navbar > .foot {
   object-fit: contain;
 }
 
+.logo-icon.admin {
+  width: 200px;
+}
+
 .nav-user-info {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: var(--primary);
+  background-color: var(--primary);
   border-radius: 30px;
   padding-right: 12px;
   color: #fff;
   transition: background 0.2s;
 }
-
 .nav-user-info:hover {
   background: var(--primary-dark);
+}
+
+.nav-user-info.admin {
+  background-color: var(--secondary);
+}
+.nav-user-info.admin:hover {
+  background-color: var(--secondary);
 }
 
 .nav-user-img {
@@ -305,6 +326,9 @@ nav.navbar > .foot {
   width: 100%;
   height: 4px;
   transition-duration: 500ms;
+}
+.burger.admin span {
+  background-color: var(--secondary);
 }
 .burger span:nth-child(1) {
   top: 0px;
@@ -1030,7 +1054,9 @@ footer {
   margin-top: 80px;
   padding: 40px var(--global-padding) 0 var(--global-padding);
   display: flex;
+  gap: 40px;
   flex-direction: column;
+  padding-bottom: 40px;
 }
 
 .footer-head {
@@ -1149,6 +1175,154 @@ footer {
   }
 }
 
+.footer-foot {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.foot-left {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.foot-right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.footer-links {
+  margin-top: 15px;
+  padding: 20px 30px;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  padding: 2px 10px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.footer-links a.active {
+  color: #fff;
+  background-color: var(--primary-dark);
+}
+
+.reference-links {
+  margin-top: 15px;
+}
+
+.reference-links p {
+  text-indent: 30px;
+}
+.reference-links p a {
+  color: var(--secondary);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.admin-page-title {
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-page-title h3 {
+  font-weight: 500;
+}
+
+.admin-create-btn {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: var(--secondary);
+  border-radius: 10px;
+  padding: 8px 20px;
+}
+
+.admin-create-btn img {
+  filter: var(--svg-white);
+}
+
+.admin-create-btn a {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.admin-create-form-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.admin-input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.admin-input-form input,
+.admin-input-form textarea {
+  background-color: #fff;
+  border: none;
+  height: 34px;
+  border-radius: 10px;
+  padding: 0 10px;
+  font-size: 1rem;
+}
+.admin-input-form input[type="file"] {
+  padding-top: 5px;
+}
+.admin-input-form textarea {
+  font-family: "Fredoka", sans-serif;
+  height: unset;
+  padding: 10px 10px;
+  resize: none;
+}
+.admin-input-form input:focus,
+.admin-input-form input:active,
+.admin-input-form textarea:focus,
+.admin-input-form textarea:active {
+  outline: 2px solid var(--secondary);
+}
+
+.col-span-2 {
+  grid-column: span 2;
+}
+.col-span-3 {
+  grid-column: span 3;
+}
+
+.site-chosen-img img {
+  margin-top: 15px;
+  border-radius: 24px;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.admin-submit-btn {
+  font-size: 1.3rem;
+  color: #fff;
+  background-color: var(--secondary);
+  border-radius: 10px;
+  padding: 8px 20px;
+  grid-column: 3/3;
+}
+
+.admin-footer {
+  padding: 40px;
+}
+
 @media only screen and (max-width: 992px) {
   :root {
     --global-padding: 50px;
@@ -1163,6 +1337,10 @@ footer {
 
   .featured-pitch-list {
     grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+
+  .admin-submit-btn {
+    grid-column: 2/4;
   }
 }
 
@@ -1298,5 +1476,19 @@ footer {
 
   .footer-head h2 {
     text-align: center;
+  }
+
+  .foot-left {
+    gap: 20px;
+    width: 100%;
+  }
+  .footer-foot {
+    gap: 30px;
+    grid-template-columns: 1fr;
+  }
+
+  .admin-create-form-3 {
+    display: flex;
+    flex-direction: column;
   }
 }

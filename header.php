@@ -37,17 +37,17 @@
                 </form>
             </div>
             <div class="nav-info">
-                <a href="" class="nav-user-info">
+                <a href="profile.php" class="nav-user-info">
                     <img class="nav-user-img" src="https://loremflickr.com/320/240" alt="user img">
                     <span>Kyaw Oo</span>
                 </a>
-                <a href="" class="btn-circle btn-circle-primary">
+                <a href="booking.php" class="btn-circle btn-circle-primary">
                     <img class="icon-sm" src="./assets/static/icons/booking.svg" alt="booking icon">
                 </a>
-                <a href="" class="btn-circle btn-circle-secondary">
+                <a href="logout.php" class="btn-circle btn-circle-secondary">
                     <img class="icon-sm" src="./assets/static/icons/logout.svg" alt="logout icon">
                 </a>
-                <!-- <a href="" class="btn btn-secondary">Login</a> -->
+                <!-- <a href="login.php" class="btn btn-secondary">Login</a> -->
             </div>
             <div class="nav-menu">
                 <div class="burger">
@@ -58,26 +58,26 @@
             </div>
         </div>
         <div class="foot">
-            <div class="nav-item active">
-                <a href="">Home</a>
+            <div class="nav-item <?php if ($title === "Home") echo "active"?>">
+                <a href="index.php">Home</a>
             </div>
-            <div class="nav-item">
-                <a href="">Information</a>
+            <div class="nav-item <?php if ($title === "Information") echo "active"?>">
+                <a href="information.php">Information</a>
             </div>
-            <div class="nav-item">
-                <a href="">Pitch types</a>
+            <div class="nav-item <?php if ($title === "Pitch types") echo "active"?>">
+                <a href="pitchTypes.php">Pitch types</a>
             </div>
-            <div class="nav-item">
-                <a href="">Features</a>
+            <div class="nav-item <?php if ($title === "Features") echo "active"?>">
+                <a href="features.php">Features</a>
             </div>
-            <div class="nav-item">
-                <a href="">Local Attractions</a>
+            <div class="nav-item <?php if ($title === "Local Attractions") echo "active"?>">
+                <a href="localAttractions.php">Local Attractions</a>
             </div>
-            <div class="nav-item">
-                <a href="">Reviews</a>
+            <div class="nav-item <?php if ($title === "Reviews") echo "active"?>">
+                <a href="reviews.php">Reviews</a>
             </div>
-            <div class="nav-item">
-                <a href="">Contact</a>
+            <div class="nav-item <?php if ($title === "Contact") echo "active"?>">
+                <a href="contact.php">Contact</a>
             </div>
         </div>
         <div id="mobileSearchForm">
@@ -93,39 +93,39 @@
 
     <nav class="mobile-navbar">
         <div class="mobile-nav-container">
-            <div class="mobile-nav-item active">
-                <a href="">Home</a>
+            <div class="mobile-nav-item <?php if ($title === "Home") echo "active"?>">
+                <a href="index.php">Home</a>
+            </div>
+            <div class="mobile-nav-item <?php if ($title === "Information") echo "active"?>">
+                <a href="information.php">Information</a>
+            </div>
+            <div class="mobile-nav-item <?php if ($title === "Pitch types") echo "active"?>">
+                <a href="pitchTypes.php">Pitch types</a>
+            </div>
+            <div class="mobile-nav-item <?php if ($title === "Features") echo "active"?>">
+                <a href="features.php">Features</a>
+            </div>
+            <div class="mobile-nav-item <?php if ($title === "Local Attractions") echo "active"?>">
+                <a href="localAttractions.php">Local Attractions</a>
+            </div>
+            <div class="mobile-nav-item <?php if ($title === "Reviews") echo "active"?>">
+                <a href="reviews.php">Reviews</a>
+            </div>
+            <div class="mobile-nav-item <?php if ($title === "Contact") echo "active"?>">
+                <a href="contact.php">Contact</a>
             </div>
             <div class="mobile-nav-item">
-                <a href="">Information</a>
-            </div>
-            <div class="mobile-nav-item">
-                <a href="">Pitch types</a>
-            </div>
-            <div class="mobile-nav-item">
-                <a href="">Features</a>
-            </div>
-            <div class="mobile-nav-item">
-                <a href="">Local Attractions</a>
-            </div>
-            <div class="mobile-nav-item">
-                <a href="">Reviews</a>
-            </div>
-            <div class="mobile-nav-item">
-                <a href="">Contact</a>
-            </div>
-            <div class="mobile-nav-item">
-                <a href="" class="btn btn-secondary">Login</a>
+                <a href="login.php" class="btn btn-secondary">Login</a>
             </div>
             <div class="mobile-nav-user">
-                <a href="" class="nav-user-info">
+                <a href="profile.php" class="nav-user-info">
                     <img class="nav-user-img" src="https://loremflickr.com/320/240" alt="user img">
                     <span>Kyaw Oo</span>
                 </a>
-                <a href="" class="btn-circle btn-circle-primary">
+                <a href="booking.php" class="btn-circle btn-circle-primary">
                     <img class="icon-sm" src="./assets/static/icons/booking.svg" alt="booking icon">
                 </a>
-                <a href="" class="btn-circle btn-circle-secondary">
+                <a href="logout.php" class="btn-circle btn-circle-secondary">
                     <img class="icon-sm" src="./assets/static/icons/logout.svg" alt="logout icon">
                 </a>
             </div>
