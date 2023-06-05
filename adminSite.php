@@ -4,13 +4,13 @@
 ?>
 
 <main>
-    <div class="admin-page-title">
+    <a href="adminSiteCreate.php" class="admin-page-title">
         <h3>Sites</h3>
         <div class="admin-create-btn">
             <img class="icon-sm" src="./assets/static/icons/plus.svg" alt="plus icon">
-            <a href="adminSiteCreate.php">Create Site</a>
+            <span>Create Site</span>
         </div>
-    </div>
+    </a>
 </main>
 
 <?php 

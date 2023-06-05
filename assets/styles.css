@@ -904,6 +904,9 @@ div.input-block input:focus + span.placeholder {
 .pitch-card:hover .pitch-card-body {
   background-color: var(--primary-dark);
 }
+.pitch-card:hover .pitch-card-body.admin {
+  background-color: var(--secondary);
+}
 .pitch-card:hover .pitch-card-img img {
   filter: brightness(90%);
 }
@@ -1240,27 +1243,31 @@ footer {
 }
 
 .admin-create-btn {
+  color: #fff;
   display: flex;
   align-items: center;
   gap: 15px;
   background-color: var(--secondary);
   border-radius: 10px;
   padding: 8px 20px;
+  font-size: 1.2rem;
 }
 
 .admin-create-btn img {
   filter: var(--svg-white);
 }
 
-.admin-create-btn a {
+.admin-create-form {
   color: #fff;
-  font-size: 1.2rem;
+  padding: 28px;
+  border-radius: 24px;
+  display: grid;
+  gap: 20px;
+  background-color: var(--secondary);
 }
 
 .admin-create-form-3 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .admin-input-form {
@@ -1269,8 +1276,15 @@ footer {
   gap: 5px;
 }
 
+.admin-input-form .radio-gp {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
 .admin-input-form input,
-.admin-input-form textarea {
+.admin-input-form textarea,
+.admin-input-form .radio-gp {
   background-color: #fff;
   border: none;
   height: 34px;
@@ -1313,6 +1327,7 @@ footer {
 .admin-submit-btn {
   font-size: 1.3rem;
   color: #fff;
+  border: 2px solid;
   background-color: var(--secondary);
   border-radius: 10px;
   padding: 8px 20px;
@@ -1321,6 +1336,46 @@ footer {
 
 .admin-footer {
   padding: 40px;
+}
+
+.custom-radio {
+  color: var(--grey);
+  display: inline-block;
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.custom-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+}
+.custom-radio input:checked ~ .checkmark {
+  background-color: var(--secondary);
+}
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 6px;
+  left: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+.custom-radio input:checked ~ .checkmark::after {
+  display: block;
 }
 
 @media only screen and (max-width: 992px) {

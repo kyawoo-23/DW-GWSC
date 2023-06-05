@@ -7,4 +7,7 @@ $("#siteImage").change(function () {
     }
     reader.readAsDataURL(file)
   }
+  if (file === undefined) {
+    $("#siteChosenImg").attr("src", "assets/static/images/no-image.jpg")
+  }
 })

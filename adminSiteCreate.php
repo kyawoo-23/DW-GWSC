@@ -7,7 +7,7 @@
     <div class="admin-page-title">
         <h3>Create Site</h3>
     </div>
-    <form action="" method="POST" class="admin-create-form-3">
+    <form action="" method="POST" class="admin-create-form admin-create-form-3">
         <div class="admin-input-form">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" placeholder="Site name" required>
