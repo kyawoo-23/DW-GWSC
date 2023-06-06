@@ -1278,21 +1278,39 @@ footer {
 
 .admin-input-form .radio-gp {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   align-items: center;
+}
+
+.admin-input-form .dropdown-gp {
+  display: flex;
+  align-items: center;
+}
+.admin-input-form .dropdown-gp select {
+  width: 100%;
+  padding: 4px 0;
+  font-size: 1rem;
+  border: none;
+}
+.admin-input-form .dropdown-gp select:active,
+.admin-input-form .dropdown-gp select:focus {
+  outline: none;
 }
 
 .admin-input-form input,
 .admin-input-form textarea,
-.admin-input-form .radio-gp {
+.admin-input-form .radio-gp,
+.admin-input-form .dropdown-gp {
   background-color: #fff;
   border: none;
   height: 34px;
   border-radius: 10px;
   padding: 0 10px;
   font-size: 1rem;
+  margin-top: 5px;
 }
 .admin-input-form input[type="file"] {
+  color: #000;
   padding-top: 5px;
 }
 .admin-input-form textarea {
@@ -1315,13 +1333,25 @@ footer {
   grid-column: span 3;
 }
 
-.site-chosen-img img {
-  margin-top: 15px;
+.chosen-img img {
+  margin-top: 5px;
   border-radius: 24px;
   width: 100%;
   height: 300px;
   object-fit: cover;
   object-position: center;
+}
+
+.admin-chosen-image-list {
+  margin-top: 5px;
+  overflow-x: auto;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.admin-chosen-image-list > .chosen-img img {
+  margin-top: 0;
 }
 
 .admin-submit-btn {
@@ -1332,6 +1362,7 @@ footer {
   border-radius: 10px;
   padding: 8px 20px;
   grid-column: 3/3;
+  margin-top: 15px;
 }
 
 .admin-footer {

@@ -33,7 +33,7 @@
             <input type="file" name="image" id="siteImage" accept="image/*" placeholder="Site image" required>
         </div>
 
-        <div class="col-span-2 site-chosen-img">
+        <div class="col-span-2 chosen-img">
             <span class="img-preview">Image preview</span>
             <img title="image preview" id="siteChosenImg" src="./assets/static/images/no-image.jpg" alt="site image">
         </div>
