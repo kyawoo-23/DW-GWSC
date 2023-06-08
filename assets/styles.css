@@ -43,7 +43,7 @@ body {
     var(--primary-dark) 0.6px,
     var(--body-color) 0.6px
   );
-  background-size: 10px 10px;
+  background-size: 8px 8px;
   overflow-x: hidden;
 }
 
@@ -1196,6 +1196,14 @@ footer {
   gap: 30px;
 }
 
+.footer-links-title,
+.reference-links-title {
+  background-color: #d9d9d9;
+  width: min-content;
+  padding: 2px 14px;
+  border-radius: 10px;
+}
+
 .footer-links {
   margin-top: 15px;
   padding: 20px 30px;
@@ -1219,16 +1227,29 @@ footer {
 }
 
 .reference-links {
+  border-radius: 10px;
+  background-color: #d9d9d9;
+  padding: 20px 30px;
   margin-top: 15px;
 }
 
 .reference-links p {
-  text-indent: 30px;
+  margin-bottom: 15px;
 }
+.reference-links p:last-child {
+  margin-bottom: 0;
+}
+
 .reference-links p a {
   color: var(--secondary);
   text-decoration: underline;
   font-weight: 500;
+}
+
+.copyright {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  padding: 20px 30px;
 }
 
 .admin-page-title {
@@ -1239,6 +1260,10 @@ footer {
 }
 
 .admin-page-title h3 {
+  background-color: var(--secondary);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 10px;
   font-weight: 500;
 }
 

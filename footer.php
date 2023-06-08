@@ -22,11 +22,11 @@
     <div class="footer-foot">
         <div class="foot-left">
             <img class="logo-icon" src="./assets/static/icons/logo.svg" alt="GWSC logo">
-            <small>© GWSC Global Wild Swimming and Camping 1999 - 2023 #Kko</small>
+            <small class="copyright">© GWSC Global Wild Swimming and Camping 1999 - 2023 #Kko</small>
         </div>
         <div class="foot-right">
             <div>
-                <p>Links</p>
+                <p class="footer-links-title">Links</p>
                 <div class="footer-links">
                     <a href="index.php" class="<?php if ($title === "Home") echo "active"?>">Home</a>
                     <a href="information.php"
@@ -43,8 +43,10 @@
                 </div>
             </div>
             <div>
-                <p>References</p>
+                <p class="reference-links-title">References</p>
                 <div class="reference-links">
+                    <p>Image references from <a href="">here</a></p>
+                    <p>Image references from <a href="">here</a></p>
                     <p>Image references from <a href="">here</a></p>
                 </div>
             </div>
