@@ -23,20 +23,7 @@
 
 <body>
     <nav class="navbar">
-        <div class="head">
-            <div>
-                <img class="logo-icon admin" src="./assets/static/icons/logo_admin.svg" alt="GWSC logo">
-            </div>
-            <div class="nav-info">
-                <a href="" class="nav-user-info admin">
-                    <img class="nav-user-img" src="https://loremflickr.com/320/240" alt="user img">
-                    <span>Admin User</span>
-                </a>
-                <a href="" class="btn-circle btn-circle-secondary">
-                    <img class="icon-sm" src="./assets/static/icons/logout.svg" alt="logout icon">
-                </a>
-                <!-- <a href="" class="btn btn-secondary">Login</a> -->
-            </div>
+        <div class="head admin">
             <div class="nav-menu">
                 <div class="burger admin">
                     <span></span>
@@ -46,6 +33,9 @@
             </div>
         </div>
         <div class="foot">
+            <div>
+                <img class="logo-icon admin" src="./assets/static/icons/logo_admin.svg" alt="GWSC logo">
+            </div>
             <div class="nav-item admin <?php if ($title === "Admin Booking") echo "active"?>"">
                 <a href=" adminBooking.php">Booking</a>
             </div>
@@ -67,10 +57,20 @@
             <div class="nav-item admin <?php if ($title === "Admin Contact") echo "active"?>"">
                 <a href=" adminContact.php">Contact</a>
             </div>
+            <div class="nav-info">
+                <a href="" class="nav-user-info admin">
+                    <img class="nav-user-img" src="https://loremflickr.com/320/240" alt="user img">
+                    <span>Admin User</span>
+                </a>
+                <a href="" class="btn-circle btn-circle-secondary">
+                    <img class="icon-sm" src="./assets/static/icons/logout.svg" alt="logout icon">
+                </a>
+                <!-- <a href="" class="btn btn-secondary">Login</a> -->
+            </div>
         </div>
     </nav>
 
-    <nav class=" mobile-navbar">
+    <nav class="mobile-navbar">
         <div class="mobile-nav-container">
             <div class="mobile-nav-item admin <?php if ($title === "Admin Booking") echo "active"?>"">
                         <a href=" adminBooking.php">Booking</a>

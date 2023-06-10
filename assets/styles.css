@@ -134,6 +134,10 @@ nav.navbar > .head {
   margin-bottom: 25px;
 }
 
+nav.navbar > .head.admin {
+  margin-bottom: 10px;
+}
+
 nav.navbar > .head,
 nav.navbar > .foot {
   display: flex;
@@ -157,6 +161,9 @@ nav.navbar > .foot {
 }
 .nav-item.admin a:hover {
   color: var(--secondary);
+}
+.nav-item.admin.active a:hover {
+  color: #fff;
 }
 
 .nav-item a:after {
@@ -1190,6 +1197,11 @@ footer {
   justify-content: space-between;
 }
 
+.copyright.foot-here {
+  background-color: var(--primary-dark);
+  color: #fff;
+}
+
 .foot-right {
   display: flex;
   flex-direction: column;
@@ -1432,6 +1444,41 @@ footer {
 }
 .custom-radio input:checked ~ .checkmark::after {
   display: block;
+}
+
+.adminTable {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #d9d9d9;
+  text-align: left;
+  padding: 8px;
+}
+
+td > img {
+  width: 60px;
+  border-radius: 5px;
+}
+
+tr:nth-child(odd) {
+  background-color: #fff;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+td > .admin-table-btn:first-child {
+  background-color: var(--secondary);
+}
+td > .admin-table-btn:last-child {
+  background-color: var(--danger);
 }
 
 @media only screen and (max-width: 992px) {
