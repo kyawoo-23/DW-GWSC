@@ -23,6 +23,8 @@
                 <th>Start date</th>
                 <th>End date</th>
                 <th>Price</th>
+                <th>Featured</th>
+                <th>Availability</th>
                 <th>Action</th>
             </tr>
             <tr>
@@ -36,45 +38,49 @@
                 <td>start date</td>
                 <td>end date</td>
                 <td>price</td>
+                <td>No</td>
+                <td>Yes</td>
                 <td>
-                    <a href="" class="btn admin-table-btn">Update</a>
-                    <a href="" class="btn admin-table-btn">Delete</a>
+                    <div class="admin-table-btn-gp">
+                        <a href="" class="btn admin-table-btn">
+                            <img class="icon-sm" src="./assets/static/icons/update.svg" alt="update icon">
+                            Update
+                        </a>
+                        <a href="" class="btn admin-table-btn">
+                            <img src="./assets/static/icons/delete.svg" alt="delete icon" class="icon-sm">
+                            Delete
+                        </a>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>
+                    <img src="./assets/static/images/slide5.jpg" alt="">
+                </td>
+                <td>pitch name</td>
+                <td>site name</td>
+                <td>activity name</td>
+                <td>start date</td>
+                <td>end date</td>
+                <td>price</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>
+                    <div class="admin-table-btn-gp">
+                        <a href="" class="btn admin-table-btn">
+                            <img class="icon-sm" src="./assets/static/icons/update.svg" alt="update icon">
+                            Update
+                        </a>
+                        <a href="" class="btn admin-table-btn">
+                            <img src="./assets/static/icons/delete.svg" alt="delete icon" class="icon-sm">
+                            Delete
+                        </a>
+                    </div>
                 </td>
             </tr>
         </table>
-    </div>
-
-
-    <div class="featured-pitch-list">
-        <div class="pitch-card">
-            <div class="pitch-card-img">
-                <img src="./assets/static/images/slide3.jpg" alt="">
-            </div>
-            <div class="pitch-card-body admin">
-                <h3 class="pitch-card-title">Pitch title</h3>
-                <a class="btn btn-white" href="">Details</a>
-            </div>
-        </div>
-
-        <div class="pitch-card">
-            <div class="pitch-card-img">
-                <img src="./assets/static/images/slide3.jpg" alt="">
-            </div>
-            <div class="pitch-card-body admin">
-                <h3 class="pitch-card-title">Pitch title alsd lka sflj aslf las fdl a sdl;a fd;l a fa ls</h3>
-                <a class="btn btn-white" href="">Details</a>
-            </div>
-        </div>
-
-        <div class="pitch-card">
-            <div class="pitch-card-img">
-                <img src="./assets/static/images/slide3.jpg" alt="">
-            </div>
-            <div class="pitch-card-body admin">
-                <h3 class="pitch-card-title">Pitch title</h3>
-                <a class="btn btn-white" href="">Details</a>
-            </div>
-        </div>
     </div>
 </main>
 

@@ -1,7 +1,46 @@
 <?php 
 include('connect.php');
 
-$create ="CREATE TABLE Pitch
+$create ="CREATE TABLE Site
+(
+	Id int not null primary key AUTO_INCREMENT,
+	Name varchar(30),
+	Description varchar(50),
+	Location varchar(30),
+	Map text,
+	Latitude varchar(30),
+	Longitude varchar(30),
+	Rules varchar(80),
+	Image varchar(30)
+)";
+
+$query = mysqli_query($connect, $create);
+
+if($query) {
+	echo "<p>Site table created successfully</p>";
+} 
+else {
+	echo "<p>Table Fail to create</p>";
+}
+
+?>
+
+<!-- $create ="CREATE TABLE Feature
+(
+	Id int not null primary key AUTO_INCREMENT,
+	SiteId int,
+	FacilitiesId int,
+	Foreign key (SiteId) References Site(Id),
+	Foreign key (FacilitiesId) References Facilities(Id)
+)"; -->
+
+<!-- $create ="CREATE TABLE Facilities
+(
+	Id int not null primary key AUTO_INCREMENT,
+	Name varchar(30)
+)"; -->
+
+<!-- $create ="CREATE TABLE Pitch
 (
 	Id varchar(30) not null primary key,
 	Name varchar(30),
@@ -19,18 +58,7 @@ $create ="CREATE TABLE Pitch
 	Foreign key (PitchTypeId) References PitchType(Id),
 	Foreign key (SiteId) References Site(Id),
 	Foreign key (ActivityId) References Activity(Id)
-)";
-
-$query = mysqli_query($connect, $create);
-
-if($query) {
-	echo "<p>Pitch table created successfully</p>";
-} 
-else {
-	echo "<p>Table Fail to create</p>";
-}
-
-?>
+)"; -->
 
 <!-- $create ="CREATE TABLE Contact
 (
@@ -96,15 +124,6 @@ else {
 	Foreign key (SiteId) References Site(Id)
 )"; -->
 
-<!-- $create ="CREATE TABLE Feature
-(
-	Id int not null primary key AUTO_INCREMENT,
-	SiteId int,
-	Name varchar(30),
-	Foreign key (SiteId) References Site(Id)
-)";
- -->
-
 <!-- $create ="CREATE TABLE Customer
 (
 	Id int not null primary key AUTO_INCREMENT,
@@ -115,18 +134,6 @@ else {
 	Phone varchar(30),
 	Image varchar(30),
 	ViewCount int
-)"; -->
-
-<!-- $create ="CREATE TABLE Site
-(
-	Id int not null primary key AUTO_INCREMENT,
-	Name varchar(30),
-	Description varchar(50),
-	Location varchar(30),
-	Latitude varchar(30),
-	Longitude varchar(30),
-	Rules varchar(80),
-	Image varchar(30)
 )"; -->
 
 <!-- $create ="CREATE TABLE Admin

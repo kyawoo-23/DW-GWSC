@@ -7,7 +7,7 @@
   --primary-light: #24e9e9;
   --primary-dark: #148c8c;
   --secondary: #7e06aa;
-  --danger: #ff0e0e;
+  --danger: #e90a0a;
   --warning: #ffcc00;
   --grey: #222222;
   --muted: #717171;
@@ -1371,7 +1371,7 @@ footer {
 }
 
 .chosen-img img {
-  margin-top: 5px;
+  margin-top: 10px;
   border-radius: 24px;
   width: 100%;
   height: 300px;
@@ -1380,7 +1380,6 @@ footer {
 }
 
 .admin-chosen-image-list {
-  margin-top: 5px;
   overflow-x: auto;
   display: flex;
   gap: 15px;
@@ -1457,12 +1456,21 @@ table {
 
 td,
 th {
-  border: 1px solid #d9d9d9;
+  border: 1px solid var(--muted);
   text-align: left;
   padding: 8px;
+  width: 1%;
+  white-space: nowrap;
+}
+
+th {
+  font-weight: 600;
+  background-color: var(--secondary);
+  color: #fff;
 }
 
 td > img {
+  object-fit: cover;
   width: 60px;
   border-radius: 5px;
 }
@@ -1474,11 +1482,58 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-td > .admin-table-btn:first-child {
+td > .admin-table-btn-gp {
+  display: flex;
+  gap: 15px;
+  flex-direction: row;
+}
+
+.admin-table-btn-gp > .admin-table-btn {
+  padding: 7px 14px;
+  color: #fff;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.admin-table-btn-gp > .admin-table-btn:first-child {
   background-color: var(--secondary);
 }
-td > .admin-table-btn:last-child {
+.admin-table-btn-gp > .admin-table-btn:last-child {
   background-color: var(--danger);
+}
+
+.admin-table-btn img {
+  filter: var(--svg-white);
+}
+
+.admin-site-features {
+  margin-top: 10px;
+  background-color: #d9d9d9;
+  width: 100%;
+  padding: 18px 18px;
+  border-radius: var(--sm-radius);
+  display: flex;
+  gap: 10px 40px;
+  flex-wrap: wrap;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--secondary);
+}
+
+.checkbox ~ label {
+  color: #000;
+  text-transform: capitalize;
+}
+
+.admin-site-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 @media only screen and (max-width: 992px) {
