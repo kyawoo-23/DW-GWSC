@@ -46,7 +46,7 @@
             <label for="activity">Activity</label>
             <div class="dropdown-gp">
                 <select name="activity" id="activity">
-                    <option value="Myanmar">Wild Swimming</option>
+                    <option value="Myanmar" selected>Wild Swimming</option>
                     <option value="Japan">Camping</option>
                 </select>
             </div>
@@ -56,7 +56,7 @@
             <label for="pitchType">Pitch type</label>
             <div class="dropdown-gp">
                 <select name="pitchType" id="pitchType">
-                    <option value="Myanmar">Motorome</option>
+                    <option value="Myanmar" selected>Motorome</option>
                     <option value="Japan">Caravan</option>
                 </select>
             </div>

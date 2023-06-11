@@ -1,17 +1,14 @@
 <?php 
 include('connect.php');
 
-$create ="CREATE TABLE Site
+$create ="CREATE TABLE LocalAttraction
 (
 	Id int not null primary key AUTO_INCREMENT,
+	SiteId int,
 	Name varchar(30),
 	Description varchar(50),
-	Location varchar(30),
-	Map text,
-	Latitude varchar(30),
-	Longitude varchar(30),
-	Rules varchar(80),
-	Image varchar(30)
+	Image text,
+	Foreign key (SiteId) References Site(Id)
 )";
 
 $query = mysqli_query($connect, $create);
@@ -24,6 +21,17 @@ else {
 }
 
 ?>
+
+<!-- $create ="CREATE TABLE Site
+(
+	Id int not null primary key AUTO_INCREMENT,
+	Name varchar(30),
+	Description varchar(50),
+	Location varchar(30),
+	Map text,
+	Rules varchar(80),
+	Image text
+)"; -->
 
 <!-- $create ="CREATE TABLE Feature
 (
@@ -112,16 +120,6 @@ else {
 	CreatedAt timestamp not null default current_timestamp,
 	Foreign key (SiteId) References Site(Id),
 	Foreign key (CustomerId) References Customer(Id)
-)"; -->
-
-<!-- $create ="CREATE TABLE LocalAttraction
-(
-	Id int not null primary key AUTO_INCREMENT,
-	SiteId int,
-	Name varchar(30),
-	Description varchar(50),
-	Image varchar(30),
-	Foreign key (SiteId) References Site(Id)
 )"; -->
 
 <!-- $create ="CREATE TABLE Customer

@@ -42,26 +42,29 @@
             <div>
                 <img class="logo-icon admin" src="./assets/static/icons/logo_admin.svg" alt="GWSC logo">
             </div>
-            <div class="nav-item admin <?php if ($title === "Admin Booking") echo "active"?>"">
-                <a href=" adminBooking.php">Booking</a>
+            <div class="nav-item admin <?php if ($title === "Admin Booking") echo "active"?>">
+                <a href="adminBooking.php">Booking</a>
             </div>
-            <div class=" nav-item admin <?php if ($title === "Admin Site") echo "active"?>"">
-                <a href=" adminSite.php">Site</a>
+            <div class="nav-item admin <?php if ($title === "Admin Site") echo "active"?>">
+                <a href="adminSite.php">Site</a>
             </div>
-            <div class="nav-item admin <?php if ($title === "Admin Pitch") echo "active"?>"">
-                <a href=" adminPitch.php">Pitch</a>
+            <div class="nav-item admin <?php if ($title === "Admin Local Attraction") echo "active"?>">
+                <a href="adminLocalAttraction.php">Attractions</a>
             </div>
-            <div class=" nav-item admin <?php if ($title === "Admin") echo "active"?>"">
-                <a href=" admin.php">Admin</a>
+            <div class="nav-item admin <?php if ($title === "Admin Pitch") echo "active"?>">
+                <a href="adminPitch.php">Pitch</a>
             </div>
-            <div class="nav-item admin <?php if ($title === "Admin Customer") echo "active"?>"">
-                <a href=" adminCustomer.php">Customer</a>
+            <div class="nav-item admin <?php if ($title === "Admin") echo "active"?>">
+                <a href="admin.php">Admin</a>
             </div>
-            <div class=" nav-item admin <?php if ($title === "Admin Review") echo "active"?>"">
-                <a href=" adminReview.php">Review</a>
+            <div class="nav-item admin <?php if ($title === "Admin Customer") echo "active"?>">
+                <a href="adminCustomer.php">Customer</a>
             </div>
-            <div class="nav-item admin <?php if ($title === "Admin Contact") echo "active"?>"">
-                <a href=" adminContact.php">Contact</a>
+            <div class="nav-item admin <?php if ($title === "Admin Review") echo "active"?>">
+                <a href="adminReview.php">Review</a>
+            </div>
+            <div class="nav-item admin <?php if ($title === "Admin Contact") echo "active"?>">
+                <a href="adminContact.php">Contact</a>
             </div>
             <div class="nav-info">
                 <a href="" class="nav-user-info admin">
@@ -78,25 +81,25 @@
 
     <nav class="mobile-navbar">
         <div class="mobile-nav-container">
-            <div class="mobile-nav-item admin <?php if ($title === "Admin Booking") echo "active"?>"">
-                        <a href=" adminBooking.php">Booking</a>
+            <div class="mobile-nav-item admin <?php if ($title === "Admin Booking") echo "active"?>">
+                <a href=" adminBooking.php">Booking</a>
             </div>
-            <div class=" mobile-nav-item admin <?php if ($title === "Admin Site") echo "active"?>"">
+            <div class=" mobile-nav-item admin <?php if ($title === "Admin Site") echo "active"?>">
                 <a href=" adminSite.php">Site</a>
             </div>
-            <div class=" mobile-nav-item admin <?php if ($title === "Admin Pitch") echo "active"?>"">
+            <div class=" mobile-nav-item admin <?php if ($title === "Admin Pitch") echo "active"?>">
                 <a href=" adminPitch.php">Pitch</a>
             </div>
-            <div class=" mobile-nav-item admin <?php if ($title === "Admin") echo "active"?>"">
+            <div class=" mobile-nav-item admin <?php if ($title === "Admin") echo "active"?>">
                 <a href=" admin.php">Admin</a>
             </div>
-            <div class=" mobile-nav-item admin <?php if ($title === "Admin Customer") echo "active"?>"">
+            <div class=" mobile-nav-item admin <?php if ($title === "Admin Customer") echo "active"?>">
                 <a href=" adminCustomer.php">Customer</a>
             </div>
-            <div class=" mobile-nav-item admin <?php if ($title === "Admin Review") echo "active"?>"">
+            <div class=" mobile-nav-item admin <?php if ($title === "Admin Review") echo "active"?>">
                 <a href=" adminReview.php">Review</a>
             </div>
-            <div class=" mobile-nav-item admin <?php if ($title === "Admin Contact") echo "active"?>"">
+            <div class=" mobile-nav-item admin <?php if ($title === "Admin Contact") echo "active"?>">
                 <a href=" adminContact.php">Contact</a>
             </div>
             <div class=" mobile-nav-item">

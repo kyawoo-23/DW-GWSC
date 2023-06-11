@@ -86,7 +86,7 @@
                     <p class="intro-body">Welcome to Global Wild Swimming and Camping, your ultimate destination for
                         unforgettable outdoor adventures!</p>
                 </div>
-                <a href="" class="intro-card-button">Available sites</a>
+                <a href="sites.php" class="intro-card-button">Available sites</a>
             </div>
         </div>
     </div>

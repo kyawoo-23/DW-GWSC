@@ -1,14 +1,14 @@
 <?php 
-    $title = "Admin Site";
+    $title = "Admin Local Attraction";
     include('adminHeader.php');
 ?>
 
 <main>
     <div class="admin-page-title">
-        <h3>Sites</h3>
-        <a href="adminSiteCreate.php" class="admin-create-btn">
+        <h3>Local Attractions</h3>
+        <a href="adminLocalAttractionCreate.php" class="admin-create-btn">
             <img class="icon-sm" src="./assets/static/icons/plus.svg" alt="plus icon">
-            <span>Create Site</span>
+            <span>Create Local Attraction</span>
         </a>
     </div>
 
@@ -18,12 +18,11 @@
                 <th>No.</th>
                 <th>Photo</th>
                 <th>Name</th>
-                <th>Location</th>
                 <th>Action</th>
             </tr>
 
             <?php
-                $query = "SELECT * FROM Site";
+                $query = "SELECT * FROM LocalAttraction";
                 $run = mysqli_query($connect, $query);
                 $index = 1;
                 while($row = mysqli_fetch_array($run, MYSQLI_ASSOC)) :
@@ -35,10 +34,9 @@
                     <img src="<?= $row['Image'] ?>" alt="<?= $row['Name'] ?>">
                 </td>
                 <td><?= $row['Name'] ?></td>
-                <td><?= $row['Location'] ?></td>
                 <td>
                     <div class="admin-table-btn-gp">
-                        <a href="adminSiteDetails.php?id=<?= $row['Id'] ?>" class="btn admin-table-btn">
+                        <a href="adminLocalAttractionDetails.php?id=<?= $row['Id'] ?>" class="btn admin-table-btn">
                             <img class="icon-sm" src="./assets/static/icons/update.svg" alt="update icon">
                             Update
                         </a>
@@ -60,10 +58,10 @@
 </main>
 
 <script type="text/javascript">
-function confirmDelete(siteId) {
-    var confirmation = confirm("Are you sure you want to delete this site?");
+function confirmDelete(id) {
+    var confirmation = confirm("Are you sure you want to delete this local attraction?");
     if (confirmation) {
-        window.location.href = "adminSiteDelete.php?id=" + siteId;
+        window.location.href = "adminLocalAttractionDelete.php?id=" + id;
     }
 }
 </script>

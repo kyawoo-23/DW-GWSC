@@ -473,6 +473,7 @@ nav.navbar > .foot {
 }
 
 main {
+  min-height: 100vh;
   padding: 0 var(--global-padding);
 }
 
@@ -666,6 +667,9 @@ main {
 .activity-info.camping {
   background-color: var(--camping);
 }
+.activity-info.sites {
+  background-color: var(--primary-dark);
+}
 
 .activity-info a {
   padding: 10px 24px;
@@ -762,6 +766,9 @@ main {
 
 .login-form,
 .signup-form {
+  border-radius: 20px;
+  padding: 40px;
+  background-color: #d9d9d9;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -804,6 +811,9 @@ div.input-block input:valid + span.placeholder,
 div.input-block input:focus + span.placeholder {
   transform: scale(0.8) translateY(-30px);
   background: var(--body-color);
+  border-radius: 10px;
+  padding: 0 10px;
+  border: 1px solid var(--primary-dark);
 }
 div.input-block input:focus {
   border-color: var(--primary-dark);
@@ -1472,6 +1482,7 @@ th {
 td > img {
   object-fit: cover;
   width: 60px;
+  height: 40px;
   border-radius: 5px;
 }
 
@@ -1489,6 +1500,7 @@ td > .admin-table-btn-gp {
 }
 
 .admin-table-btn-gp > .admin-table-btn {
+  font-size: 0.8rem;
   padding: 7px 14px;
   color: #fff;
   display: flex;

@@ -48,3 +48,7 @@ $("#pitchPrimaryImage").change(function () {
 $("#pitchImages").change(function () {
   handleImageListChange(this, $("#pitchChosenImages"))
 })
+
+$("#attractionImage").change(function () {
+  handleImageChange(this, $("#attractionChoseImage"))
+})
