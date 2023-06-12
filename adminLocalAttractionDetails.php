@@ -2,7 +2,7 @@
     $title = "Admin Local Attraction";
     include('adminHeader.php');
 
-    $attractionId = isset($_GET['id']);
+    $attractionId = $_GET['id'];
     if ($attractionId == "") {
         echo "<script>window.location='adminLocalAttraction.php'</script>";
     }
@@ -15,9 +15,9 @@
         $image = $_FILES['image']['name'];
 
         if ($image === "") {
-            $update = "UPDATE LocalAttraction SET `Name`='$name', `Site`='$site',`Description`='$description' WHERE Id = '$attractionId'";
+            $update = "UPDATE LocalAttraction SET `Name`='$name', `SiteId`='$site',`Description`='$description' WHERE Id = '$attractionId'";
         } else {
-            $imgFolder = "assets/images/sites/" . $name . "/";
+            $imgFolder = "assets/images/local-attractions/" . $name . "/";
             if (!is_dir($imgFolder)) {
                 mkdir($imgFolder, 0755, true); 
             }
@@ -28,7 +28,7 @@
                 echo "<script>alert('Cannot upload image')</script>";
                 exit();
             }
-            $update = "UPDATE LocalAttraction SET `Name`='$name', `Site`='$site',`Description`='$description',`Image`='$imageName' WHERE Id = '$attractionId'";
+            $update = "UPDATE LocalAttraction SET `Name`='$name', `SiteId`='$site',`Description`='$description',`Image`='$imageName' WHERE Id = '$attractionId'";
         }
         $run = mysqli_query($connect, $update);
         
@@ -46,11 +46,11 @@
     <div class="admin-page-title">
         <h3>Create Local Attraction</h3>
     </div>
-    <form action="adminLocalAttractionDetails.php" method="POST" class="admin-create-form admin-create-form-3"
-        enctype="multipart/form-data">
+    <form action="adminLocalAttractionDetails.php?id=<?= $attractionId ?>" method="POST"
+        class="admin-create-form admin-create-form-3" enctype="multipart/form-data">
 
         <?php
-            echo$query = "SELECT * FROM LocalAttraction WHERE Id = '$attractionId'";
+            $query = "SELECT * FROM LocalAttraction WHERE Id = '$attractionId'";
             $run = mysqli_query($connect, $query);
             while($row = mysqli_fetch_array($run, MYSQLI_ASSOC)) :
         ?>
@@ -68,9 +68,10 @@
                     <?php
                         $query = "SELECT * FROM Site";
                         $run = mysqli_query($connect, $query);
-                        while($row = mysqli_fetch_array($run, MYSQLI_ASSOC)) :
+                        while($row2 = mysqli_fetch_array($run, MYSQLI_ASSOC)) :
                     ?>
-                    <option value="<?= $row['Id'] ?>"><?= $row['Name'] ?></option>
+                    <option value="<?= $row2['Id'] ?>" <?php if ($row['SiteId'] === $row2['Id']) echo "selected"?>>
+                        <?= $row2['Name'] ?></option>
                     <?php 
                         endwhile;
                     ?>
@@ -86,8 +87,7 @@
 
         <div class="admin-input-form">
             <label for="attractionImage">Local attraction image</label>
-            <input type="file" name="image" id="attractionImage" accept="image/*" placeholder="Local attraction image"
-                required>
+            <input type="file" name="image" id="attractionImage" accept="image/*" placeholder="Local attraction image">
         </div>
         <div class="col-span-2 chosen-img">
             <span class="img-preview">Image preview</span>
@@ -95,7 +95,7 @@
                 alt="local attraction image">
         </div>
 
-        <button class="admin-submit-btn" name="update" type="submit">Create Local Attraction</button>
+        <button class="admin-submit-btn" name="update" type="submit">Update Local Attraction</button>
 
         <?php 
             endwhile;

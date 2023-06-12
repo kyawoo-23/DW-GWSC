@@ -236,6 +236,9 @@
     </section>
 </main>
 
+
+<script type="text/javascript" src="./assets/js/testimonial.js" defer></script>
+
 <?php 
     include('footer.php');
 ?>

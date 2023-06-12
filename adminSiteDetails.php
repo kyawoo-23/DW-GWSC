@@ -2,11 +2,11 @@
     $title = "Admin Site";
     include('adminHeader.php');
 
-        $siteId = isset($_GET['id']);
     if (!isset($_GET['id'])) {
         echo "<script>window.location='adminSite.php'</script>";
     }
-
+    $siteId = $_GET['id'];
+    
     if (isset($_POST['update'])) {
         $name = $_POST['name'];
         $location = $_POST['location'];
