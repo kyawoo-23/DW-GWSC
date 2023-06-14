@@ -18,11 +18,12 @@
                 <th>No.</th>
                 <th>Photo</th>
                 <th>Name</th>
+                <th>Site</th>
                 <th>Action</th>
             </tr>
 
             <?php
-                $query = "SELECT * FROM LocalAttraction";
+                $query = "SELECT LocalAttraction.Id, LocalAttraction.Name, LocalAttraction.Image, Site.Name AS SiteName, Site.Id AS SiteId FROM LocalAttraction INNER JOIN Site ON LocalAttraction.SiteId = Site.Id";
                 $run = mysqli_query($connect, $query);
                 $index = 1;
                 while($row = mysqli_fetch_array($run, MYSQLI_ASSOC)) :
@@ -34,6 +35,11 @@
                     <img src="<?= $row['Image'] ?>" alt="<?= $row['Name'] ?>">
                 </td>
                 <td><?= $row['Name'] ?></td>
+                <td>
+                    <?php
+                        echo "<a href='adminSiteDetails.php?id=$row[SiteId]' class='admin-link'>" . $row['SiteName'] . "</a>";
+                    ?>
+                </td>
                 <td>
                     <div class="admin-table-btn-gp">
                         <a href="adminLocalAttractionDetails.php?id=<?= $row['Id'] ?>" class="btn admin-table-btn">

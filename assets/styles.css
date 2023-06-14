@@ -905,6 +905,14 @@ div.input-block input:focus + span.placeholder {
   cursor: not-allowed;
 }
 
+.admin-link {
+  color: var(--secondary);
+}
+
+.admin-link:hover {
+  text-decoration: underline;
+}
+
 .signup-row:has(.profile-pic) {
   width: 100%;
 }

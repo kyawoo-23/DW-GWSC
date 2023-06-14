@@ -9,7 +9,14 @@ if (isset($_GET['id'])) {
     // Delete from Feature table 
     $deleteFeatureQuery = "DELETE FROM Feature WHERE SiteId = '$siteId'";
     if (!mysqli_query($connect, $deleteFeatureQuery)) {
-        $errorMessage = "Something went wrong while deleting the site";
+        $errorMessage = "Something went wrong while deleting features from site";
+        echo "<script>alert('$errorMessage')</script>";
+    }
+
+    // Delete from Pitch table
+    $deletePitchQuery = "DELETE FROM Pitch WHERE SiteId = '$siteId'";
+    if (!mysqli_query($connect, $deletePitchQuery)) {
+        $errorMessage = "Something went wrong while deleting pitch from the site";
         echo "<script>alert('$errorMessage')</script>";
     }
 

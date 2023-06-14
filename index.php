@@ -116,48 +116,41 @@
     <section>
         <h2 class="section-title">Featured Pitches</h2>
         <div class="featured-pitches">
+            <?php
+                $select1 = "SELECT * FROM Pitch WHERE IsAvailable = '1' ORDER BY Id LIMIT 1";
+                $run1 = mysqli_query($connect, $select1);
+                while ($row1 = mysqli_fetch_array($run1)) :
+            ?>
             <div class="featured-pitch">
-                <img src="./assets/static/images/slide2.jpg" alt="">
+                <img src="<?= $row1['PrimaryImage'] ?>" alt="<?= $row1['Name'] ?>">
                 <div class="featured-pitch-info">
-                    <h2>Camping</h2>
-                    <p>Embrace natureaksdljaslf lasjflajs dflj aslf lasl flas flasjdj las dfflas fa sfl aslf flasf las
-                        dflal
-                        alsfd
-                        's aquatic oasis</p>
-                    <a class="btn btn-white" href="">Go to details</a>
+                    <h2><?= $row1['Name'] ?></h2>
+                    <p><?= $row1['Description'] ?></p>
+                    <a class="btn btn-white" href="pitchDetails.php?id=<?= $row1['Id'] ?>">Go to details</a>
                 </div>
             </div>
+            <?php
+                endwhile;
+            ?>
 
             <div class="featured-pitch-list">
+                <?php
+                    $select2 = "SELECT * FROM Pitch WHERE IsAvailable = '1' ORDER BY Id LIMIT 11 OFFSET 1";
+                    $run2 = mysqli_query($connect, $select2);
+                    while ($row2 = mysqli_fetch_array($run2)) :
+                ?>
                 <div class="pitch-card">
                     <div class="pitch-card-img">
-                        <img src="./assets/static/images/slide3.jpg" alt="">
+                        <img src="<?= $row2['PrimaryImage'] ?>" alt="<?= $row2['Name'] ?>">
                     </div>
                     <div class="pitch-card-body">
-                        <h3 class="pitch-card-title">Pitch title</h3>
-                        <a class="btn btn-white" href="">Details</a>
+                        <h3 class="pitch-card-title"><?= $row2['Name'] ?></h3>
+                        <a class="btn btn-white" href="pitchDetails.php?id=<?= $row2['Id'] ?>">Details</a>
                     </div>
                 </div>
-
-                <div class="pitch-card">
-                    <div class="pitch-card-img">
-                        <img src="./assets/static/images/slide3.jpg" alt="">
-                    </div>
-                    <div class="pitch-card-body">
-                        <h3 class="pitch-card-title">Pitch title alsd lka sflj aslf las fdl a sdl;a fd;l a fa ls</h3>
-                        <a class="btn btn-white" href="">Details</a>
-                    </div>
-                </div>
-
-                <div class="pitch-card">
-                    <div class="pitch-card-img">
-                        <img src="./assets/static/images/slide3.jpg" alt="">
-                    </div>
-                    <div class="pitch-card-body">
-                        <h3 class="pitch-card-title">Pitch title</h3>
-                        <a class="btn btn-white" href="">Details</a>
-                    </div>
-                </div>
+                <?php 
+                    endwhile;
+                ?>
             </div>
         </div>
     </section>

@@ -28,7 +28,7 @@
                 <th>Action</th>
             </tr>
             <?php 
-                $query = "SELECT Pitch.Name, Pitch.PrimaryImage, Pitch.StartDate, Pitch.EndDate, Pitch.Price, Pitch.IsFeatured, Pitch.IsAvailable, Pitch.Id, Site.Name AS SiteName, Activity.Name AS ActivityName 
+                $query = "SELECT Pitch.Name, Pitch.PrimaryImage, Pitch.StartDate, Pitch.EndDate, Pitch.Price, Pitch.IsFeatured, Pitch.IsAvailable, Pitch.Id, Site.Name AS SiteName, Site.Id AS SiteId, Activity.Name AS ActivityName 
                 FROM Pitch 
                 INNER JOIN Site ON Pitch.SiteId = Site.Id
                 INNER JOIN Activity ON Pitch.ActivityId = Activity.Id";
@@ -42,7 +42,11 @@
                     <img src="<?= $row['PrimaryImage'] ?>" alt="<?= $row['Name'] ?>">
                 </td>
                 <td><?= $row['Name'] ?></td>
-                <td><?= $row['SiteName'] ?></td>
+                <td>
+                    <?php 
+                        echo "<a href='adminSiteDetails.php?id=$row[SiteId]' class='admin-link'>" . $row['SiteName'] . "</a>";
+                    ?>
+                </td>
                 <td><?= $row['ActivityName'] ?></td>
                 <td><?= $row['StartDate'] ?></td>
                 <td><?= $row['EndDate'] ?></td>
@@ -51,14 +55,14 @@
                 <td><?= $row['IsAvailable'] === '0' ? 'No' : 'Yes' ?></td>
                 <td>
                     <div class="admin-table-btn-gp">
-                        <a href="adminPitchDetails?<?= $row['Id'] ?>" class="btn admin-table-btn">
+                        <a href="adminPitchDetails.php?id=<?= $row['Id'] ?>" class="btn admin-table-btn">
                             <img class="icon-sm" src="./assets/static/icons/update.svg" alt="update icon">
                             Update
                         </a>
-                        <a href="adminPitchDelete?<?= $row['Id'] ?>" class="btn admin-table-btn">
+                        <button class="btn admin-table-btn" onclick="confirmDelete('<?= $row['Id'] ?>')">
                             <img src="./assets/static/icons/delete.svg" alt="delete icon" class="icon-sm">
                             Delete
-                        </a>
+                        </button>
                     </div>
                 </td>
             </tr>
@@ -69,6 +73,15 @@
         </table>
     </div>
 </main>
+
+<script type="text/javascript">
+function confirmDelete(id) {
+    var confirmation = confirm("Are you sure you want to delete this pitch?");
+    if (confirmation) {
+        window.location.href = "adminPitchDelete.php?id=" + id;
+    }
+}
+</script>
 
 <?php 
     include('adminFooter.php');

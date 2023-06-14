@@ -45,15 +45,17 @@
             }
         }
 
-        echo $insert = "INSERT INTO Pitch (`Id`, `Name`, `PitchTypeId`, `SiteId`, `ActivityId`, `Price`, `StartDate`, `EndDate`, `Image`, `PrimaryImage`, `Description`, `IsFeatured`, `IsAvailable`) VALUES ('$id','$name', '$pitchType', '$site', '$activity', '$price', '$startDate', '$endDate', '$images', '$pitchPrimaryImageName', '$description', '$isFeatured', '$isAvailable')";
+        $insert = "INSERT INTO Pitch (`Id`, `Name`, `PitchTypeId`, `SiteId`, `ActivityId`, `Price`, `StartDate`, `EndDate`, `Image`, `PrimaryImage`, `Description`, `IsFeatured`, `IsAvailable`) VALUES ('$id','$name', '$pitchType', '$site', '$activity', '$price', '$startDate', '$endDate', '$images', '$pitchPrimaryImageName', '$description', '$isFeatured', '$isAvailable')";
         $run = mysqli_query($connect, $insert);
 
         if ($run) {
             echo "<script>alert('Pitch created successfully')</script>";
             echo "<script>window.location='adminPitch.php'</script>";
+            exit();
         } 
         else {
             echo "<script>alert('Something went wrong in creating pitch')</script>";
+            exit();
         }
     }
 ?>

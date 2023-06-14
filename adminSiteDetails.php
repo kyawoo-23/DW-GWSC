@@ -59,7 +59,7 @@
 
 <main>
     <div class="admin-page-title">
-        <h3>Create Site</h3>
+        <h3>Update Site</h3>
     </div>
     <form action="adminSiteDetails.php?id=<?= $siteId ?>" method="POST" class="admin-create-form admin-create-form-3"
         enctype="multipart/form-data">

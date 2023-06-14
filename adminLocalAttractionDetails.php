@@ -44,7 +44,7 @@
 
 <main>
     <div class="admin-page-title">
-        <h3>Create Local Attraction</h3>
+        <h3>Update Local Attraction</h3>
     </div>
     <form action="adminLocalAttractionDetails.php?id=<?= $attractionId ?>" method="POST"
         class="admin-create-form admin-create-form-3" enctype="multipart/form-data">
