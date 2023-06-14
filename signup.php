@@ -1,14 +1,42 @@
 <?php 
     $title = "Sign up";
     include('header.php');
+
+    if (isset($_POST['register'])) {
+        $first = $_POST['userFirstName'];
+        $sur = $_POST['userSurName'];
+        $email = $_POST['userEmail'];
+        $phone = $_POST['userPhone'];
+        $password = $_POST['userPassword1'];
+     
+        $imgFolder = "assets/images/users/" . $first . $sur . "/";
+        if (!is_dir($imgFolder)) {
+            mkdir($imgFolder, 0755, true); 
+        }
+
+        $image = $_FILES['userPic']['name'];
+        $imageName = $imgFolder . $image;
+        $copy = copy($_FILES['userPic']['tmp_name'], $imageName);
+        if (!$copy) {
+            echo "<script>alert('Cannot upload image')</script>";
+            exit();
+        }
+
+        $insert = "INSERT INTO Customer (`FirstName`, `SurName`, `Email`, `Password`, `Phone`, `Image`) VALUES ('$first', '$sur', '$email', '$password', '$phone', '$imageName')";
+        $run = mysqli_query($connect, $insert);
+        if ($run) {
+            echo "<script>alert('Account created successfully')</script>";
+            echo "<script>window.location='login.php'</script>";
+        } 
+        else {
+            echo "<script>alert('Something went wrong in registering account')</script>";
+        }
+    }
 ?>
 
 <main>
     <div class="login-container">
-        <!-- <div class="login-img">
-            <img src="./assets/static/icons/signup.svg" alt="signup img">
-        </div> -->
-        <form action="" method="POST" class="signup-form" enctype="multipart/form-data">
+        <form action="signup.php" method="POST" class="signup-form" enctype="multipart/form-data">
             <div>
                 <h2>Create Account</h2>
                 <p>Sign up to GWSC!</p>
@@ -48,8 +76,8 @@
                 </div>
             </div>
 
-            <div class="signup-row" id="password-no-match">
-                <small>Passwords do not match</small>
+            <div class="signup-row pwd-no-match" id="pwdNoMatch">
+                <span>Your passwords do not match. Please enter your password again to confirm it.</span>
             </div>
 
             <div class="signup-row">
@@ -61,7 +89,7 @@
 
             <div class="signup-btn-gp">
                 <button class="btn btn-clear" type="reset">Clear</button>
-                <button class="btn btn-login" type="submit">Register</button>
+                <button class="btn btn-login" name="register" type="submit" id="registerBtn">Register</button>
             </div>
 
             <div class="no-account">
@@ -74,3 +102,5 @@
 <?php 
     include('footer.php');
 ?>
+
+<script type="text/javascript" src="./assets/js/password-validate.js" defer></script>

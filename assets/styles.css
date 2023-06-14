@@ -629,7 +629,7 @@ main {
 
 .flex-two-div {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 20px;
 }
 
@@ -797,6 +797,11 @@ main {
   gap: 25px;
 }
 
+.login-form h2,
+.signup-form h2 {
+  font-weight: 500;
+}
+
 .login-form div:first-child {
   margin-bottom: 5px;
 }
@@ -887,6 +892,31 @@ div.input-block input:focus + span.placeholder {
   flex-direction: row;
   align-items: center;
   gap: 15px;
+}
+
+.signup-row.pwd-no-match {
+  color: var(--danger);
+  padding: 0 15px;
+}
+
+#registerBtn:disabled {
+  background-color: #63416f;
+  color: #d9d9d9;
+  cursor: not-allowed;
+}
+
+.signup-row:has(.profile-pic) {
+  width: 100%;
+}
+
+.profile-pic {
+  margin: auto;
+  width: 140px;
+  height: 140px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  object-fit: cover;
+  justify-self: center;
 }
 
 .password-toggle-icon {
@@ -1573,6 +1603,7 @@ td > .admin-table-btn-gp {
 @media only screen and (max-width: 992px) {
   :root {
     --global-padding: 50px;
+    --input-size: 260px;
   }
 
   nav.navbar > .foot {

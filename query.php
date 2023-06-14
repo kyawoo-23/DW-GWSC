@@ -1,20 +1,30 @@
 <?php 
 include('connect.php');
 
-$create ="CREATE TABLE LocalAttraction
+$create ="CREATE TABLE Pitch
 (
-	Id int not null primary key AUTO_INCREMENT,
-	SiteId int,
+	Id varchar(30) not null primary key,
 	Name varchar(30),
-	Description varchar(50),
+	PitchTypeId int,
+	SiteId int,
+	ActivityId int,
+	Price int,
+	StartDate date,
+	EndDate date,
+	PrimaryImage text,
 	Image text,
-	Foreign key (SiteId) References Site(Id)
+	Description text,
+	IsAvailable bool not null default true,
+	IsFeatured bool not null default false,
+	Foreign key (PitchTypeId) References PitchType(Id),
+	Foreign key (SiteId) References Site(Id),
+	Foreign key (ActivityId) References Activity(Id)
 )";
 
 $query = mysqli_query($connect, $create);
 
 if($query) {
-	echo "<p>Site table created successfully</p>";
+	echo "<p>Pitch table created successfully</p>";
 } 
 else {
 	echo "<p>Table Fail to create</p>";
@@ -22,15 +32,46 @@ else {
 
 ?>
 
+<!-- $create ="CREATE TABLE Customer
+(
+	Id int not null primary key AUTO_INCREMENT,
+	FirstName varchar(30),
+	SurName varchar(30),
+	Email varchar(30),
+	Password varchar(30),
+	Phone varchar(30),
+	Image text,
+	ViewCount int
+)"; -->
+
+<!-- $create ="CREATE TABLE Admin
+(
+ 	Id int not null primary key AUTO_INCREMENT,
+ 	Name varchar(30),
+ 	Email varchar(30),
+ 	Password varchar(30),
+ 	Image text
+)"; -->
+
 <!-- $create ="CREATE TABLE Site
 (
 	Id int not null primary key AUTO_INCREMENT,
 	Name varchar(30),
-	Description varchar(50),
+	Description text,
 	Location varchar(30),
 	Map text,
-	Rules varchar(80),
+	Rules text,
 	Image text
+)"; -->
+
+<!-- $create ="CREATE TABLE LocalAttraction
+(
+	Id int not null primary key AUTO_INCREMENT,
+	SiteId int,
+	Name varchar(30),
+	Description varchar(50),
+	Image text,
+	Foreign key (SiteId) References Site(Id)
 )"; -->
 
 <!-- $create ="CREATE TABLE Feature
@@ -46,26 +87,6 @@ else {
 (
 	Id int not null primary key AUTO_INCREMENT,
 	Name varchar(30)
-)"; -->
-
-<!-- $create ="CREATE TABLE Pitch
-(
-	Id varchar(30) not null primary key,
-	Name varchar(30),
-	PitchTypeId int,
-	SiteId int,
-	ActivityId int,
-	Price int,
-	StartDate date,
-	EndDate date,
-	PrimaryImage varchar(30),
-	Image varchar(100),
-	Description varchar(50),
-	IsAvailable bool not null default true,
-	IsFeatured bool not null default false,
-	Foreign key (PitchTypeId) References PitchType(Id),
-	Foreign key (SiteId) References Site(Id),
-	Foreign key (ActivityId) References Activity(Id)
 )"; -->
 
 <!-- $create ="CREATE TABLE Contact
@@ -121,28 +142,6 @@ else {
 	Foreign key (SiteId) References Site(Id),
 	Foreign key (CustomerId) References Customer(Id)
 )"; -->
-
-<!-- $create ="CREATE TABLE Customer
-(
-	Id int not null primary key AUTO_INCREMENT,
-	FirstName varchar(30),
-	SurName varchar(30),
-	Email varchar(30),
-	Password varchar(30),
-	Phone varchar(30),
-	Image varchar(30),
-	ViewCount int
-)"; -->
-
-<!-- $create ="CREATE TABLE Admin
-(
- 	Id int not null primary key AUTO_INCREMENT,
- 	Name varchar(30),
- 	Email varchar(30),
- 	Password varchar(30),
- 	Image varchar(30)
-)";
- -->
 
 <!--  $create ="CREATE TABLE PitchType
 (

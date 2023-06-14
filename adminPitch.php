@@ -27,59 +27,45 @@
                 <th>Availability</th>
                 <th>Action</th>
             </tr>
+            <?php 
+                $query = "SELECT Pitch.Name, Pitch.PrimaryImage, Pitch.StartDate, Pitch.EndDate, Pitch.Price, Pitch.IsFeatured, Pitch.IsAvailable, Pitch.Id, Site.Name AS SiteName, Activity.Name AS ActivityName 
+                FROM Pitch 
+                INNER JOIN Site ON Pitch.SiteId = Site.Id
+                INNER JOIN Activity ON Pitch.ActivityId = Activity.Id";
+                $run = mysqli_query($connect, $query);
+                $index = 1;
+                while($row = mysqli_fetch_array($run)) :
+            ?>
             <tr>
-                <td>1</td>
+                <td><?= $index ?></td>
                 <td>
-                    <img src="./assets/static/images/slide5.jpg" alt="">
+                    <img src="<?= $row['PrimaryImage'] ?>" alt="<?= $row['Name'] ?>">
                 </td>
-                <td>pitch name</td>
-                <td>site name</td>
-                <td>activity name</td>
-                <td>start date</td>
-                <td>end date</td>
-                <td>price</td>
-                <td>No</td>
-                <td>Yes</td>
+                <td><?= $row['Name'] ?></td>
+                <td><?= $row['SiteName'] ?></td>
+                <td><?= $row['ActivityName'] ?></td>
+                <td><?= $row['StartDate'] ?></td>
+                <td><?= $row['EndDate'] ?></td>
+                <td><?= $row['Price'] ?></td>
+                <td><?= $row['IsFeatured'] === '0' ? 'No' : 'Yes' ?></td>
+                <td><?= $row['IsAvailable'] === '0' ? 'No' : 'Yes' ?></td>
                 <td>
                     <div class="admin-table-btn-gp">
-                        <a href="" class="btn admin-table-btn">
+                        <a href="adminPitchDetails?<?= $row['Id'] ?>" class="btn admin-table-btn">
                             <img class="icon-sm" src="./assets/static/icons/update.svg" alt="update icon">
                             Update
                         </a>
-                        <a href="" class="btn admin-table-btn">
+                        <a href="adminPitchDelete?<?= $row['Id'] ?>" class="btn admin-table-btn">
                             <img src="./assets/static/icons/delete.svg" alt="delete icon" class="icon-sm">
                             Delete
                         </a>
                     </div>
                 </td>
             </tr>
-
-            <tr>
-                <td>1</td>
-                <td>
-                    <img src="./assets/static/images/slide5.jpg" alt="">
-                </td>
-                <td>pitch name</td>
-                <td>site name</td>
-                <td>activity name</td>
-                <td>start date</td>
-                <td>end date</td>
-                <td>price</td>
-                <td>No</td>
-                <td>Yes</td>
-                <td>
-                    <div class="admin-table-btn-gp">
-                        <a href="" class="btn admin-table-btn">
-                            <img class="icon-sm" src="./assets/static/icons/update.svg" alt="update icon">
-                            Update
-                        </a>
-                        <a href="" class="btn admin-table-btn">
-                            <img src="./assets/static/icons/delete.svg" alt="delete icon" class="icon-sm">
-                            Delete
-                        </a>
-                    </div>
-                </td>
-            </tr>
+            <?php
+                $index++;
+                endwhile;
+            ?>
         </table>
     </div>
 </main>
