@@ -92,14 +92,16 @@
     </div>
 
     <section>
-        <h2 class="section-title">Discover exciting activities</h2>
+        <h2 class="section-title">Discover exciting activities
+            <a href="pitch.php?q=all">Discover all <img src="./assets/static/icons/angles-right.svg" alt=""></a>
+        </h2>
         <div class="flex-two-div">
             <div class="activity-card">
                 <img src="./assets/static/images/wildswimming.jpg" alt="wild swimming">
                 <div class="activity-info swimming">
                     <h3>Wild Swimming</h3>
                     <small>Embrace nature's aquatic oasis</small>
-                    <a class="btn btn-white" href="">Dive into</a>
+                    <a class="btn btn-white" href="pitch.php?q=1">Dive into</a>
                 </div>
             </div>
             <div class="activity-card">
@@ -107,7 +109,7 @@
                 <div class="activity-info camping">
                     <h3>Camping</h3>
                     <small>Immerse in the joys of camping</small>
-                    <a class="btn btn-white" href="">Explore more</a>
+                    <a class="btn btn-white" href="pitch.php?q=2">Explore more</a>
                 </div>
             </div>
         </div>
@@ -146,10 +148,7 @@
                     <div class="pitch-card-body">
                         <div>
                             <h3 class="pitch-card-title"><?= $row2['Name'] ?></h3>
-                            <p class="pitch-card-desc"><?= $row2['Description'] ?>a sfdla sdlf asldfjlasjfljaslf alsd
-                                flasfl
-                                jaslf asldf
-                            </p>
+                            <p class="pitch-card-desc"><?= $row2['Description'] ?></p>
                         </div>
                         <a class="btn btn-white" href="pitchDetails.php?id=<?= $row2['Id'] ?>">Details</a>
                     </div>

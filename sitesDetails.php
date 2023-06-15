@@ -44,7 +44,8 @@
             <?php
                 $query = "SELECT Pitch.Id, Pitch.PrimaryImage, Pitch.Name, Pitch.Description FROM Pitch INNER JOIN Site ON Pitch.SiteId = Site.Id WHERE Site.Id = '$siteId';";
                 $run2 = mysqli_query($connect, $query);
-                while($row2 = mysqli_fetch_array($run2, MYSQLI_ASSOC)) :
+                if (mysqli_num_rows($run2) > 0) {
+                    while($row2 = mysqli_fetch_array($run2, MYSQLI_ASSOC)) :
             ?>
 
             <div class="pitch-card">
@@ -54,16 +55,18 @@
                 <div class="pitch-card-body">
                     <div>
                         <h3 class="pitch-card-title"><?= $row2['Name'] ?></h3>
-                        <p class="pitch-card-desc"><?= $row2['Description'] ?>a sfdla sdlf asldfjlasjfljaslf alsd flasfl
-                            jaslf asldf
-                        </p>
+                        <p class="pitch-card-desc"><?= $row2['Description'] ?></p>
                     </div>
                     <a class="btn btn-white" href="pitchDetails.php?id=<?= $row2['Id'] ?>">Details</a>
                 </div>
             </div>
 
             <?php
-                endwhile;
+                    endwhile;
+                }
+                else {
+                    echo "<span class='not-found-text col-span-3'>No pitches found</span>";
+                }
             ?>
         </div>
     </section>

@@ -251,7 +251,7 @@ if (isset($_POST['update'])) {
             <div class="admin-chosen-image-list" id="pitchChosenImages">
                 <?php
                     $imageList = explode(',', $row['Image']);
-                    for ($i=0; $i < count($imageList); $i++) { 
+                    for ($i=0; $i < (count($imageList) - 1); $i++) { 
                 ?>
                 <img title="image preview" src="<?= $imageList[$i] ?>" alt="pitch primary image">
                 <?php
