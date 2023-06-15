@@ -36,6 +36,11 @@
             </div>
         </div>
 
+        <h2 class="section-title">Map</h2>
+        <div class="site-map">
+            <?= $row['Map'] ?>
+        </div>
+
         <?php
             endwhile;
         ?>
