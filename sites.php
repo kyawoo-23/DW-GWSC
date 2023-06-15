@@ -18,6 +18,7 @@
                 <div class="activity-info sites">
                     <h3><?= $row['Name'] ?></h3>
                     <small><?= $row['Location'] ?></small>
+                    <a href="sitesDetails.php?id=<?= $row['Id'] ?>" class="btn btn-white">Details</a>
                 </div>
             </div>
 

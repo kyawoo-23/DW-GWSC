@@ -144,7 +144,13 @@
                         <img src="<?= $row2['PrimaryImage'] ?>" alt="<?= $row2['Name'] ?>">
                     </div>
                     <div class="pitch-card-body">
-                        <h3 class="pitch-card-title"><?= $row2['Name'] ?></h3>
+                        <div>
+                            <h3 class="pitch-card-title"><?= $row2['Name'] ?></h3>
+                            <p class="pitch-card-desc"><?= $row2['Description'] ?>a sfdla sdlf asldfjlasjfljaslf alsd
+                                flasfl
+                                jaslf asldf
+                            </p>
+                        </div>
                         <a class="btn btn-white" href="pitchDetails.php?id=<?= $row2['Id'] ?>">Details</a>
                     </div>
                 </div>
