@@ -93,7 +93,10 @@
 
     <section>
         <h2 class="section-title">Discover exciting activities
-            <a href="pitch.php?q=all">Discover all <img src="./assets/static/icons/angles-right.svg" alt=""></a>
+            <a href="pitch.php?q=all">Discover all
+                <img src="./assets/static/icons/angles-right.svg" alt="arrow icon">
+                <img src="./assets/static/icons/angles-right.svg" alt="arrow icon">
+            </a>
         </h2>
         <div class="flex-two-div">
             <div class="activity-card">
