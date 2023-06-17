@@ -675,6 +675,17 @@ main {
   transform: translateX(-30px);
 }
 
+.section-title.feature {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.section-title.feature > img {
+  width: 30px;
+  filter: var(--svg-white);
+}
+
 .pitch-filter-container {
   outline: 3px solid var(--primary);
   color: #fff;
@@ -765,6 +776,7 @@ main {
   background-color: var(--camping);
 }
 .activity-info.sites {
+  width: 60%;
   background-color: var(--primary-dark);
 }
 
@@ -894,6 +906,19 @@ main {
 
 .site-details-container > div > h4 {
   margin-bottom: 10px;
+}
+
+.site-location {
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+  gap: 5px;
+}
+
+.site-location img {
+  width: 20px;
+  border-radius: 0;
+  filter: var(--svg-white);
 }
 
 .login-container {

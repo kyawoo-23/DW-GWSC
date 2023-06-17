@@ -45,6 +45,8 @@
             endwhile;
         ?>
 
+        <h2 class="section-title">Pitches</h2>
+
         <div class="featured-pitch-list">
             <?php
                 $query = "SELECT Pitch.Id, Pitch.PrimaryImage, Pitch.Name, Pitch.Description FROM Pitch INNER JOIN Site ON Pitch.SiteId = Site.Id WHERE Site.Id = '$siteId';";

@@ -17,7 +17,8 @@
                 <img src="<?= $row['Image'] ?>" alt="<?= $row['Name'] ?>">
                 <div class="activity-info sites">
                     <h3><?= $row['Name'] ?></h3>
-                    <small><?= $row['Location'] ?></small>
+                    <small class="site-location"><img src="./assets/static/icons/globe.svg" alt="country icon">
+                        <?= $row['Location'] ?></small>
                     <a href="sitesDetails.php?id=<?= $row['Id'] ?>" class="btn btn-white">Details</a>
                 </div>
             </div>
