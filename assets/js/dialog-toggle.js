@@ -20,6 +20,7 @@ $(".anydayBtn").on("click", () => {
 })
 $("#anydayModalForm").on("submit", () => {
   $(".anydayBtn").text($(".search-day").val())
+  $("input[name='day']").val($(".search-day").val())
 })
 $("#resetSearchDayBtn").on("click", () => {
   $("#anydayModal").closeModal()
@@ -31,6 +32,7 @@ $(".anywhereBtn").on("click", () => {
 })
 $("#anywhereModalForm").on("submit", () => {
   $(".anywhereBtn").text($(".search-site").val())
+  $("input[name='place']").val($(".search-site").val())
 })
 $("#resetSearchSiteBtn").on("click", () => {
   $("#anywhereModal").closeModal()

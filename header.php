@@ -34,10 +34,12 @@ include('connect.php');
                 <img class="logo-icon" src="./assets/static/icons/logo.svg" alt="GWSC logo">
             </div>
             <div class="nav-search-bar">
-                <form class="nav-search-form">
+                <form method="GET" action="search.php" class="nav-search-form">
                     <div class="anydayBtn">Anyday</div>
+                    <input type="hidden" name="day" value="">
                     <div class="anywhereBtn">Anywhere</div>
-                    <button class="btn-circle btn-circle-secondary">
+                    <input type="hidden" name="place" value="">
+                    <button type="submit" class="btn-circle btn-circle-secondary">
                         <img class="icon-sm" src="./assets/static/icons/search.svg" alt="search icon">
                     </button>
                 </form>
@@ -87,10 +89,12 @@ include('connect.php');
             </div>
         </div>
         <div id="mobileSearchForm">
-            <form class="nav-search-form mobile-nav-search-form">
+            <form method="POST" action="search.php" class="nav-search-form mobile-nav-search-form">
                 <div class="anydayBtn">Anyday</div>
+                <input type="hidden" name="day" value="">
                 <div class="anywhereBtn">Anywhere</div>
-                <button class="btn-circle btn-circle-secondary">
+                <input type="hidden" name="place" value="">
+                <button type="submit" class="btn-circle btn-circle-secondary">
                     <img class="icon-sm" src="./assets/static/icons/search.svg" alt="search icon">
                 </button>
             </form>
@@ -167,8 +171,15 @@ include('connect.php');
             <div class="modal-body">
                 <select class="search-site" name="searchSite" required>
                     <option value="">Available sites</option>
-                    <option value="Myanmar">Myanmar</option>
-                    <option value="Japan">Japan</option>
+                    <?php
+                        $getSite = "SELECT * FROM Site GROUP BY Location";
+                        $run2 = mysqli_query($connect, $getSite);
+                        while($row2 = mysqli_fetch_array($run2)) :
+                    ?>
+                    <option value="<?= $row2['Location'] ?>"><?= $row2['Location'] ?></option>
+                    <?php
+                        endwhile;
+                    ?>
                 </select>
             </div>
             <div class="modal-footer">

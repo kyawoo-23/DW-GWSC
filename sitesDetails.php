@@ -36,6 +36,32 @@
             </div>
         </div>
 
+        <h2 class="section-title">Local attractions</h2>
+        <div class="pitch-attractions">
+            <?php
+                $getAttraction = "SELECT * FROM LocalAttraction WHERE SiteId = '$siteId'";
+                $run5 = mysqli_query($connect, $getAttraction);
+                if (mysqli_num_rows($run5) > 0) {
+                    while($row5 = mysqli_fetch_array($run5, MYSQLI_ASSOC)) :
+            ?>
+
+            <div class="activity-card local-attraction">
+                <img src="<?= $row5['Image'] ?>" alt="<?= $row5['Name'] ?>">
+                <div class="activity-info sites">
+                    <h3><?= $row5['Name'] ?></h3>
+                </div>
+                <span class="local-attraction-description"><?= $row5['Description'] ?></span>
+            </div>
+
+            <?php
+                    endwhile;
+                }
+                else {
+                    echo "<span class='not-found-text col-span-3'>No local attractions found</span>";
+                }
+            ?>
+        </div>
+
         <h2 class="section-title">Map</h2>
         <div class="site-map">
             <?= $row['Map'] ?>

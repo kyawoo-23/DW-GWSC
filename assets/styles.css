@@ -624,6 +624,13 @@ main {
   opacity: 1;
 }
 
+.section-sub-title {
+  background-color: var(--body-color);
+  width: fit-content;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+}
+
 .section-title {
   width: fit-content;
   padding: 8px 24px;
@@ -633,6 +640,14 @@ main {
   text-align: left;
   margin: var(--title-margin) 0;
   background-color: var(--primary-dark);
+}
+
+.section-title.not-active {
+  background-color: var(--body-color);
+  color: var(--primary-dark);
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 1.3rem;
 }
 
 .section-title:has(a) {
@@ -1144,6 +1159,19 @@ div.input-block input:focus + span.placeholder {
   background-image: var(--gradient);
 }
 
+.feature-item.wearable {
+  background: #4607f2;
+  background-image: radial-gradient(
+      at 3% 19%,
+      hsl(222, 84%, 39%) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 3% 35%, hsl(339, 79%, 57%) 0px, transparent 50%),
+    radial-gradient(at 66% 24%, hsl(121, 48%, 27%) 0px, transparent 50%),
+    radial-gradient(at 98% 66%, hsl(346, 46%, 58%) 0px, transparent 50%),
+    radial-gradient(at 100% 69%, hsl(166, 79%, 62%) 0px, transparent 50%);
+}
+
 .feature-item img {
   width: 60px;
   height: 60px;
@@ -1153,6 +1181,12 @@ div.input-block input:focus + span.placeholder {
 .features-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+.wearable-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 }
 
@@ -1306,6 +1340,57 @@ div.input-block input:focus + span.placeholder {
 .pitch-type-item img {
   filter: var(--svg-white);
   width: 24px;
+}
+
+.pitch-type-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+}
+
+.input {
+  max-width: 190px;
+  height: 100%;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #d9d9d9;
+  caret-color: #f7f7f8;
+  color: var(--grey);
+  padding: 7px 10px;
+  border: 2px solid transparent;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  margin-right: 1px;
+  transition: all 0.2s ease;
+}
+
+.input::placeholder {
+  color: var(--muted);
+}
+
+.input:hover {
+  border: 2px solid var(--primary-dark);
+}
+
+.search__btn {
+  border: none;
+  cursor: pointer;
+  background-color: var(--primary-dark);
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  height: 100%;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .booking-form-header {

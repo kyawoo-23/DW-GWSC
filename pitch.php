@@ -32,9 +32,9 @@
         <div class="featured-pitch-list">
             <?php
                 if ($queryId === 'all') {
-                    $query = "SELECT * FROM Pitch";
+                    $query = "SELECT * FROM Pitch WHERE IsAvailable = 1";
                 } else {
-                    $query = "SELECT * FROM Pitch WHERE ActivityId = '$queryId'";
+                    $query = "SELECT * FROM Pitch WHERE ActivityId = '$queryId' AND IsAvailable = 1";
                 }
                 $run2 = mysqli_query($connect, $query);
                 while($row2 = mysqli_fetch_array($run2, MYSQLI_ASSOC)) :

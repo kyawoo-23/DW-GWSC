@@ -196,8 +196,6 @@ $("#headCount").on("keydown", function(evt) {
         evt.preventDefault();
         return false;
     }
-    evt.preventDefault();
-    return false;
 });
 
 
