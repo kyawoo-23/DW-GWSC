@@ -25,7 +25,10 @@
             $run = mysqli_query($connect, $query);
         ?>
 
-        <h2 class="section-title">Search result: <small><?= '( ' . mysqli_num_rows($run) . ' )' ?></small></h2>
+        <h4 class="section-title search">
+            <small><?= '(' . mysqli_num_rows($run) . ')' ?></small>
+            Searched result: <?= $day . ' ' . $place ?>
+        </h4>
 
         <div class="featured-pitch-list">
             <?php

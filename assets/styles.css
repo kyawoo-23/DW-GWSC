@@ -625,6 +625,7 @@ main {
 }
 
 .section-sub-title {
+  font-size: 1.1rem;
   background-color: var(--body-color);
   width: fit-content;
   padding: 5px 10px;
@@ -640,6 +641,12 @@ main {
   text-align: left;
   margin: var(--title-margin) 0;
   background-color: var(--primary-dark);
+}
+
+.section-title.search {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .section-title.not-active {
@@ -1342,10 +1349,11 @@ div.input-block input:focus + span.placeholder {
   width: 24px;
 }
 
-.pitch-type-search {
+.search-container {
+  margin: 40px 0;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .container {
@@ -1362,7 +1370,6 @@ div.input-block input:focus + span.placeholder {
   font-size: 14px;
   font-weight: 500;
   background-color: #d9d9d9;
-  caret-color: #f7f7f8;
   color: var(--grey);
   padding: 7px 10px;
   border: 2px solid transparent;
