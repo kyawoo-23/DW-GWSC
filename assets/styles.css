@@ -156,6 +156,9 @@ nav.navbar > .foot {
 nav.navbar > .foot {
   margin-bottom: 10px;
 }
+nav.navbar > .foot.admin {
+  margin-bottom: 0;
+}
 
 .nav-item {
   font-size: 1.2rem;
@@ -630,6 +633,13 @@ main {
   width: fit-content;
   padding: 5px 10px;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-sub-title img {
+  width: 20px;
 }
 
 .section-title {
@@ -735,9 +745,15 @@ main {
   margin: auto;
 }
 
-.flex-two-div {
+.activity-home-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.flex-two-div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(340px, 1fr));
   gap: 20px;
 }
 
@@ -1284,7 +1300,7 @@ div.input-block input:focus + span.placeholder {
 
 .pitch-attractions {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(3, minmax(340px, 1fr));
   gap: 20px;
 }
 
@@ -2087,6 +2103,67 @@ td > .admin-table-btn-gp {
   gap: 8px;
 }
 
+.cookies-container {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 15px;
+  width: 300px;
+  height: 200px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  display: none;
+}
+
+.cookies-container-head {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cookies-container img {
+  width: 80px;
+  object-fit: contain;
+}
+
+.cookies-container small {
+  margin-top: 2px;
+  text-align: center;
+}
+
+.cookies-btn {
+  position: absolute;
+  height: 40px;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cookies-btn-left,
+.cookies-btn-right {
+  width: 100%;
+  height: 100%;
+  font-size: 0.8rem;
+  text-align: center;
+  border-top: 1px solid #d9d9d9;
+}
+
+.cookies-btn-left {
+  border-bottom-left-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cookies-btn-right {
+  background-color: var(--primary-dark);
+  color: #fff;
+  border-bottom-right-radius: 15px;
+}
+
 @media only screen and (max-width: 992px) {
   :root {
     --global-padding: 50px;
@@ -2106,6 +2183,11 @@ td > .admin-table-btn-gp {
 
   .admin-submit-btn {
     grid-column: 2/4;
+  }
+
+  .pitch-attractions,
+  .flex-two-div {
+    grid-template-columns: repeat(2, minmax(340px, 1fr));
   }
 }
 
@@ -2273,5 +2355,10 @@ td > .admin-table-btn-gp {
 
   .pitch-booking {
     padding: 15px;
+  }
+
+  .pitch-attractions,
+  .flex-two-div {
+    grid-template-columns: repeat(1, minmax(340px, 1fr));
   }
 }

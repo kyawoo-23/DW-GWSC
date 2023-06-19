@@ -11,7 +11,10 @@
         </div>
 
         <div id="feature-section">
-            <p class="section-sub-title">Here are a few typical facilities available at our sites</p>
+            <p class="section-sub-title">
+                <img src="./assets/static/icons/info.svg" alt="info">
+                Here are a few typical facilities available at our sites
+            </p>
 
             <div class="features-list">
                 <?php
@@ -67,7 +70,7 @@
             ?>
         </div>
 
-        <div class="wearable-section">
+        <div id="wearable-section">
             <p class="section-sub-title">Below are some categories of wearable devices permitted within our premises
             </p>
 

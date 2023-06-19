@@ -55,10 +55,23 @@
     </div>
 </footer>
 
+<div class="cookies-container">
+    <div class="cookies-container-head">
+        <img src="./assets/static/images/cookies.png" alt="cookies">
+        <p class="cookies-header">Cookies!</p>
+        <small>We use cookies to make your browsing experience better</small>
+    </div>
+    <div class="cookies-btn">
+        <a href="" class="cookies-btn-left">Privacy Policy</a>
+        <button class="cookies-btn-right" id="ok-cookie">Okay</button>
+    </div>
+</div>
+
 <script type="text/javascript" src="./assets/js/navbar-toggle.js" defer></script>
 <script type="text/javascript" src="./assets/js/dialog-toggle.js" defer></script>
 <script type="text/javascript" src="./assets/js/slideshow.js" defer></script>
 <script type="text/javascript" src="./assets/js/password-toggle.js" defer></script>
+<script type="text/javascript" src="./assets/js/cookies.js" defer></script>
 
 </body>
 

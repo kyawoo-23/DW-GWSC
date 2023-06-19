@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <div class="foot">
+        <div class="foot admin">
             <div>
                 <img class="logo-icon admin" src="./assets/static/icons/logo_admin.svg" alt="GWSC logo">
             </div>

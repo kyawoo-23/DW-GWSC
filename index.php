@@ -98,7 +98,7 @@
                 <img src="./assets/static/icons/angles-right.svg" alt="arrow icon">
             </a>
         </h2>
-        <div class="flex-two-div">
+        <div class="activity-home-grid">
             <div class="activity-card">
                 <img src="./assets/static/images/wildswimming.jpg" alt="wild swimming">
                 <div class="activity-info swimming">

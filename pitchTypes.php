@@ -6,7 +6,10 @@
 <main>
     <section>
         <h2 class="section-title">Available Pitch types</h2>
-        <p class="section-sub-title">Various types of pitches offered at our sites</p>
+        <p class="section-sub-title">
+            <img src="./assets/static/icons/info.svg" alt="info">
+            Various types of pitches offered at our sites
+        </p>
 
         <div class="features-list">
             <?php
