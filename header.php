@@ -1,6 +1,16 @@
 <?php 
 
 include('connect.php');
+session_start();
+
+$cusId = null;
+if (isset($_SESSION['cusId'])) {
+    $cusId = $_SESSION['cusId'];
+
+    $getCustomerData = "SELECT * FROM Customer WHERE Id = '$cusId'";
+    $runCustomerData = mysqli_query($connect, $getCustomerData);
+    $cusData = mysqli_fetch_array($runCustomerData);
+}
 
 ?>
 
@@ -20,6 +30,7 @@ include('connect.php');
             }
         ?>
     </title>
+    <link rel="icon" type="image/x-icon" href="./assets/static/icons/logo_icon.svg">
     <link rel="stylesheet" type="text/css" href="./assets/styles.css?<?php echo time(); ?>">
 
     <!-- jquery -->
@@ -30,8 +41,17 @@ include('connect.php');
 <body>
     <nav class="navbar">
         <div class="head">
-            <div>
+            <div class="logo-container">
                 <img class="logo-icon" src="./assets/static/icons/logo.svg" alt="GWSC logo">
+                <div class="view-count" title="GWSC website's view count">
+                    <img src="./assets/static/icons/view-count.svg" class="icon-sm" alt="view-count">
+                    <?php
+                        $getViewCount = "SELECT SUM(ViewCount) AS ViewCount FROM Customer";
+                        $runViewCount = mysqli_query($connect, $getViewCount);
+                        $viewCount = mysqli_fetch_array($runViewCount);
+                    ?>
+                    <span><?= $viewCount['ViewCount'] ?></span>
+                </div>
             </div>
             <div class="nav-search-bar">
                 <form method="GET" action="search.php" class="nav-search-form">
@@ -45,17 +65,27 @@ include('connect.php');
                 </form>
             </div>
             <div class="nav-info">
-                <a href="profile.php" class="nav-user-info">
-                    <img class="nav-user-img" src="https://loremflickr.com/320/240" alt="user img">
-                    <span>Kyaw Oo</span>
+                <?php
+                    if ($cusId) {
+                ?>
+                <a href="profile.php?id=<?= $cusId ?>" class="nav-user-info">
+                    <img class="nav-user-img" src="<?= $cusData['Image'] ?>" alt="<?= $cusData['FirstName'] ?>">
+                    <span><?= $cusData['FirstName'] . ' ' . $cusData['SurName'] ?></span>
                 </a>
                 <a href="booking.php" class="btn-circle btn-circle-primary">
                     <img class="icon-sm" src="./assets/static/icons/booking.svg" alt="booking icon">
                 </a>
-                <a href="logout.php" class="btn-circle btn-circle-secondary">
+                <button class="btn-circle btn-circle-secondary logout-btn">
                     <img class="icon-sm" src="./assets/static/icons/logout.svg" alt="logout icon">
-                </a>
-                <!-- <a href="login.php" class="btn btn-secondary">Login</a> -->
+                </button>
+                <?php
+                    }
+                    else {
+                ?>
+                <a href="login.php" class="btn btn-secondary">Login</a>
+                <?php
+                    }
+                ?>
             </div>
             <div class="nav-menu">
                 <div class="burger">
@@ -124,21 +154,31 @@ include('connect.php');
             <div class="mobile-nav-item <?php if ($title === "Contact") echo "active"?>">
                 <a href="contact.php">Contact</a>
             </div>
+            <?php
+                if (!$cusId) {
+            ?>
             <div class="mobile-nav-item">
                 <a href="login.php" class="btn btn-secondary">Login</a>
             </div>
+            <?php
+                }
+                else {
+            ?>
             <div class="mobile-nav-user">
-                <a href="profile.php" class="nav-user-info">
-                    <img class="nav-user-img" src="https://loremflickr.com/320/240" alt="user img">
-                    <span>Kyaw Oo</span>
+                <a href="profile.php?id=<?= $cusId ?>" class="nav-user-info">
+                    <img class="nav-user-img" src="<?= $cusData['Image'] ?>" alt="<?= $cusData['FirstName'] ?>">
+                    <span><?= $cusData['FirstName'] . ' ' . $cusData['SurName'] ?></span>
                 </a>
                 <a href="booking.php" class="btn-circle btn-circle-primary">
                     <img class="icon-sm" src="./assets/static/icons/booking.svg" alt="booking icon">
                 </a>
-                <a href="logout.php" class="btn-circle btn-circle-secondary">
+                <button class="btn-circle btn-circle-secondary logout-btn">
                     <img class="icon-sm" src="./assets/static/icons/logout.svg" alt="logout icon">
-                </a>
+                    </button=>
             </div>
+            <?php
+                }
+            ?>
         </div>
     </nav>
 

@@ -1,11 +1,32 @@
 <?php 
     $title = "Pitch Details";
     include('header.php');
+    include('AutoID_Functions.php');
 
     $pitchId = $_GET['id'];
     if ($pitchId == "") {
-        echo "<script>window.location='adminPitch.php'</script>";
+        echo "<script>window.location='index.php'</script>";
         exit();
+    }
+
+    if (isset($_GET['book'])) {
+        $id = AutoID('Booking', 'Id', 'B-', 6);
+        $email = $_GET['email'];
+        $phone = $_GET['phone'];
+        $headCount = $_GET['headCount'];
+        $pitchId = $_GET['id'];
+        $remark = $_GET['remark'];
+
+        $createBooking = "INSERT INTO Booking (`Id`, `CustomerId`, `Email`, `Phone`, `PitchId`, `HeadCount`, `Remark`) VALUES ('$id','$cusId','$email','$phone','$pitchId','$headCount','$remark')";
+        $runBooking = mysqli_query($connect, $createBooking);
+        if ($runBooking) {
+            echo "<script>alert('Your adventure has been booked created!')</script>";
+            echo "<script>window.location='booking.php'</script>";
+        }
+        else {
+            echo "<script>alert('Something went wrong in creating booking')</script>";
+            exit();
+        }
     }
 ?>
 
@@ -101,21 +122,23 @@
                 ?>
             </div>
             <div class="pitch-booking">
-                <form action="booking.php">
+                <form action="pitchDetails.php" method="GET">
                     <h4>Booking form</h4>
                     <div class="booking-form-header">
-                        <h3><?= $row['PitchName'] ?> <small>(<?= $row['PitchId'] ?>)</small>
-                        </h3>
+                        <h3><?= $row['PitchName'] ?> <small>(<?= $row['PitchId'] ?>)</small></h3>
+                        <input type="text" name="id" value="<?= $row['PitchId'] ?>" hidden>
                     </div>
 
                     <div class="admin-input-form customer">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Your email address" required>
+                        <input type="email" name="email" id="email" value="<?= $cusId ? $cusData['Email'] : '' ?>"
+                            placeholder="Your email address" required>
                     </div>
 
                     <div class="admin-input-form customer">
                         <label for="phone">Phone</label>
-                        <input type="text" name="phone" id="phone" placeholder="Your phone number" required>
+                        <input type="text" name="phone" id="phone" value="<?= $cusId ? $cusData['Phone'] : ''  ?>"
+                            placeholder="Your phone number" required>
                     </div>
 
                     <div class="admin-input-form customer headcount">
@@ -135,7 +158,28 @@
                         <textarea name="remark" id="remark" placeholder="Your remark"></textarea>
                     </div>
 
-                    <input class="btn btn-secondary book-btn" type="submit" value="Book Now">
+                    <?php
+                        if ($cusId) {
+                            $checkBook = "SELECT * FROM Booking WHERE CustomerId = '$cusId' AND PitchId = '$pitchId'";
+                            $runCheckBook = mysqli_query($connect, $checkBook);
+                            $count = mysqli_num_rows($runCheckBook);
+                            if ($count > 0) {
+                    ?>
+                    <input class="btn btn-secondary book-btn" type="submit" name="book" value="Booked" disabled>
+                    <?php
+                            }
+                            else {
+                    ?>
+                    <input class="btn btn-secondary book-btn" type="submit" name="book" value="Book Now">
+                    <?php
+                            }
+                        }
+                        else {
+                    ?>
+                    <input class="btn btn-secondary book-btn" type="submit" name="book" value="Book Now">
+                    <?php
+                        }
+                    ?>
                 </form>
             </div>
         </div>

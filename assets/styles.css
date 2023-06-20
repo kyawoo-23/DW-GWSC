@@ -26,12 +26,12 @@
   --input-size: 350px;
   --gradient: radial-gradient(
       at 23% 21%,
-      hsl(124, 74%, 46%) 0px,
+      hsla(124, 50%, 26%, 0.5) 0px,
       transparent 50%
     ),
-    radial-gradient(at 34% 14%, hsl(197, 92%, 57%) 0px, transparent 50%),
-    radial-gradient(at 39% 45%, hsl(202, 73%, 64%) 0px, transparent 50%),
-    radial-gradient(at 87% 77%, hsl(266, 50%, 54%) 0px, transparent 50%);
+    radial-gradient(at 34% 14%, hsla(197, 50%, 37%, 0.5) 0px, transparent 50%),
+    radial-gradient(at 39% 45%, hsla(202, 50%, 44%, 0.5) 0px, transparent 50%),
+    radial-gradient(at 87% 77%, hsla(266, 50%, 34%, 0.5) 0px, transparent 50%);
 }
 
 * {
@@ -153,6 +153,12 @@ nav.navbar > .foot {
   align-items: center;
 }
 
+.logo-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
 nav.navbar > .foot {
   margin-bottom: 10px;
 }
@@ -224,7 +230,7 @@ nav.navbar > .foot.admin {
 .nav-user-info {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   background-color: var(--primary);
   border-radius: 30px;
   padding-right: 12px;
@@ -745,6 +751,20 @@ main {
   margin: auto;
 }
 
+.view-count {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  gap: 8px;
+  border-radius: 30px;
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.view-count img {
+  filter: var(--svg-white);
+}
+
 .activity-home-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -844,7 +864,7 @@ main {
   position: relative;
 }
 
-.featured-pitch img {
+.featured-pitch > img {
   border-radius: 24px;
   height: 400px;
   width: 100%;
@@ -852,8 +872,8 @@ main {
   transition: filter 0.2s;
 }
 
-.featured-pitch:hover img,
-.activity-card:hover img {
+.featured-pitch:hover > img,
+.activity-card:hover > img {
   filter: brightness(80%);
 }
 
@@ -868,7 +888,11 @@ main {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  background-color: var(--primary-dark);
+  background: rgba(134, 134, 134, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 2px solid rgba(0, 255, 76, 0.3);
   border-radius: 24px;
   padding: 1.6rem;
 }
@@ -1183,16 +1207,16 @@ div.input-block input:focus + span.placeholder {
 }
 
 .feature-item.wearable {
-  background: #4607f2;
+  background: #592bd8;
   background-image: radial-gradient(
       at 3% 19%,
-      hsl(222, 84%, 39%) 0px,
+      hsla(222, 84%, 34%, 0.5) 0px,
       transparent 50%
     ),
-    radial-gradient(at 3% 35%, hsl(339, 79%, 57%) 0px, transparent 50%),
-    radial-gradient(at 66% 24%, hsl(121, 48%, 27%) 0px, transparent 50%),
-    radial-gradient(at 98% 66%, hsl(346, 46%, 58%) 0px, transparent 50%),
-    radial-gradient(at 100% 69%, hsl(166, 79%, 62%) 0px, transparent 50%);
+    radial-gradient(at 3% 35%, hsla(339, 70%, 50%, 0.5) 0px, transparent 50%),
+    radial-gradient(at 66% 24%, hsla(121, 40%, 22%, 0.5) 0px, transparent 50%),
+    radial-gradient(at 98% 66%, hsla(346, 38%, 52%, 0.5) 0px, transparent 50%),
+    radial-gradient(at 100% 69%, hsla(166, 70%, 56%, 0.5) 0px, transparent 50%);
 }
 
 .feature-item img {
@@ -1242,6 +1266,18 @@ div.input-block input:focus + span.placeholder {
   gap: 30px;
 }
 
+.pitch-time {
+  margin-top: 5px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pitch-time img {
+  filter: var(--svg-white);
+}
+
 .pitch-gallery {
   background-color: #d9d9d9;
   border-radius: 20px;
@@ -1267,6 +1303,7 @@ div.input-block input:focus + span.placeholder {
   padding: 30px;
   width: 100%;
   background-color: var(--primary-dark);
+  background-image: var(--gradient);
   border-radius: 20px;
 }
 
@@ -1298,6 +1335,14 @@ div.input-block input:focus + span.placeholder {
   box-shadow: 0px 0px 0px 0px #3a2556;
 }
 
+.book-btn:disabled {
+  cursor: not-allowed;
+  color: #d9d9d9;
+  transform: translateY(5px);
+  box-shadow: 0px 0px 0px 0px #3a2556;
+  background-color: #3a2556;
+}
+
 .pitch-attractions {
   display: grid;
   grid-template-columns: repeat(3, minmax(340px, 1fr));
@@ -1306,8 +1351,7 @@ div.input-block input:focus + span.placeholder {
 
 .pitch-description {
   width: 100%;
-  background-color: var(--primary);
-  background-image: var(--gradient);
+  background-color: var(--primary-dark);
   padding: 30px;
   margin-bottom: 30px;
   border-radius: 20px;
@@ -1436,7 +1480,6 @@ div.input-block input:focus + span.placeholder {
 .pitch-card {
   border-radius: 14px;
   max-width: 100%;
-  height: 320px;
 }
 
 .pitch-card:hover .pitch-card-body {
@@ -1488,7 +1531,7 @@ div.input-block input:focus + span.placeholder {
 
 .pitch-card-body {
   border-top: 5px solid #fff;
-  height: 80px;
+  height: 100px;
   padding: 10px 15px;
   display: flex;
   align-items: center;

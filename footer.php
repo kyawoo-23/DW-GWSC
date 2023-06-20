@@ -32,6 +32,8 @@
                     <a href="index.php" class="<?php if ($title === "Home") echo "active"?>">Home</a>
                     <a href="information.php"
                         class="<?php if ($title === "Information") echo "active"?>">Information</a>
+                    <a href="sites.php" class="<?php if ($title === "Sites") echo "active"?>">Sites</a>
+                    <a href="pitch.php?q=all" class="<?php if ($title === "Pitches") echo "active"?>">Pitches</a>
                     <a href="pitchTypes.php" class="<?php if ($title === "Pitch types") echo "active"?>">Pitch
                         types</a>
                     <a href="features.php" class="<?php if ($title === "Features") echo "active"?>">Features</a>
@@ -72,6 +74,7 @@
 <script type="text/javascript" src="./assets/js/slideshow.js" defer></script>
 <script type="text/javascript" src="./assets/js/password-toggle.js" defer></script>
 <script type="text/javascript" src="./assets/js/cookies.js" defer></script>
+<script type="text/javascript" src="./assets/js/confirm-logout.js" defer></script>
 
 </body>
 

@@ -65,7 +65,7 @@
 
 <script type="text/javascript">
 function confirmDelete(id) {
-    var confirmation = confirm("Are you sure you want to delete this local attraction?");
+    let confirmation = confirm("Are you sure you want to delete this local attraction?");
     if (confirmation) {
         window.location.href = "adminLocalAttractionDelete.php?id=" + id;
     }

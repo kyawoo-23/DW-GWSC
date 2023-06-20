@@ -77,18 +77,23 @@
                     while($row3 = mysqli_fetch_array($run3)) :
             ?>
 
-            <div class="pitch-card">
+            <a href="pitchDetails.php?id=<?= $row3['Id'] ?>" class="pitch-card">
                 <div class="pitch-card-img">
                     <img src="<?= $row3['PrimaryImage'] ?>" alt="<?= $row3['Name'] ?>">
                 </div>
                 <div class="pitch-card-body">
                     <div>
                         <h3 class="pitch-card-title"><?= $row3['Name'] ?></h3>
-                        <p class="pitch-card-desc"><?= $row3['Description'] ?></p>
+                        <p class="pitch-card-desc">£ <?= $row3['Price'] ?></p>
+                        <div class="pitch-time">
+                            <img class="icon-sm" src="./assets/static/icons/calendar.svg" alt="">
+                            <span><?= $row3['StartDate'] ?></span>
+                            ~
+                            <span><?= $row3['EndDate'] ?></span>
+                        </div>
                     </div>
-                    <a class="btn btn-white" href="pitchDetails.php?id=<?= $row3['Id'] ?>">Details</a>
                 </div>
-            </div>
+            </a>
 
             <?php
                     endwhile;

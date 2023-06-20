@@ -2,6 +2,11 @@
     $title = "Sign up";
     include('header.php');
 
+    if ($cusId) {
+        echo "<script>window.location='index.php'</script>";
+        exit();
+    }
+
     if (isset($_POST['register'])) {
         $first = $_POST['userFirstName'];
         $sur = $_POST['userSurName'];
@@ -22,11 +27,12 @@
             exit();
         }
 
-        $insert = "INSERT INTO Customer (`FirstName`, `SurName`, `Email`, `Password`, `Phone`, `Image`) VALUES ('$first', '$sur', '$email', '$password', '$phone', '$imageName')";
+        $insert = "INSERT INTO Customer (`FirstName`, `SurName`, `Email`, `Password`, `Phone`, `Image`, `ViewCount`) VALUES ('$first', '$sur', '$email', '$password', '$phone', '$imageName', 1)";
         $run = mysqli_query($connect, $insert);
         if ($run) {
             echo "<script>alert('Account created successfully')</script>";
-            echo "<script>window.location='login.php'</script>";
+            $_SESSION['cusId'] = $connect->insert_id;
+            echo "<script>window.location='index.php'</script>";
         } 
         else {
             echo "<script>alert('Something went wrong in registering account')</script>";

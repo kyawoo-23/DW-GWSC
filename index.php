@@ -131,6 +131,13 @@
                 <div class="featured-pitch-info">
                     <h2><?= $row1['Name'] ?></h2>
                     <p><?= $row1['Description'] ?></p>
+                    <p class="pitch-card-desc">£ <?= $row1['Price'] ?></p>
+                    <div class="pitch-time">
+                        <img class="icon-sm" src="./assets/static/icons/calendar.svg" alt="">
+                        <span><?= $row1['StartDate'] ?></span>
+                        ~
+                        <span><?= $row1['EndDate'] ?></span>
+                    </div>
                     <a class="btn btn-white" href="pitchDetails.php?id=<?= $row1['Id'] ?>">Go to details</a>
                 </div>
             </div>
@@ -144,18 +151,23 @@
                     $run2 = mysqli_query($connect, $select2);
                     while ($row2 = mysqli_fetch_array($run2)) :
                 ?>
-                <div class="pitch-card">
+                <a href="pitchDetails.php?id=<?= $row2['Id'] ?>" class="pitch-card">
                     <div class="pitch-card-img">
                         <img src="<?= $row2['PrimaryImage'] ?>" alt="<?= $row2['Name'] ?>">
                     </div>
                     <div class="pitch-card-body">
                         <div>
                             <h3 class="pitch-card-title"><?= $row2['Name'] ?></h3>
-                            <p class="pitch-card-desc"><?= $row2['Description'] ?></p>
+                            <p class="pitch-card-desc">£ <?= $row2['Price'] ?></p>
+                            <div class="pitch-time">
+                                <img class="icon-sm" src="./assets/static/icons/calendar.svg" alt="">
+                                <span><?= $row2['StartDate'] ?></span>
+                                ~
+                                <span><?= $row2['EndDate'] ?></span>
+                            </div>
                         </div>
-                        <a class="btn btn-white" href="pitchDetails.php?id=<?= $row2['Id'] ?>">Details</a>
                     </div>
-                </div>
+                </a>
                 <?php 
                     endwhile;
                 ?>
