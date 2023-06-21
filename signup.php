@@ -7,6 +7,11 @@
         exit();
     }
 
+    if ($_SESSION['loginFail'] === "yes") {
+        echo "<script>window.location='timer.php'</script>";
+        exit();
+    }
+
     if (isset($_POST['register'])) {
         $first = $_POST['userFirstName'];
         $sur = $_POST['userSurName'];

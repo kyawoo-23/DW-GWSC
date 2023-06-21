@@ -10,6 +10,10 @@
     }
 
     if (isset($_GET['book'])) {
+        if (!$cusId) {
+            echo "<script>window.location='login.php'</script>";          
+        }
+
         $id = AutoID('Booking', 'Id', 'B-', 6);
         $email = $_GET['email'];
         $phone = $_GET['phone'];
@@ -67,10 +71,12 @@
                         $run2 = mysqli_query($connect, $getFeat);
                         while($row2 = mysqli_fetch_array($run2)) :
                     ?>
+
                     <div class="pitch-feature-item">
                         <img src="./assets/static/icons/<?= $row2['Name'] ?>.svg" alt="<?= $row2['Name'] ?>">
                         <span><?= $row2['Name'] ?></span>
                     </div>
+
                     <?php
                         endwhile;
                     ?>
@@ -235,13 +241,12 @@
 
 <script type="text/javascript">
 $("#headCount").on("keydown", function(evt) {
-    var key = evt.key || evt.keyCode || evt.which;
+    let key = evt.key || evt.keyCode || evt.which;
     if (key === "Backspace" || key === "Delete") {
         evt.preventDefault();
         return false;
     }
 });
-
 
 $("#headCount").change(function() {
     let value = $("#headCount").val()

@@ -7,6 +7,11 @@
         exit();
     }
 
+    if (isset($_SESSION['loginFail']) && $_SESSION['loginFail'] === "yes") {
+        echo "<script>window.location='timer.php'</script>";
+        exit();
+    }
+
     if (isset($_POST['login'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -32,13 +37,19 @@
         else {
             if (isset($_SESSION['loginError'])) {
                 $countError = $_SESSION['loginError'];
+                if ($countError == 0) {
+                    $_SESSION['loginError'] = 1;
+                    echo "<script>alert('Login failed, try again | Error Attempt 1')</script>";
+                }
                 if ($countError == 1) {
                     $_SESSION['loginError'] = 2;
                     echo "<script>alert('Login failed, try again | Error Attempt 2')</script>";
                 }
                 if ($countError == 2) {
                     echo "<script>alert('Login failed, try again | Error Attempt 3')</script>";
-                    echo "<script>window.location='loginTimer.php'</script>";
+                    $_SESSION['loginFail'] = "yes";
+                    $_SESSION['lockTime'] = time();
+                    echo "<script>window.location='timer.php'</script>";
                 }
             }
             else {
