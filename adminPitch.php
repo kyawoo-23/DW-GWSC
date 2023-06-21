@@ -37,7 +37,7 @@
                 while($row = mysqli_fetch_array($run)) :
             ?>
             <tr>
-                <td><?= $index ?></td>
+                <td><?= $index ?>.</td>
                 <td>
                     <img src="<?= $row['PrimaryImage'] ?>" alt="<?= $row['Name'] ?>">
                 </td>

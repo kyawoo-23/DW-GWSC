@@ -155,7 +155,7 @@ nav.navbar > .foot {
 
 .logo-container {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   align-items: center;
 }
 
@@ -1054,6 +1054,10 @@ div.input-block span.placeholder {
   background: transparent;
   pointer-events: none;
 }
+div.input-block .login-email::placeholder {
+  color: var(--body-color);
+}
+div.input-block .login-email:not(:placeholder-shown) + span.placeholder,
 div.input-block input:valid + span.placeholder,
 div.input-block input:focus + span.placeholder {
   transform: scale(0.8) translateY(-30px);
@@ -1278,7 +1282,8 @@ div.input-block input:focus + span.placeholder {
 }
 
 .pitch-gallery {
-  background-color: #d9d9d9;
+  background-color: var(--primary-dark);
+  background-image: var(--gradient);
   border-radius: 20px;
   padding: 30px;
   width: 100%;
@@ -1954,6 +1959,7 @@ footer {
 
 .admin-input-form.customer.headcount {
   display: flex;
+  gap: 20px;
   flex-direction: row;
 }
 
@@ -2096,6 +2102,12 @@ td > .admin-table-btn-gp {
   flex-direction: row;
 }
 
+.admin-booking-remark {
+  word-wrap: break-word;
+  white-space: normal;
+  width: 300px !important;
+}
+
 .admin-table-btn-gp > .admin-table-btn {
   font-size: 0.8rem;
   padding: 7px 14px;
@@ -2206,6 +2218,125 @@ td > .admin-table-btn-gp {
   border-bottom-right-radius: 15px;
 }
 
+.login-timer {
+  background-color: var(--body-color);
+  border-radius: 24px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.login-timer img {
+  width: 40px;
+  margin: auto;
+}
+
+.login-timer p {
+  max-width: 44em;
+  width: auto;
+  margin: auto;
+  text-align: center;
+}
+
+.countdown {
+  font-variant-numeric: tabular-nums;
+  font-size: 2rem;
+  margin: auto;
+}
+
+.booking-list {
+  border-radius: 24px;
+  background-color: #d9d9d9;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.no-booking {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.no-booking img {
+  width: 180px;
+  margin: auto;
+  background-color: var(--body-color);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.book-btn-link {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.booking {
+  height: 300px;
+  border-radius: 16px;
+  background-color: var(--body-color);
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.booking:hover {
+  outline: 3px solid var(--primary-dark);
+}
+
+.booking-img {
+  width: 25%;
+  aspect-ratio: 1 / 1;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.booking-body {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+
+.booking-body-booking,
+.booking-body-pitch {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.booking-text {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.booking-text img,
+.booking-time img {
+  width: 20px;
+  height: 20px;
+}
+
+.booking-title {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.booking-time {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
 @media only screen and (max-width: 992px) {
   :root {
     --global-padding: 50px;
@@ -2231,34 +2362,26 @@ td > .admin-table-btn-gp {
   .flex-two-div {
     grid-template-columns: repeat(2, minmax(340px, 1fr));
   }
-}
 
-.login-timer {
-  background-color: var(--body-color);
-  border-radius: 24px;
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
+  .pitch-details {
+    flex-direction: column;
+  }
 
-.login-timer img {
-  width: 40px;
-  margin: auto;
-}
+  .booking {
+    padding: 30px;
+    height: 100%;
+    flex-direction: column;
+  }
 
-.login-timer p {
-  max-width: 44em;
-  width: auto;
-  margin: auto;
-  text-align: center;
-}
+  .booking-img {
+    width: 100%;
+    height: 250px;
+    border-radius: 16px;
+  }
 
-.countdown {
-  font-size: 2rem;
-  margin: auto;
+  .booking-body {
+    flex-wrap: wrap;
+  }
 }
 
 @media screen and (max-width: 690px) {
@@ -2416,10 +2539,6 @@ td > .admin-table-btn-gp {
   }
 
   .pitch-description {
-    flex-direction: column;
-  }
-
-  .pitch-details {
     flex-direction: column;
   }
 

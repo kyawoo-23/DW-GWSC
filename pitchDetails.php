@@ -18,10 +18,11 @@
         $email = $_GET['email'];
         $phone = $_GET['phone'];
         $headCount = $_GET['headCount'];
+        $price = $_GET['price'];
         $pitchId = $_GET['id'];
         $remark = $_GET['remark'];
 
-        $createBooking = "INSERT INTO Booking (`Id`, `CustomerId`, `Email`, `Phone`, `PitchId`, `HeadCount`, `Remark`) VALUES ('$id','$cusId','$email','$phone','$pitchId','$headCount','$remark')";
+        $createBooking = "INSERT INTO Booking (`Id`, `CustomerId`, `Email`, `Phone`, `PitchId`, `HeadCount`, `Price`, `Remark`) VALUES ('$id','$cusId','$email','$phone','$pitchId','$headCount','$price','$remark')";
         $runBooking = mysqli_query($connect, $createBooking);
         if ($runBooking) {
             echo "<script>alert('Your adventure has been booked created!')</script>";
@@ -153,7 +154,7 @@
                             <input type="number" min='1' name="headCount" id="headCount" value="1" required>
                         </div>
                         <div>
-                            <label for="price">Price</label>
+                            <label for="price">Price <small>(£)</small></label>
                             <input type="number" name="price" id="price" data-price="<?= $row['Price'] ?>"
                                 value="<?= $row['Price'] ?>" readonly required>
                         </div>
@@ -251,7 +252,6 @@ $("#headCount").on("keydown", function(evt) {
 $("#headCount").change(function() {
     let value = $("#headCount").val()
     let price = $("#price").data('price')
-    console.log(price)
     $("#price").val(value * price)
 })
 </script>

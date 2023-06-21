@@ -7,11 +7,11 @@
         exit();
     }
 
-    $leftTime = 60 - (time() - $_SESSION['lockTime']);
+    $leftTime = 61 - (time() - $_SESSION['lockTime']);
     if ($leftTime < 0) {
         $_SESSION['loginFail'] = "no";
         $_SESSION['loginError'] = 0;
-        echo "<script>window.location='index.php'</script>";
+        echo "<script>window.location='login.php'</script>";
         exit();
     }
     
@@ -45,7 +45,6 @@ let interval = setInterval(function() {
 
     if (minutes < 0) {
         clearInterval(interval)
-        location.href = 'login.php'
     }
 
     seconds = (seconds < 0) ? 59 : seconds

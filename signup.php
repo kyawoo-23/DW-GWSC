@@ -7,7 +7,7 @@
         exit();
     }
 
-    if ($_SESSION['loginFail'] === "yes") {
+    if (isset($_SESSION['loginFail']) && $_SESSION['loginFail'] === "yes") {
         echo "<script>window.location='timer.php'</script>";
         exit();
     }
@@ -64,7 +64,8 @@
             </div>
             <div class="signup-row">
                 <div class="input-block">
-                    <input type="email" name="userEmail" required spellcheck="false" />
+                    <input type="email" name="userEmail" class="login-email" placeholder="Please input email address"
+                        required spellcheck="false" />
                     <span class="placeholder">Email address</span>
                 </div>
                 <div class="input-block">

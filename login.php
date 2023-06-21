@@ -71,7 +71,8 @@
                 <p>Please log in using the data you provided during registration</p>
             </div>
             <div class="input-block">
-                <input type="email" name="email" id="input-text" required spellcheck="false" />
+                <input type="email" name="email" id="input-text" class="login-email"
+                    placeholder="Please input email address" required spellcheck="false" />
                 <span class="placeholder">Email address</span>
             </div>
             <div class="input-block">
