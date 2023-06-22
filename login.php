@@ -23,7 +23,6 @@
         if ($count > 0) {
             $data = mysqli_fetch_array($query);
             $cId = $data['Id'];
-            $cName = $data['FirstName'];
 
             $update = "UPDATE customer SET ViewCount = ViewCount + 1 WHERE Id = '$cId'";
 

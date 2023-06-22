@@ -1,7 +1,22 @@
 <?php
-
     include("connect.php");
+    session_start();
+    
+    $adminId = null;
+    if (isset($_SESSION['adminId'])) {
+        $adminId = $_SESSION['adminId'];
 
+        $getAdminData = "SELECT * FROM Admin WHERE Id = '$adminId'";
+        $runAdminData = mysqli_query($connect, $getAdminData);
+        $adminData = mysqli_fetch_array($runAdminData);
+    }
+    else {
+        echo "<script>
+            if (window.location.pathname !== '/gwsc/adminLogin.php') {
+                window.location = 'adminLogin.php'
+            }
+        </script>";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +35,7 @@
             }
         ?>
     </title>
+    <link rel="icon" type="image/x-icon" href="./assets/static/icons/logo_admin_icon.svg">
     <link rel="stylesheet" type="text/css" href="./assets/styles.css?<?php echo time(); ?>">
 
     <!-- jquery -->
@@ -67,14 +83,24 @@
                 <a href="adminContact.php">Contact</a>
             </div>
             <div class="nav-info">
-                <a href="" class="nav-user-info admin">
-                    <img class="nav-user-img" src="https://loremflickr.com/320/240" alt="user img">
-                    <span>Admin User</span>
+                <?php
+                    if ($adminId) {
+                ?>
+                <a href="adminProfile.php?id=<?= $adminId ?>" class="nav-user-info admin">
+                    <img class="nav-user-img" src="<?= $adminData['Image'] ?>" alt="<?= $adminData['Name'] ?>">
+                    <span><?= $adminData['Name'] ?></span>
                 </a>
-                <a href="" class="btn-circle btn-circle-secondary">
+                <button class="btn-circle btn-circle-secondary admin-logout">
                     <img class="icon-sm" src="./assets/static/icons/logout.svg" alt="logout icon">
-                </a>
-                <!-- <a href="" class="btn btn-secondary">Login</a> -->
+                </button>
+                <?php
+                    }
+                    else {
+                ?>
+                <a href="adminLogin.php" class="btn btn-secondary">Login</a>
+                <?php
+                    }
+                ?>
             </div>
         </div>
     </nav>
@@ -82,37 +108,45 @@
     <nav class="mobile-navbar">
         <div class="mobile-nav-container">
             <div class="mobile-nav-item admin <?php if ($title === "Admin Booking") echo "active"?>">
-                <a href=" adminBooking.php">Booking</a>
+                <a href="adminBooking.php">Booking</a>
             </div>
-            <div class=" mobile-nav-item admin <?php if ($title === "Admin Site") echo "active"?>">
-                <a href=" adminSite.php">Site</a>
+            <div class="mobile-nav-item admin <?php if ($title === "Admin Site") echo "active"?>">
+                <a href="adminSite.php">Site</a>
             </div>
-            <div class=" mobile-nav-item admin <?php if ($title === "Admin Pitch") echo "active"?>">
-                <a href=" adminPitch.php">Pitch</a>
+            <div class="mobile-nav-item admin <?php if ($title === "Admin Pitch") echo "active"?>">
+                <a href="adminPitch.php">Pitch</a>
             </div>
-            <div class=" mobile-nav-item admin <?php if ($title === "Admin") echo "active"?>">
-                <a href=" admin.php">Admin</a>
+            <div class="mobile-nav-item admin <?php if ($title === "Admin") echo "active"?>">
+                <a href="admin.php">Admin</a>
             </div>
-            <div class=" mobile-nav-item admin <?php if ($title === "Admin Customer") echo "active"?>">
-                <a href=" adminCustomer.php">Customer</a>
+            <div class="mobile-nav-item admin <?php if ($title === "Admin Customer") echo "active"?>">
+                <a href="adminCustomer.php">Customer</a>
             </div>
-            <div class=" mobile-nav-item admin <?php if ($title === "Admin Review") echo "active"?>">
-                <a href=" adminReview.php">Review</a>
+            <div class="mobile-nav-item admin <?php if ($title === "Admin Review") echo "active"?>">
+                <a href="adminReview.php">Review</a>
             </div>
-            <div class=" mobile-nav-item admin <?php if ($title === "Admin Contact") echo "active"?>">
-                <a href=" adminContact.php">Contact</a>
-            </div>
-            <div class=" mobile-nav-item">
-                <a href="" class="btn btn-secondary">Login</a>
+            <div class="mobile-nav-item admin <?php if ($title === "Admin Contact") echo "active"?>">
+                <a href="adminContact.php">Contact</a>
             </div>
             <div class="mobile-nav-user">
-                <a href="" class="nav-user-info">
-                    <img class="nav-user-img" src="https://loremflickr.com/320/240" alt="user img">
-                    <span>Kyaw Oo</span>
+                <?php
+                    if ($adminId) {
+                ?>
+                <a href="adminProfile?id=<?= $adminId ?>" class="nav-user-info admin">
+                    <img class="nav-user-img" src="<?= $adminData['Image'] ?>" alt="<?= $adminData['Name'] ?>">
+                    <span><?= $adminData['Name'] ?></span>
                 </a>
-                <a href="" class="btn-circle btn-circle-secondary">
+                <button class="btn-circle btn-circle-secondary admin-logout">
                     <img class="icon-sm" src="./assets/static/icons/logout.svg" alt="logout icon">
-                </a>
+                </button>
+                <?php
+                    }
+                    else {
+                ?>
+                <a href="adminLogin.php" class="btn btn-secondary">Login</a>
+                <?php
+                    }
+                ?>
             </div>
         </div>
     </nav>

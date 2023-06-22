@@ -5,7 +5,7 @@
 
 <main>
     <section>
-        <div style="display: flex; align-items: center">
+        <div class="section-title-container">
             <h2 class="section-title" id="featureTab">Available Features</h2>
             <h2 class="section-title not-active" id="wearableTab">Wearable Technologies</h2>
         </div>

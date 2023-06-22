@@ -50,7 +50,7 @@
                 <td><?= $row['ActivityName'] ?></td>
                 <td><?= $row['StartDate'] ?></td>
                 <td><?= $row['EndDate'] ?></td>
-                <td><?= $row['Price'] ?></td>
+                <td>£ <?= $row['Price'] ?></td>
                 <td><?= $row['IsFeatured'] === '0' ? 'No' : 'Yes' ?></td>
                 <td><?= $row['IsAvailable'] === '0' ? 'No' : 'Yes' ?></td>
                 <td>

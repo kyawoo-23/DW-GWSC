@@ -1,11 +1,10 @@
 $(".cookies-container").hide()
 
-if (!localStorage.getItem("IsCookiesClosed")) {
-  console.log("hi")
+if (!sessionStorage.getItem("IsCookiesClosed")) {
   $(".cookies-container").show()
 }
 
 $("#ok-cookie").click(() => {
   $(".cookies-container").hide()
-  localStorage.setItem("IsCookiesClosed", true)
+  sessionStorage.setItem("IsCookiesClosed", true)
 })

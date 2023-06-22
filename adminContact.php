@@ -1,29 +1,25 @@
 <?php 
-    $title = "Admin Booking";
+    $title = "Admin Contact";
     include('adminHeader.php');
 ?>
 
 <main>
     <div class="admin-page-title">
-        <h3>Booking list</h3>
+        <h3>Contact list</h3>
     </div>
 
     <div class="adminTable">
         <table>
             <tr>
                 <th>No.</th>
-                <th>Booking Id</th>
+                <th>Contact Id</th>
                 <th>Customer</th>
                 <th>Email</th>
-                <th>Phone</th>
-                <th>Pitch Id</th>
-                <th>Head count</th>
-                <th>Price</th>
-                <th>Booking Date</th>
-                <th>Remark</th>
+                <th>Contacted At</th>
+                <th>Message</th>
             </tr>
             <?php 
-                $query = "SELECT * FROM Booking";
+                $query = "SELECT * FROM Contact";
                 $run = mysqli_query($connect, $query);
                 $index = 1;
                 while($row = mysqli_fetch_array($run)) :
@@ -40,15 +36,6 @@
                     ?>
                 </td>
                 <td><?= $row['Email'] ?></td>
-                <td><?= $row['Phone'] ?></td>
-                <td>
-                    <?php
-                        echo "<a href='adminPitchDetails.php?id=$row[PitchId]' class='admin-link'>" . $row['PitchId'] .
-                        "</a>";
-                    ?>
-                </td>
-                <td><?= $row['HeadCount'] ?></td>
-                <td>£ <?= $row['Price'] ?></td>
                 <td>
                     <?php
                         $datetime = new DateTime($row['CreatedAt']);
@@ -57,19 +44,10 @@
                     ?>
                 </td>
                 <td>
-                    <?php 
-                        if ($row['Remark'] !== "") {
-                    ?>
                     <details>
                         <summary>Details</summary>
-                        <p><?= $row['Remark'] ?></p>
+                        <p><?= $row['Message'] ?></p>
                     </details>
-                    <?php
-                        }
-                        else {
-                            echo "No-data";
-                        }
-                    ?>
                 </td>
             </tr>
             <?php

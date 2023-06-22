@@ -64,7 +64,7 @@
         <small>We use cookies to make your browsing experience better</small>
     </div>
     <div class="cookies-btn">
-        <a href="" class="cookies-btn-left">Privacy Policy</a>
+        <a href="privacyPolicy.php" class="cookies-btn-left">Privacy policy</a>
         <button class="cookies-btn-right" id="ok-cookie">Okay</button>
     </div>
 </div>

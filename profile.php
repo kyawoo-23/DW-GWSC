@@ -17,7 +17,7 @@
         $image = $_FILES['userPic']['name'];
 
         if ($image === "") {
-            echo$update = "UPDATE Customer SET `FirstName`='$first',`SurName`='$sur',`Email`='$email',`Password`='$password',`Phone`='$phone' WHERE Id = '$id'";
+            $update = "UPDATE Customer SET `FirstName`='$first',`SurName`='$sur',`Email`='$email',`Password`='$password',`Phone`='$phone' WHERE Id = '$id'";
         }
         else {
             $imgFolder = "assets/images/users/" . $first . $sur . "/";

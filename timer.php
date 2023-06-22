@@ -45,6 +45,7 @@ let interval = setInterval(function() {
 
     if (minutes < 0) {
         clearInterval(interval)
+        window.location.reload()
     }
 
     seconds = (seconds < 0) ? 59 : seconds

@@ -27,7 +27,7 @@ if (isset($_POST['update'])) {
     if (empty($pitchPrimaryImage) && $pitchImages[0] === '') {
         // No images to update
         $updateQuery = "UPDATE Pitch SET `Name`='$name',`PitchTypeId`='$pitchType',`SiteId`='$site',`ActivityId`='$activity',`Price`='$price',`StartDate`='$startDate',`EndDate`='$endDate',`Description`='$description',`IsFeatured`='$isFeatured',`IsAvailable`='$isAvailable' WHERE Id = '$pitchId'";
-    } elseif (empty($pitchPrimaryImage) && $pitchImages[0] === '') {
+    } elseif (empty($pitchPrimaryImage) && $pitchImages[0] !== '') {
         // Only pitch images to update
         $imgFolder = "assets/images/pitches/" . $name . "/";
         if (!is_dir($imgFolder)) {
