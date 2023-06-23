@@ -1,19 +1,14 @@
 <?php 
 include('connect.php');
 
-$create ="CREATE TABLE Booking
+$create ="CREATE TABLE LocalAttraction
 (
-	Id varchar(30) not null primary key,
-	CustomerId int,
-	Email varchar(30),
-	Phone varchar(30),
-	PitchId int,
-	HeadCount int,
-	Price int,
-	Remark varchar(80),
-	CreatedAt timestamp not null default current_timestamp,
-	Foreign key (CustomerId) References Customer(Id),
-	Foreign key (PitchId) References Pitch(Id)
+	Id int not null primary key AUTO_INCREMENT,
+	SiteId int,
+	Name varchar(30),
+	Description text,
+	Image text,
+	Foreign key (SiteId) References Site(Id)
 )";
 
 $query = mysqli_query($connect, $create);
@@ -26,6 +21,21 @@ else {
 }
 
 ?>
+
+<!-- $create ="CREATE TABLE Booking
+(
+	Id varchar(30) not null primary key,
+	CustomerId int,
+	Email varchar(30),
+	Phone varchar(30),
+	PitchId int,
+	HeadCount int,
+	Price int,
+	Remark varchar(80),
+	CreatedAt timestamp not null default current_timestamp,
+	Foreign key (CustomerId) References Customer(Id),
+	Foreign key (PitchId) References Pitch(Id)
+)"; -->
 
 <!-- $create ="CREATE TABLE Pitch
 (
@@ -77,16 +87,6 @@ else {
 	Map text,
 	Rules text,
 	Image text
-)"; -->
-
-<!-- $create ="CREATE TABLE LocalAttraction
-(
-	Id int not null primary key AUTO_INCREMENT,
-	SiteId int,
-	Name varchar(30),
-	Description varchar(50),
-	Image text,
-	Foreign key (SiteId) References Site(Id)
 )"; -->
 
 <!-- $create ="CREATE TABLE Feature

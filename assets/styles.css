@@ -236,6 +236,7 @@ nav.navbar > .foot.admin {
   padding-right: 12px;
   color: #fff;
   transition: background 0.2s;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
 .nav-user-info:hover {
   background: var(--primary-dark);
@@ -306,9 +307,8 @@ nav.navbar > .foot.admin {
   height: 30px;
   border-radius: 50%;
   padding: 6px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 2px 10px -3px, rgba(0, 0, 0, 0.2) 0px -2px 0px inset;
 }
 
 .btn-circle-secondary {
@@ -876,6 +876,7 @@ main {
   width: 100%;
   object-fit: cover;
   transition: filter 0.2s;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .featured-pitch:hover > img,
@@ -894,11 +895,11 @@ main {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  background: rgba(134, 134, 134, 0.2);
+  background: rgba(63, 63, 63, 0.4);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 2px solid rgba(0, 255, 76, 0.3);
+  border: 2px solid rgba(0, 255, 255, 0.6);
   border-radius: 24px;
   padding: 1.6rem;
 }
@@ -1284,16 +1285,16 @@ div.input-block input.admin:focus + span.placeholder {
 }
 
 .feature-item.wearable {
-  background: #592bd8;
+  background: #3388b6;
   background-image: radial-gradient(
       at 3% 19%,
-      hsla(222, 84%, 34%, 0.5) 0px,
+      hsla(179, 91%, 40%, 0.5) 0px,
       transparent 50%
     ),
     radial-gradient(at 3% 35%, hsla(339, 70%, 50%, 0.5) 0px, transparent 50%),
     radial-gradient(at 66% 24%, hsla(121, 40%, 22%, 0.5) 0px, transparent 50%),
     radial-gradient(at 98% 66%, hsla(346, 38%, 52%, 0.5) 0px, transparent 50%),
-    radial-gradient(at 100% 69%, hsla(166, 70%, 56%, 0.5) 0px, transparent 50%);
+    radial-gradient(at 100% 69%, hsla(193, 70%, 56%, 0.5) 0px, transparent 50%);
 }
 
 .feature-item img {
@@ -1462,7 +1463,7 @@ div.input-block input.admin:focus + span.placeholder {
 
 .pitch-features {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   flex-wrap: wrap;
 }
 
@@ -1475,6 +1476,7 @@ div.input-block input.admin:focus + span.placeholder {
   display: flex;
   gap: 15px;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
 
 .pitch-type-item {

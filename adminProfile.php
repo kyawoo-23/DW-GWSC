@@ -30,7 +30,7 @@
                 exit();
             }
 
-            $update = "UPDATE Admin SET `Name`='$name', `Email`='$email', `Password`='$password', `Image`='$imageName' WHERE Id = '$adminId'";
+            $update = "UPDATE Admin SET `Name`='$name', `Email`='$email', `Password`='$password', `Image`='$imageName' WHERE Id = '$id'";
         }
         $run = mysqli_query($connect, $update);
                     

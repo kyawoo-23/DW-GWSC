@@ -23,7 +23,7 @@
                 <th>Remark</th>
             </tr>
             <?php 
-                $query = "SELECT * FROM Booking";
+                $query = "SELECT * FROM Booking ORDER BY CreatedAt DESC";
                 $run = mysqli_query($connect, $query);
                 $index = 1;
                 while($row = mysqli_fetch_array($run)) :

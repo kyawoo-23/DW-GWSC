@@ -68,7 +68,7 @@ if (isset($_SESSION['cusId'])) {
                 <?php
                     if ($cusId) {
                 ?>
-                <a href="profile.php?id=<?= $cusId ?>" class="nav-user-info">
+                <a href="profile.php" class="nav-user-info">
                     <img class="nav-user-img" src="<?= $cusData['Image'] ?>" alt="<?= $cusData['FirstName'] ?>">
                     <span><?= $cusData['FirstName'] . ' ' . $cusData['SurName'] ?></span>
                 </a>
@@ -165,7 +165,7 @@ if (isset($_SESSION['cusId'])) {
                 else {
             ?>
             <div class="mobile-nav-user">
-                <a href="profile.php?id=<?= $cusId ?>" class="nav-user-info">
+                <a href="profile.php" class="nav-user-info">
                     <img class="nav-user-img" src="<?= $cusData['Image'] ?>" alt="<?= $cusData['FirstName'] ?>">
                     <span><?= $cusData['FirstName'] . ' ' . $cusData['SurName'] ?></span>
                 </a>

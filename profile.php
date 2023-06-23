@@ -2,10 +2,9 @@
     $title = "Profile";
     include('header.php');
 
-    if (!isset($_GET['id'])) {
+    if (!isset($cusId)) {
         echo "<script>window.location='index.php'</script>";
     }
-    $id = $_GET['id'];
 
     if (isset($_POST['update'])) { 
         $first = $_POST['userFirstName'];
@@ -17,7 +16,7 @@
         $image = $_FILES['userPic']['name'];
 
         if ($image === "") {
-            $update = "UPDATE Customer SET `FirstName`='$first',`SurName`='$sur',`Email`='$email',`Password`='$password',`Phone`='$phone' WHERE Id = '$id'";
+            $update = "UPDATE Customer SET `FirstName`='$first',`SurName`='$sur',`Email`='$email',`Password`='$password',`Phone`='$phone' WHERE Id = '$cusId'";
         }
         else {
             $imgFolder = "assets/images/users/" . $first . $sur . "/";
@@ -31,7 +30,7 @@
                 exit();
             }
 
-            $update = "UPDATE Customer SET `FirstName`='$first',`SurName`='$sur',`Email`='$email',`Password`='$password',`Phone`='$phone',`Image`='$imageName' WHERE Id = '$id'";
+            $update = "UPDATE Customer SET `FirstName`='$first',`SurName`='$sur',`Email`='$email',`Password`='$password',`Phone`='$phone',`Image`='$imageName' WHERE Id = '$cusId'";
         }
         $run = mysqli_query($connect, $update);
                     
@@ -47,9 +46,9 @@
 
 <main>
     <div class="login-container">
-        <form action="profile.php?id=<?= $id ?>" method="POST" class="signup-form" enctype="multipart/form-data">
+        <form action="profile.php" method="POST" class="signup-form" enctype="multipart/form-data">
             <?php
-                $query = "SELECT * FROM Customer WHERE Id = '$id'";
+                $query = "SELECT * FROM Customer WHERE Id = '$cusId'";
                 $run = mysqli_query($connect, $query);
                 while($row = mysqli_fetch_array($run)) :
             ?>
