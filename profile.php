@@ -11,12 +11,13 @@
         $sur = $_POST['userSurName'];
         $email = $_POST['userEmail'];
         $phone = $_POST['userPhone'];
+        $address = $_POST['address'];
         $password = $_POST['userPassword1'];
 
         $image = $_FILES['userPic']['name'];
 
         if ($image === "") {
-            $update = "UPDATE Customer SET `FirstName`='$first',`SurName`='$sur',`Email`='$email',`Password`='$password',`Phone`='$phone' WHERE Id = '$cusId'";
+            $update = "UPDATE Customer SET `FirstName`='$first',`SurName`='$sur',`Email`='$email',`Password`='$password',`Phone`='$phone',`Address`='$address' WHERE Id = '$cusId'";
         }
         else {
             $imgFolder = "assets/images/users/" . $first . $sur . "/";
@@ -30,7 +31,7 @@
                 exit();
             }
 
-            $update = "UPDATE Customer SET `FirstName`='$first',`SurName`='$sur',`Email`='$email',`Password`='$password',`Phone`='$phone',`Image`='$imageName' WHERE Id = '$cusId'";
+            $update = "UPDATE Customer SET `FirstName`='$first',`SurName`='$sur',`Email`='$email',`Password`='$password',`Phone`='$phone',`Address`='$address',`Image`='$imageName' WHERE Id = '$cusId'";
         }
         $run = mysqli_query($connect, $update);
                     
@@ -79,6 +80,13 @@
                 <div class="input-block">
                     <input type="tel" name="userPhone" value="<?= $row['Phone'] ?>" required spellcheck="false" />
                     <span class="placeholder">Phone</span>
+                </div>
+            </div>
+            <div class="signup-row address">
+                <div class="input-block address">
+                    <textarea name="address" class="login-email address" placeholder="Please input email address"
+                        required spellcheck="false" rows="5"><?= $row['Address'] ?></textarea>
+                    <span class="placeholder">Address</span>
                 </div>
             </div>
             <div class="signup-row">

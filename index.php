@@ -180,66 +180,41 @@
         <div class="testimonial">
             <div>
                 <ul>
-                    <li class="testimonial-card active">
+                    <?php
+                        $getReview = "SELECT Review.*, Customer.* FROM Review
+                        INNER JOIN Customer ON Review.CustomerId = Customer.Id
+                        ORDER BY Review.CreatedAt DESC
+                        LIMIT 5";
+                        $run3 = mysqli_query($connect, $getReview);
+                        $index = 1;
+                        while ($row3 = mysqli_fetch_array($run3)) :
+                    ?>
+                    <li class="testimonial-card <?= $index === 1 ? 'active' : '' ?>">
                         <div class="testimonial-content">
-                            <img class="testimonial-img" src="./assets/static/images/slide4.jpg" alt="">
+                            <img class="testimonial-img" src="<?= $row3['Image'] ?>" alt="<?= $row3['FirstName'] ?>">
                             <div class="testimonial-body">
-                                <p class="testimonial-review">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Tenetur, ipsa eum ratione
-                                    tempore exercitationem voluptates eligendi? Ab perspiciatis illo officia suscipit
-                                    quam, dignissimos enim quisquam mollitia delectus sapiente dolores placeat</p>
+                                <p class="testimonial-review"><?= $row3['Message'] ?></p>
                                 <div class="testimonial-user">
-                                    <span class="testimonial-title">Kyaw Oo</span>
+                                    <span
+                                        class="testimonial-title"><?= $row3['FirstName'] . ' ' . $row3['SurName'] ?></span>
 
                                     <span class="star-container">
+                                        <?php
+                                            for ($i=0; $i<$row3['Rating'] ; $i++) { 
+                                        ?>
                                         <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
-                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
-                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
+                                        <?php
+                                            }
+                                        ?>
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="testimonial-card">
-                        <div class="testimonial-content">
-                            <img class="testimonial-img" src="./assets/static/images/slide4.jpg" alt="">
-                            <div class="testimonial-body">
-                                <p class="testimonial-review">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Tenetur, ipsa eum ratione
-                                    tempore exercitationem voluptates eligendi? Ab perspiciatis illo officia suscipit
-                                    quam, dignissimos enim quisquam mollitia delectus sapiente dolores placeat</p>
-                                <div class="testimonial-user">
-                                    <span class="testimonial-title">Kyaw Oo</span>
-
-                                    <span class="star-container">
-                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
-                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
-                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="testimonial-card">
-                        <div class="testimonial-content">
-                            <img class="testimonial-img" src="./assets/static/images/slide4.jpg" alt="">
-                            <div class="testimonial-body">
-                                <p class="testimonial-review">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Tenetur, ipsa eum ratione
-                                    tempore exercitationem voluptates eligendi? Ab perspiciatis illo officia suscipit
-                                    quam, dignissimos enim quisquam mollitia delectus sapiente dolores placeat</p>
-                                <div class="testimonial-user">
-                                    <span class="testimonial-title">Kyaw Oo</span>
-
-                                    <span class="star-container">
-                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
-                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
-                                        <img class="icon-sm" src="./assets/static/icons/star.svg" alt="star">
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    <?php
+                        $index++;
+                        endwhile;
+                    ?>
                 </ul>
             </div>
             <button class="prev"><img class="icon-sm" src="./assets/static/icons/arrow.svg" alt="prev"></button>

@@ -23,6 +23,7 @@
         <div class="foot-left">
             <img class="logo-icon" src="./assets/static/icons/logo.svg" alt="GWSC logo">
             <p class="copyright foot-here">You are at <?php echo $title ?> page</p>
+            <small class="copyright">This is an educational website project</small>
             <small class="copyright">© GWSC Global Wild Swimming and Camping 1999 - 2023 #Kko</small>
         </div>
         <div class="foot-right">

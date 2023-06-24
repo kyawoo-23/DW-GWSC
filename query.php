@@ -1,7 +1,43 @@
 <?php 
 include('connect.php');
 
-$create ="CREATE TABLE LocalAttraction
+$create ="CREATE TABLE Review
+(
+	Id int not null primary key AUTO_INCREMENT,
+	SiteId int,
+	CustomerId int,
+	Rating int,
+	Message text,
+	CreatedAt timestamp not null default current_timestamp,
+	Foreign key (SiteId) References Site(Id),
+	Foreign key (CustomerId) References Customer(Id)
+)";
+
+$query = mysqli_query($connect, $create);
+
+if($query) {
+	echo "<p>Review table created successfully</p>";
+} 
+else {
+	echo "<p>Table Fail to create</p>";
+}
+
+?>
+
+<!-- $create ="CREATE TABLE Customer
+(
+	Id int not null primary key AUTO_INCREMENT,
+	FirstName varchar(30),
+	SurName varchar(30),
+	Email varchar(30),
+	Password varchar(30),
+	Phone varchar(30),
+	Address text,
+	Image text,
+	ViewCount int
+)"; -->
+
+<!-- $create ="CREATE TABLE LocalAttraction
 (
 	Id int not null primary key AUTO_INCREMENT,
 	SiteId int,
@@ -9,18 +45,7 @@ $create ="CREATE TABLE LocalAttraction
 	Description text,
 	Image text,
 	Foreign key (SiteId) References Site(Id)
-)";
-
-$query = mysqli_query($connect, $create);
-
-if($query) {
-	echo "<p>Booking table created successfully</p>";
-} 
-else {
-	echo "<p>Table Fail to create</p>";
-}
-
-?>
+)"; -->
 
 <!-- $create ="CREATE TABLE Booking
 (
@@ -55,18 +80,6 @@ else {
 	Foreign key (PitchTypeId) References PitchType(Id),
 	Foreign key (SiteId) References Site(Id),
 	Foreign key (ActivityId) References Activity(Id)
-)"; -->
-
-<!-- $create ="CREATE TABLE Customer
-(
-	Id int not null primary key AUTO_INCREMENT,
-	FirstName varchar(30),
-	SurName varchar(30),
-	Email varchar(30),
-	Password varchar(30),
-	Phone varchar(30),
-	Image text,
-	ViewCount int
 )"; -->
 
 <!-- $create ="CREATE TABLE Admin
@@ -130,18 +143,6 @@ else {
 	Foreign key (PitchTypeId) References PitchType(Id),
 	Foreign key (SiteId) References Site(Id),
 	Foreign key (ActivityId) References Activity(Id)
-)"; -->
-
-<!-- $create ="CREATE TABLE Review
-(
-	Id int not null primary key AUTO_INCREMENT,
-	SiteId int,
-	CustomerId int,
-	Rating int,
-	Message varchar(50),
-	CreatedAt timestamp not null default current_timestamp,
-	Foreign key (SiteId) References Site(Id),
-	Foreign key (CustomerId) References Customer(Id)
 )"; -->
 
 <!--  $create ="CREATE TABLE PitchType

@@ -5,30 +5,77 @@
 
 <main>
     <section>
-        <div class="section-title-container">
-            <h2 class="section-title" id="featureTab">Available Features</h2>
-            <h2 class="section-title not-active" id="wearableTab">Wearable Technologies</h2>
-        </div>
+        <h2 class="section-title">Available Features</h2>
 
         <div id="feature-section">
-            <p class="section-sub-title">
-                <img src="./assets/static/icons/info.svg" alt="info">
-                Here are a few typical facilities available at our sites
-            </p>
+            <div class="features-list-section">
+                <div>
+                    <p class="section-sub-title">
+                        <img src="./assets/static/icons/info.svg" alt="info">
+                        Here are a few typical facilities available at our sites
+                    </p>
 
-            <div class="features-list">
-                <?php
+                    <div class="features-list">
+                        <?php
                     $select = "SELECT * FROM Facilities";
                     $run = mysqli_query($connect, $select);
                     while($row = mysqli_fetch_array($run)) :
                 ?>
-                <div class="feature-item">
-                    <img src="./assets/static/icons/<?= $row['Name'] ?>.svg" alt="<?= $row['Name'] ?>">
-                    <span><?= $row['Name'] ?></span>
-                </div>
-                <?php
+                        <div class="feature feature-item">
+                            <img src="./assets/static/icons/<?= $row['Name'] ?>.svg" alt="<?= $row['Name'] ?>">
+                            <span><?= $row['Name'] ?></span>
+                        </div>
+                        <?php
                     endwhile;
                 ?>
+                    </div>
+                </div>
+                <div>
+                    <p class="section-sub-title">
+                        <img src="./assets/static/icons/info.svg" alt="info">
+                        Wearable technologies
+                    </p>
+                    <div class="wearables-list">
+                        <div class="wearable feature-item">
+                            <img src="./assets/static/icons/smart-glasses.svg" alt="smart-glasses">
+                            <hr>
+                            <span>Smart glasses</span>
+                            <small>Providing augmented reality and underwater vision capabilities</small>
+                        </div>
+                        <div class="wearable feature-item">
+                            <img src="./assets/static/icons/headphone-symbol.svg" alt="headphone">
+                            <hr>
+                            <span>Smart headphones</span>
+                            <small>Combining music, durability, and water resistance in one</small>
+                        </div>
+                        <div class="wearable feature-item">
+                            <img src="./assets/static/icons/smart-watch.svg" alt="smart-watch">
+                            <hr>
+                            <span>Smart watch</span>
+                            <small>The versatile smartwatch, combining GPS, water resistance, and activity
+                                tracking</small>
+                        </div>
+                        <div class="wearable feature-item">
+                            <img src="./assets/static/icons/goggles.svg" alt="goggles">
+                            <hr>
+                            <span>Smart goggles</span>
+                            <small>The ultimate companion for adventureers, combining high-tech features with outdoor
+                                adventure</small>
+                        </div>
+                        <div class="wearable feature-item">
+                            <img src="./assets/static/icons/fitness-tracker.svg" alt="fitness-tracker">
+                            <hr>
+                            <span>Fitness tracker</span>
+                            <small>Enhances camping and swimming experiences with advanced activity tracking</small>
+                        </div>
+                        <div class="wearable feature-item">
+                            <img src="./assets/static/icons/earbuds.svg" alt="earbuds">
+                            <hr>
+                            <span>Smart earbuds</span>
+                            <small>Waterproof, immersive audio for outdoor adventures and underwater workouts</small>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <?php
@@ -69,75 +116,9 @@
                 endwhile;
             ?>
         </div>
-
-        <div id="wearable-section">
-            <p class="section-sub-title">
-                <img src="./assets/static/icons/info.svg" alt="info">Below are some categories of wearable devices
-                permitted within our premises
-            </p>
-
-            <div class="wearable-list">
-                <div class="wearable feature-item">
-                    <img src="./assets/static/icons/smart-glasses.svg" alt="smart-glasses">
-                    <hr>
-                    <span>Smart glasses</span>
-                    <small>Providing augmented reality and underwater vision capabilities</small>
-                </div>
-                <div class="wearable feature-item">
-                    <img src="./assets/static/icons/headphone-symbol.svg" alt="headphone">
-                    <hr>
-                    <span>Smart headphones</span>
-                    <small>Combining music, durability, and water resistance in one</small>
-                </div>
-                <div class="wearable feature-item">
-                    <img src="./assets/static/icons/smart-watch.svg" alt="smart-watch">
-                    <hr>
-                    <span>Smart watch</span>
-                    <small>The versatile smartwatch, combining GPS, water resistance, and activity tracking</small>
-                </div>
-                <div class="wearable feature-item">
-                    <img src="./assets/static/icons/goggles.svg" alt="goggles">
-                    <hr>
-                    <span>Smart goggles</span>
-                    <small>The ultimate companion for adventureers, combining high-tech features with outdoor
-                        adventure</small>
-                </div>
-                <div class="wearable feature-item">
-                    <img src="./assets/static/icons/fitness-tracker.svg" alt="fitness-tracker">
-                    <hr>
-                    <span>Fitness tracker</span>
-                    <small>Enhances camping and swimming experiences with advanced activity tracking</small>
-                </div>
-                <div class="wearable feature-item">
-                    <img src="./assets/static/icons/earbuds.svg" alt="earbuds">
-                    <hr>
-                    <span>Smart earbuds</span>
-                    <small>Waterproof, immersive audio for outdoor adventures and underwater workouts</small>
-                </div>
-            </div>
-        </div>
-
     </section>
 </main>
 
 <?php 
     include('footer.php');
 ?>
-
-<script type="text/javascript">
-$("#wearable-section").hide()
-
-$("#wearableTab").click(() => {
-    $("#wearableTab").removeClass("not-active")
-    $("#featureTab").addClass("not-active")
-    $("#feature-section").hide()
-    $("#wearable-section").show()
-})
-
-$("#featureTab").click(() => {
-    $("#featureTab").removeClass("not-active")
-    $("#wearableTab").addClass("not-active")
-    $("#feature-section").show()
-    $("#wearable-section").hide()
-})
-</script>

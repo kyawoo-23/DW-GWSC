@@ -17,6 +17,7 @@
         $sur = $_POST['userSurName'];
         $email = $_POST['userEmail'];
         $phone = $_POST['userPhone'];
+        $address = $_POST['address'];
         $password = $_POST['userPassword1'];
 
         $checkEmail = "SELECT * FROM Customer WHERE Email = '$email'";
@@ -39,7 +40,7 @@
                 exit();
             }
 
-            $insert = "INSERT INTO Customer (`FirstName`, `SurName`, `Email`, `Password`, `Phone`, `Image`, `ViewCount`) VALUES ('$first', '$sur', '$email', '$password', '$phone', '$imageName', 1)";
+            $insert = "INSERT INTO Customer (`FirstName`, `SurName`, `Email`, `Password`, `Phone`, `Address`, `Image`, `ViewCount`) VALUES ('$first', '$sur', '$email', '$password', '$phone', '$address', '$imageName', 1)";
             $run = mysqli_query($connect, $insert);
             if ($run) {
                 echo "<script>alert('Account created successfully')</script>";
@@ -81,6 +82,13 @@
                     <span class="placeholder">Phone</span>
                 </div>
             </div>
+            <div class="signup-row address">
+                <div class="input-block address">
+                    <textarea name="address" class="login-email address" placeholder="Please input email address"
+                        required spellcheck="false" rows="5"></textarea>
+                    <span class="placeholder">Address</span>
+                </div>
+            </div>
             <div class="signup-row">
                 <div class="input-block">
                     <input type="password" name="userPassword1" id="passwordInput" required spellcheck="false" />
@@ -107,6 +115,22 @@
                 </div>
             </div>
 
+            <div class="signup-row captcha">
+                <div class="captchaContainer">
+                    <div class="captchaWrapper">
+                        <button type="button" class="captchaBox boxHover"></button>
+                    </div>
+                    <input type="checkbox" name="hiddenCaptcha" id="hiddenCaptcha" disabled="disabled" />
+                    <label for="hiddenCaptcha" class="captchaLabel">I'm not a robot</label>
+                    <img class="recaptcha-logo" src="./assets/static/images/RecaptchaLogo.png" alt="RecaptchaLogo" />
+                </div>
+            </div>
+
+            <div class="signup-row privacy">
+                By signing up you agree to our <a class="book-btn-link" href="privacyPolicy.php">Privacy
+                    policy</a>
+            </div>
+
             <div class="signup-btn-gp">
                 <button class="btn btn-clear" type="reset">Clear</button>
                 <button class="btn btn-login" name="register" type="submit" id="registerBtn">Register</button>
@@ -123,4 +147,4 @@
     include('footer.php');
 ?>
 
-<script type="text/javascript" src="./assets/js/password-validate.js" defer></script>
+<script type="text/javascript" src="./assets/js/sign-up.js" defer></script>
