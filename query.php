@@ -1,7 +1,39 @@
 <?php 
 include('connect.php');
 
-$create ="CREATE TABLE Review
+$create ="CREATE TABLE Booking
+(
+	Id varchar(30) not null primary key,
+	CustomerId int,
+	Email varchar(30),
+	Phone varchar(30),
+	PitchId int,
+	HeadCount int,
+	Price int,
+	Remark text,
+	CardType varchar(20),
+	CardNumber varchar(20),
+	CardExpiry varchar(10),
+	CardCvv int,
+	CardName varchar(30),
+	Address text,
+	CreatedAt timestamp not null default current_timestamp,
+	Foreign key (CustomerId) References Customer(Id),
+	Foreign key (PitchId) References Pitch(Id)
+)";
+
+$query = mysqli_query($connect, $create);
+
+if($query) {
+	echo "<p>Booking table created successfully</p>";
+} 
+else {
+	echo "<p>Table Fail to create</p>";
+}
+
+?>
+
+<!-- $create ="CREATE TABLE Review
 (
 	Id int not null primary key AUTO_INCREMENT,
 	SiteId int,
@@ -11,18 +43,7 @@ $create ="CREATE TABLE Review
 	CreatedAt timestamp not null default current_timestamp,
 	Foreign key (SiteId) References Site(Id),
 	Foreign key (CustomerId) References Customer(Id)
-)";
-
-$query = mysqli_query($connect, $create);
-
-if($query) {
-	echo "<p>Review table created successfully</p>";
-} 
-else {
-	echo "<p>Table Fail to create</p>";
-}
-
-?>
+)"; -->
 
 <!-- $create ="CREATE TABLE Customer
 (
@@ -45,21 +66,6 @@ else {
 	Description text,
 	Image text,
 	Foreign key (SiteId) References Site(Id)
-)"; -->
-
-<!-- $create ="CREATE TABLE Booking
-(
-	Id varchar(30) not null primary key,
-	CustomerId int,
-	Email varchar(30),
-	Phone varchar(30),
-	PitchId int,
-	HeadCount int,
-	Price int,
-	Remark varchar(80),
-	CreatedAt timestamp not null default current_timestamp,
-	Foreign key (CustomerId) References Customer(Id),
-	Foreign key (PitchId) References Pitch(Id)
 )"; -->
 
 <!-- $create ="CREATE TABLE Pitch

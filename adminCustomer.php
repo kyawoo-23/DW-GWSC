@@ -16,6 +16,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <th>Address</th>
                 <th>View count</th>
             </tr>
 
@@ -34,6 +35,7 @@
                 <td><?= $row['FirstName'] . ' ' . $row['SurName'] ?></td>
                 <td><?= $row['Email'] ?></td>
                 <td><?= $row['Phone'] ?></td>
+                <td><?= $row['Address'] ?></td>
                 <td><?= $row['ViewCount'] ?? '0' ?></td>
             </tr>
 

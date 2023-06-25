@@ -1388,6 +1388,7 @@ div.input-block input.admin:focus + span.placeholder {
 .pitch-details {
   display: flex;
   gap: 30px;
+  align-items: flex-start;
 }
 
 .pitch-time {
@@ -1403,6 +1404,9 @@ div.input-block input.admin:focus + span.placeholder {
 }
 
 .pitch-gallery {
+  position: sticky;
+  top: 140px;
+  align-self: flex-start;
   background-color: var(--primary-dark);
   background-image: var(--gradient);
   border-radius: 20px;
@@ -1422,9 +1426,6 @@ div.input-block input.admin:focus + span.placeholder {
 }
 
 .pitch-booking {
-  position: sticky;
-  top: 140px;
-  align-self: flex-start;
   padding: 30px;
   width: 100%;
   background-color: var(--primary-dark);
@@ -2092,15 +2093,107 @@ footer {
 }
 
 .admin-input-form.customer.headcount {
-  display: flex;
   gap: 20px;
   flex-direction: row;
+}
+
+.admin-input-form.customer.address > div {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.isNewAddress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.payment-logo-container {
+  display: flex;
+  flex-direction: row !important;
+  gap: 20px;
+  align-items: center;
+}
+
+.payment-logo {
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 4px;
+  width: 58px;
+  height: 50px;
+  object-fit: contain;
+  background-color: #fff;
+  opacity: 0.6;
+  transition: all 0.2s;
+}
+.payment-logo:hover {
+  opacity: 1;
+}
+.payment-logo.active {
+  opacity: 1;
+  border: 3px solid var(--primary-dark);
+  outline: 2px solid var(--body-color);
+}
+
+.payment-info {
+  width: 100% !important;
+}
+.payment-info > div > #cardNumber {
+  height: 40px;
+  width: 100%;
+}
+
+.payment-card-info {
+  margin: 14px 0;
+  display: flex;
+  gap: 20px;
+}
+.payment-card-info > div {
+  width: 100%;
+}
+.payment-card-info > div > input {
+  width: 100%;
+}
+
+#cardName {
+  width: 100%;
+}
+
+.checkbox#isNewAddress {
+  cursor: pointer;
+  accent-color: var(--warning);
+}
+#isNewAddress:focus,
+#isNewAddress:active {
+  outline: none;
+}
+
+.checkbox#isNewAddress ~ label {
+  cursor: pointer;
+  padding-top: 3px;
+}
+
+.address-container {
+  width: 100%;
+  height: 120px;
+  flex-direction: row;
+}
+.address-container textarea {
+  width: 100%;
 }
 
 .admin-input-form.customer > div {
   display: flex;
   flex-direction: column;
   width: 50%;
+}
+
+.admin-input-form.customer.payment {
+  gap: 10px;
 }
 
 .admin-input-form.customer input:focus,
@@ -2735,6 +2828,11 @@ td > .admin-table-btn-gp {
   }
   .feature-item.wearable {
     width: 250px;
+  }
+
+  .pitch-gallery {
+    position: relative;
+    top: unset;
   }
 }
 

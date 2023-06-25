@@ -17,9 +17,12 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Pitch Id</th>
-                <th>Head count</th>
+                <th>Guests</th>
                 <th>Price</th>
                 <th>Booking Date</th>
+                <th>Card Type</th>
+                <th>Card Info</th>
+                <th>Billing Address</th>
                 <th>Remark</th>
             </tr>
             <?php 
@@ -54,6 +57,29 @@
                         $datetime = new DateTime($row['CreatedAt']);
                         $formattedDatetime = $datetime->format("F j, Y / g:i A");
                         echo $formattedDatetime;    
+                    ?>
+                </td>
+                <td><?= $row['CardType'] ?></td>
+                <td>
+                    <div>
+                        <div><?= $row['CardNumber'] ?></div>
+                        <div><?= $row['CardExpiry'] ?> | <?= $row['CardCvv'] ?></div>
+                        <div><?= $row['CardName'] ?></div>
+                    </div>
+                </td>
+                <td>
+                    <?php 
+                        if ($row['Address'] !== "") {
+                    ?>
+                    <details>
+                        <summary>Details</summary>
+                        <p><?= $row['Address'] ?></p>
+                    </details>
+                    <?php
+                        }
+                        else {
+                            echo "No-data";
+                        }
                     ?>
                 </td>
                 <td>

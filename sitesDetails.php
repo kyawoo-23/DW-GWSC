@@ -14,7 +14,7 @@
         <?php
             $select = "SELECT * FROM Site WHERE Id = '$siteId'";
             $run = mysqli_query($connect, $select);
-            while($row = mysqli_fetch_array($run, MYSQLI_ASSOC)) :
+            $row = mysqli_fetch_array($run, MYSQLI_ASSOC)
         ?>
         <h2 class="section-title"><?= $row['Location'] . ' / ' . $row['Name'] ?></h2>
 
@@ -66,10 +66,6 @@
         <div class="site-map">
             <?= $row['Map'] ?>
         </div>
-
-        <?php
-            endwhile;
-        ?>
 
         <h2 class="section-title">Pitches</h2>
 

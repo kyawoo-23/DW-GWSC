@@ -59,6 +59,17 @@
                     </p>
 
                     <?php
+                        if ($row['Address'] !== "") {
+                    ?>
+                    <p class="booking-text">
+                        <img src="./assets/static/icons/location.svg" alt="location">
+                        <?= $row['Address'] ?>
+                    </p>
+                    <?php
+                        }
+                    ?>
+
+                    <?php
                         if ($row['Remark'] !== "") {
                     ?>
                     <p class="booking-text">
@@ -76,15 +87,21 @@
                         <?= $row2['Id'] ?>
                     </p>
                     <p class="booking-text">
+                        <img src="./assets/static/icons/globe.svg" alt="site">
+                        <?php
+                            $getSite = "SELECT Site.Name AS SiteName FROM Site INNER JOIN Pitch ON Pitch.SiteId = Site.Id WHERE Pitch.Id = '$row2[Id]'";
+                            $run4 = mysqli_query($connect, $getSite);
+                            $row4 = mysqli_fetch_array($run4);
+                            echo $row4['SiteName'];
+                        ?>
+                    </p>
+                    <p class="booking-text">
                         <?php
                             $getActivity = "SELECT * FROM Activity WHERE Id = '$row2[ActivityId]'";
                             $run3 = mysqli_query($connect, $getActivity);
-                            while ($row3 = mysqli_fetch_array($run3)) :
+                            $row3 = mysqli_fetch_array($run3)
                         ?>
                         <img src="./assets/static/icons/<?= $row3['Name'] ?>.svg" alt="activity">
-                        <?php
-                            endwhile;
-                        ?>
                         <?= $row2['PitchName'] ?>
                     </p>
                     <div class="booking-time">
