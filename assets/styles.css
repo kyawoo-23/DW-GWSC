@@ -46,6 +46,7 @@ html {
   height: 100%;
   background-color: var(--body-color);
   font-family: "Fredoka", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -757,6 +758,17 @@ main {
   border-radius: 10px;
   width: 100% !important;
   margin: auto;
+}
+
+.not-found-text.find-all {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.find-all button {
+  width: fit-content;
 }
 
 .view-count {
@@ -2123,8 +2135,8 @@ footer {
   cursor: pointer;
   border-radius: 10px;
   padding: 4px;
-  width: 58px;
-  height: 50px;
+  aspect-ratio: 3.375 / 2.125;
+  height: 46px;
   object-fit: contain;
   background-color: #fff;
   opacity: 0.6;
@@ -2769,6 +2781,97 @@ td > .admin-table-btn-gp {
   border-radius: 50%;
 }
 
+.information-banner {
+  width: 100vw;
+  height: 320px;
+  max-width: 1440px;
+  position: relative;
+}
+
+.information-banner > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%);
+}
+
+.information-banner > div {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.information-banner > div > h3 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.information-pills-container {
+  padding: 40px 20px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.information-pill {
+  font-size: 1.6rem;
+  padding: 5px 20px;
+  background-color: var(--body-color);
+  border-radius: 30px;
+  border: 2px solid var(--primary-dark);
+  transition: all 0.2s;
+}
+.information-pill:hover {
+  transform: scale(1.08);
+  background-color: var(--primary-dark);
+  color: var(--body-color);
+}
+
+section#availability,
+section#features,
+section#attractions,
+section#location {
+  padding-top: 120px;
+}
+
+.information-hr {
+  border: 3px solid var(--primary-dark);
+}
+
+.location-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.location-info {
+  padding: 20px 40px;
+  background-color: #d9d9d9;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+  border-radius: 24px;
+}
+.location-info > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.location-map > iframe {
+  width: 100%;
+}
+
 @media only screen and (max-width: 992px) {
   :root {
     --global-padding: 50px;
@@ -2833,6 +2936,13 @@ td > .admin-table-btn-gp {
   .pitch-gallery {
     position: relative;
     top: unset;
+  }
+
+  .location-container {
+    grid-template-columns: 1fr;
+  }
+  .location-info {
+    padding: 20px;
   }
 }
 

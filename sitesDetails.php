@@ -86,7 +86,7 @@
                         <h3 class="pitch-card-title"><?= $row2['Name'] ?></h3>
                         <p class="pitch-card-desc">£ <?= $row2['Price'] ?></p>
                         <div class="pitch-time">
-                            <img class="icon-sm" src="./assets/static/icons/calendar.svg" alt="">
+                            <img class="icon-sm" src="./assets/static/icons/calendar.svg" alt="calendar">
                             <span><?= $row2['StartDate'] ?></span>
                             ~
                             <span><?= $row2['EndDate'] ?></span>

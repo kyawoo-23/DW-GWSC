@@ -107,7 +107,10 @@
                 endwhile;
             }
             else {
-                echo "<span class='not-found-text col-span-3'>Sorry! We couldn't find any available pitch matching your search :(</span>";
+                echo "<div class='not-found-text col-span-3 find-all'>
+                <span>Sorry! We couldn't find any available pitch matching your search :(</span>
+                <button class='btn btn-primary' onclick='window.location.href=window.location.href'>See all</button>
+                </div>";
             }
         ?>
 

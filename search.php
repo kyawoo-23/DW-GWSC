@@ -27,7 +27,15 @@
 
         <h4 class="section-title search">
             <small><?= '(' . mysqli_num_rows($run) . ')' ?></small>
-            Searched result: <?= $day . ' ' . $place ?>
+            Searched result:
+            <?php 
+                if (empty($day) && empty($place)) {
+                    echo "All";
+                } 
+                else {
+                    echo $day . ' ' . $place;
+                } 
+            ?>
         </h4>
 
         <div class="featured-pitch-list">
@@ -36,18 +44,23 @@
                     while($row = mysqli_fetch_array($run, MYSQLI_ASSOC)) :
             ?>
 
-            <div class="pitch-card">
+            <a href="pitchDetails.php?id=<?= $row['Id'] ?>" class="pitch-card">
                 <div class="pitch-card-img">
                     <img src="<?= $row['PrimaryImage'] ?>" alt="<?= $row['Name'] ?>">
                 </div>
                 <div class="pitch-card-body">
                     <div>
                         <h3 class="pitch-card-title"><?= $row['Name'] ?></h3>
-                        <p class="pitch-card-desc"><?= $row['Description'] ?></p>
+                        <p class="pitch-card-desc">£ <?= $row['Price'] ?></p>
+                        <div class="pitch-time">
+                            <img class="icon-sm" src="./assets/static/icons/calendar.svg" alt="calendar">
+                            <span><?= $row['StartDate'] ?></span>
+                            ~
+                            <span><?= $row['EndDate'] ?></span>
+                        </div>
                     </div>
-                    <a class="btn btn-white" href="pitchDetails.php?id=<?= $row['Id'] ?>">Details</a>
                 </div>
-            </div>
+            </a>
 
             <?php
                     endwhile;
