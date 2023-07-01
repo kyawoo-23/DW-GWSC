@@ -25,6 +25,9 @@
         <a href="#location" class="information-pill">
             Location
         </a>
+        <a href="#rss" class="information-pill">
+            RSS feed
+        </a>
     </div>
 
     <section id="availability">
@@ -77,7 +80,7 @@
     <hr class="information-hr">
     <section id="location">
         <section>
-            <h2 class="section-title">Location</h2>
+            <h2 class="section-title">Our location</h2>
             <div class="location-container">
                 <div class="location-info">
                     <div>
@@ -100,6 +103,14 @@
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
+        </section>
+    </section>
+    <hr class="information-hr">
+    <section id="rss">
+        <section>
+            <h2 class="section-title">RSS feed</h2>
+            <iframe width="100%" height="500" src="https://rss.app/embed/v1/wall/HbhOPkxNW0KmeBzQ"
+                frameborder="0"></iframe>
         </section>
     </section>
 </main>

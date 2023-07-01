@@ -49,9 +49,15 @@
             <div>
                 <p class="reference-links-title">References</p>
                 <div class="reference-links">
-                    <p>Image references from <a href="">here</a></p>
-                    <p>Image references from <a href="">here</a></p>
-                    <p>Image references from <a href="">here</a></p>
+                    <p>Images are referenced from
+                        <a href="https://unsplash.com/" target="_blank" referrerpolicy="no-referrer">here</a>
+                    </p>
+                    <p>Icons are referenced from
+                        <a href="https://fontawesome.com/" target="_blank" referrerpolicy="no-referrer">here</a>
+                    </p>
+                    <p>Illustration images are referenced from
+                        <a href="https://storyset.com/" target="_blank" referrerpolicy="no-referrer">here</a>
+                    </p>
                 </div>
             </div>
         </div>

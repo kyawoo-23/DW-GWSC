@@ -20,35 +20,45 @@
         $address = $_POST['address'];
         $password = $_POST['userPassword1'];
 
-        $checkEmail = "SELECT * FROM Customer WHERE Email = '$email'";
-        $result = mysqli_query($connect, $checkEmail);
-        if (mysqli_num_rows($result) > 0) {
-            echo "<script>alert('Email already exist! Please sign up with another email address')</script>";
-            echo "<script>window.location.href = window.location.href</script>";
+        $uppercase = preg_match('@[A-Z]@', $password);
+        $lowercase = preg_match('@[a-z]@', $password);
+        $number    = preg_match('@[0-9]@', $password);
+        $specialChars = preg_match('@[^\w]@', $password);
+
+        if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+            echo "<script>alert('Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.')</script>";
         }
         else {
-            $imgFolder = "assets/images/users/" . $first . ' ' . $sur . "/";
-            if (!is_dir($imgFolder)) {
-                mkdir($imgFolder, 0755, true); 
+            $checkEmail = "SELECT * FROM Customer WHERE Email = '$email'";
+            $result = mysqli_query($connect, $checkEmail);
+            if (mysqli_num_rows($result) > 0) {
+                echo "<script>alert('Email already exist! Please sign up with another email address')</script>";
+                echo "<script>window.location.href = window.location.href</script>";
             }
-
-            $image = $_FILES['userPic']['name'];
-            $imageName = $imgFolder . $image;
-            $copy = copy($_FILES['userPic']['tmp_name'], $imageName);
-            if (!$copy) {
-                echo "<script>alert('Cannot upload image')</script>";
-                exit();
-            }
-
-            $insert = "INSERT INTO Customer (`FirstName`, `SurName`, `Email`, `Password`, `Phone`, `Address`, `Image`, `ViewCount`) VALUES ('$first', '$sur', '$email', '$password', '$phone', '$address', '$imageName', 1)";
-            $run = mysqli_query($connect, $insert);
-            if ($run) {
-                echo "<script>alert('Account created successfully')</script>";
-                $_SESSION['cusId'] = $connect->insert_id;
-                echo "<script>window.location='index.php'</script>";
-            } 
             else {
-                echo "<script>alert('Something went wrong in registering account')</script>";
+                $imgFolder = "assets/images/users/" . $first . ' ' . $sur . "/";
+                if (!is_dir($imgFolder)) {
+                    mkdir($imgFolder, 0755, true); 
+                }
+
+                $image = $_FILES['userPic']['name'];
+                $imageName = $imgFolder . $image;
+                $copy = copy($_FILES['userPic']['tmp_name'], $imageName);
+                if (!$copy) {
+                    echo "<script>alert('Cannot upload image')</script>";
+                    exit();
+                }
+
+                $insert = "INSERT INTO Customer (`FirstName`, `SurName`, `Email`, `Password`, `Phone`, `Address`, `Image`, `ViewCount`) VALUES ('$first', '$sur', '$email', '$password', '$phone', '$address', '$imageName', 1)";
+                $run = mysqli_query($connect, $insert);
+                if ($run) {
+                    echo "<script>alert('Account created successfully')</script>";
+                    $_SESSION['cusId'] = $connect->insert_id;
+                    echo "<script>window.location='index.php'</script>";
+                } 
+                else {
+                    echo "<script>alert('Something went wrong in registering account')</script>";
+                }
             }
         }
     }
