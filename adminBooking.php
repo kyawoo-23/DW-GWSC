@@ -21,7 +21,7 @@
                 <th>Price</th>
                 <th>Booking Date</th>
                 <th>Card Type</th>
-                <th>Card Info</th>
+                <!-- <th>Card Info</th> -->
                 <th>Billing Address</th>
                 <th>Remark</th>
             </tr>
@@ -60,13 +60,13 @@
                     ?>
                 </td>
                 <td><?= $row['CardType'] ?></td>
-                <td>
+                <!-- <td>
                     <div>
                         <div><?= $row['CardNumber'] ?></div>
                         <div><?= $row['CardExpiry'] ?> | <?= $row['CardCvv'] ?></div>
                         <div><?= $row['CardName'] ?></div>
                     </div>
-                </td>
+                </td> -->
                 <td>
                     <?php 
                         if ($row['Address'] !== "") {

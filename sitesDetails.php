@@ -68,7 +68,6 @@
         </div>
 
         <h2 class="section-title">Pitches</h2>
-
         <div class="featured-pitch-list">
             <?php
                 $query = "SELECT Pitch.* FROM Pitch INNER JOIN Site ON Pitch.SiteId = Site.Id WHERE Site.Id = '$siteId';";
@@ -100,6 +99,52 @@
                 }
                 else {
                     echo "<span class='not-found-text col-span-3'>No pitches found</span>";
+                }
+            ?>
+        </div>
+
+        <h2 class="section-title">Reviews</h2>
+        <div class="featured-pitch-list">
+            <?php
+                $query = "SELECT Review.*, Site.name AS SiteName, Site.id AS SiteId, Site.image AS SiteImage, Customer.*, Customer.image AS CustomerImage FROM Review 
+                        INNER JOIN Site ON Review.SiteId = Site.Id
+                        INNER JOIN Customer ON Customer.Id = Review.CustomerId
+                        WHERE Site.Id = '$siteId'";
+                $run3 = mysqli_query($connect, $query);
+                if (mysqli_num_rows($run3) > 0) {
+                    while($row3 = mysqli_fetch_array($run3, MYSQLI_ASSOC)) :
+            ?>
+
+            <div class="review-card">
+                <div class="review-title">
+                    <h3><?= $row3['SiteName'] ?></h3>
+                    <span class="review-star">
+                        <?= $row3['Rating'] ?>
+                        <img src="./assets/static/icons/star.svg" class="icon-md" alt="star">
+                    </span>
+                </div>
+                <img src="<?= $row3['SiteImage'] ?>" class="review-site-img" alt="<?= $row3['SiteName'] ?>" />
+                <div class="review-user">
+                    <small class="review-time">
+                        <?php 
+                           $datetime = new DateTime($row3['CreatedAt']);
+                            $formattedDatetime = $datetime->format("F j, Y");
+                            echo $formattedDatetime;
+                        ?>
+                    </small>
+                    <div class="review-user-info">
+                        <img src="<?= $row3['CustomerImage'] ?>" alt="<?= $row3['FirstName'] ?>">
+                        <span><?= $row3['FirstName'] . ' ' . $row3['SurName'] ?></span>
+                    </div>
+                    <p><?= $row3['Message'] ?></p>
+                </div>
+            </div>
+
+            <?php
+                    endwhile;
+                }
+                else {
+                    echo "<div class='not-found-text col-span-3'>No reviews yet!</div>";
                 }
             ?>
         </div>

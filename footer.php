@@ -64,6 +64,10 @@
     </div>
 </footer>
 
+<div class="top-btn" id="backToTopBtn">
+    <img class="icon-md" src="./assets/static/icons/angles-up.svg" alt="up to top icon">
+</div>
+
 <div class="cookies-container">
     <div class="cookies-container-head">
         <img src="./assets/static/images/cookies.png" alt="cookies">
@@ -76,6 +80,7 @@
     </div>
 </div>
 
+<script type="text/javascript" src="./assets/js/back-to-top.js" defer></script>
 <script type="text/javascript" src="./assets/js/navbar-toggle.js" defer></script>
 <script type="text/javascript" src="./assets/js/dialog-toggle.js" defer></script>
 <script type="text/javascript" src="./assets/js/slideshow.js" defer></script>

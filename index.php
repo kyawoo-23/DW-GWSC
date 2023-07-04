@@ -84,7 +84,8 @@
                 <div class="intro-card-details">
                     <img class="logo-icon-lg" src="./assets/static/icons/logo_white.svg" alt="gwsc logo">
                     <p class="intro-body">Welcome to Global Wild Swimming and Camping, your ultimate destination for
-                        unforgettable outdoor adventures!</p>
+                        unforgettable outdoor adventures! Immerse yourself in pristine waters, explore breathtaking
+                        landscapes, and reconnect with nature.</p>
                 </div>
                 <a href="sites.php" class="intro-card-button">Available sites</a>
             </div>
