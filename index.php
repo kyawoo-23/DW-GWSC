@@ -123,7 +123,7 @@
         <h2 class="section-title">Featured Pitches</h2>
         <div class="featured-pitches">
             <?php
-                $select1 = "SELECT * FROM Pitch WHERE IsAvailable = '1' ORDER BY Id LIMIT 1";
+                $select1 = "SELECT * FROM Pitch WHERE IsAvailable = '1' AND IsFeatured = '1' ORDER BY Id LIMIT 1";
                 $run1 = mysqli_query($connect, $select1);
                 while ($row1 = mysqli_fetch_array($run1)) :
             ?>
@@ -148,7 +148,7 @@
 
             <div class="featured-pitch-list">
                 <?php
-                    $select2 = "SELECT * FROM Pitch WHERE IsAvailable = '1' ORDER BY Id LIMIT 11 OFFSET 1";
+                    $select2 = "SELECT * FROM Pitch WHERE IsAvailable = '1' AND IsFeatured = '1' ORDER BY Id LIMIT 11 OFFSET 1";
                     $run2 = mysqli_query($connect, $select2);
                     while ($row2 = mysqli_fetch_array($run2)) :
                 ?>
