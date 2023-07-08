@@ -4,16 +4,16 @@
         <p>Connect with us now!</p>
 
         <div class="socials">
-            <a href="">
+            <a href="https://www.facebook.com/" target="_blank" referrerpolicy="no-referrer">
                 <img class="social" src="./assets/static/icons/facebook.svg" alt="facebook">
             </a>
-            <a href="">
+            <a href="https://instagram.com/" target="_blank" referrerpolicy="no-referrer">
                 <img class="social" src="./assets/static/icons/instagram.svg" alt="instagram">
             </a>
-            <a href="">
+            <a href="https://twitter.com/" target="_blank" referrerpolicy="no-referrer">
                 <img class="social" src="./assets/static/icons/twitter.svg" alt="twitter">
             </a>
-            <a href="">
+            <a href="https://youtube.com/" target="_blank" referrerpolicy="no-referrer">
                 <img class="social" src="./assets/static/icons/youtube.svg" alt="youtube">
             </a>
         </div>
