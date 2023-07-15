@@ -167,6 +167,11 @@ nav.navbar > .foot {
   align-items: center;
 }
 
+.logo-container a {
+  display: flex;
+  align-items: center;
+}
+
 nav.navbar > .foot {
   margin-bottom: 10px;
 }

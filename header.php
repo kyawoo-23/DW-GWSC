@@ -42,7 +42,9 @@ if (isset($_SESSION['cusId'])) {
     <nav class="navbar">
         <div class="head">
             <div class="logo-container">
-                <img class="logo-icon" src="./assets/static/icons/logo.svg" alt="GWSC logo">
+                <a href="index.php">
+                    <img class="logo-icon" src="./assets/static/icons/logo.svg" alt="GWSC logo">
+                </a>
                 <div class="view-count" title="GWSC website's view count">
                     <img src="./assets/static/icons/view-count.svg" class="icon-sm" alt="view-count">
                     <?php
