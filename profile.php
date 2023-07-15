@@ -14,33 +14,43 @@
         $address = $_POST['address'];
         $password = $_POST['userPassword1'];
 
-        $image = $_FILES['userPic']['name'];
+        $uppercase = preg_match('@[A-Z]@', $password);
+        $lowercase = preg_match('@[a-z]@', $password);
+        $number = preg_match('@[0-9]@', $password);
+        $specialChars = preg_match('@[^\w]@', $password);
 
-        if ($image === "") {
-            $update = "UPDATE Customer SET `FirstName`='$first',`SurName`='$sur',`Email`='$email',`Password`='$password',`Phone`='$phone',`Address`='$address' WHERE Id = '$cusId'";
+        if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+            echo "<script>alert('Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.')</script>";
         }
         else {
-            $imgFolder = "assets/images/users/" . $first . $sur . "/";
-            if (!is_dir($imgFolder)) {
-                mkdir($imgFolder, 0755, true); 
+            $image = $_FILES['userPic']['name'];
+            
+            if ($image === "") {
+                $update = "UPDATE Customer SET `FirstName`='$first',`SurName`='$sur',`Email`='$email',`Password`='$password',`Phone`='$phone',`Address`='$address' WHERE Id = '$cusId'";
             }
-            $imageName = $imgFolder . $image;
-            $copy = copy($_FILES['userPic']['tmp_name'], $imageName);
-            if (!$copy) {
-                echo "<script>alert('Cannot upload image')</script>";
-                exit();
-            }
+            else {
+                $imgFolder = "assets/images/users/" . $first . $sur . "/";
+                if (!is_dir($imgFolder)) {
+                    mkdir($imgFolder, 0755, true); 
+                }
+                $imageName = $imgFolder . $image;
+                $copy = copy($_FILES['userPic']['tmp_name'], $imageName);
+                if (!$copy) {
+                    echo "<script>alert('Cannot upload image')</script>";
+                    exit();
+                }
 
-            $update = "UPDATE Customer SET `FirstName`='$first',`SurName`='$sur',`Email`='$email',`Password`='$password',`Phone`='$phone',`Address`='$address',`Image`='$imageName' WHERE Id = '$cusId'";
-        }
-        $run = mysqli_query($connect, $update);
-                    
-        if ($run) {
-            echo "<script>alert('Account updated successfully')</script>";
-            echo "<script>window.location='index.php'</script>";
-        } 
-        else {
-            echo "<script>alert('Something went wrong in updating account details')</script>";
+                $update = "UPDATE Customer SET `FirstName`='$first',`SurName`='$sur',`Email`='$email',`Password`='$password',`Phone`='$phone',`Address`='$address',`Image`='$imageName' WHERE Id = '$cusId'";
+            }
+            $run = mysqli_query($connect, $update);
+                        
+            if ($run) {
+                echo "<script>alert('Account updated successfully')</script>";
+                echo "<script>window.location='index.php'</script>";
+            } 
+            else {
+                echo "<script>alert('Something went wrong in updating account details')</script>";
+            }
         }
     }
 ?>
