@@ -10,16 +10,16 @@
     <section>
         <?php
             if ($day === "" AND $place === "") {
-                $query = "SELECT * FROM Pitch WHERE Pitch.IsAvailable = 1";
+                $query = "SELECT Pitch.* FROM Pitch WHERE Pitch.IsAvailable = 1";
             } 
             else if ($day === "" AND $place !== "") {
-                $query = "SELECT * FROM Pitch INNER JOIN Site ON Pitch.SiteId = Site.Id WHERE Site.Location = '$place' AND Pitch.IsAvailable = 1";
+                $query = "SELECT Pitch.* FROM Pitch INNER JOIN Site ON Pitch.SiteId = Site.Id WHERE Site.Location = '$place' AND Pitch.IsAvailable = 1";
             }
             else if ($day !== "" AND $place === "") {
-                $query = "SELECT * FROM Pitch WHERE Pitch.StartDate <= '$day' AND Pitch.EndDate > '$day' AND Pitch.IsAvailable = 1";
+                $query = "SELECT Pitch.* FROM Pitch WHERE Pitch.StartDate <= '$day' AND Pitch.EndDate > '$day' AND Pitch.IsAvailable = 1";
             }
             else {
-                $query = "SELECT * FROM Pitch INNER JOIN Site ON Pitch.SiteId = Site.Id WHERE Site.Location = '$place' AND Pitch.StartDate <= '$day' AND Pitch.EndDate > '$day' AND Pitch.IsAvailable = 1";
+                $query = "SELECT Pitch.* FROM Pitch INNER JOIN Site ON Pitch.SiteId = Site.Id WHERE Site.Location = '$place' AND Pitch.StartDate <= '$day' AND Pitch.EndDate > '$day' AND Pitch.IsAvailable = 1";
             }
             
             $run = mysqli_query($connect, $query);
