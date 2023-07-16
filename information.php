@@ -109,7 +109,7 @@
     <section id="rss">
         <section>
             <h2 class="section-title">RSS feed</h2>
-            <iframe width="100%" height="500" src="https://rss.app/embed/v1/wall/HbhOPkxNW0KmeBzQ"
+            <iframe width="100%" height="500" src="https://rss.app/embed/v1/wall/OPMvsBq94We0qcy9"
                 frameborder="0"></iframe>
         </section>
     </section>

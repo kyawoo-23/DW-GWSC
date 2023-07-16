@@ -7,7 +7,7 @@
         exit();
     }
 
-    $leftTime = 61 - (time() - $_SESSION['lockTime']);
+    $leftTime = (61 * 10) - (time() - $_SESSION['lockTime']);
     if ($leftTime < 0) {
         $_SESSION['loginFail'] = "no";
         $_SESSION['loginError'] = 0;
