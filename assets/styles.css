@@ -3209,4 +3209,8 @@ section#rss {
   .features-list {
     justify-content: center;
   }
+
+  .site-details-container {
+    flex-direction: column;
+  }
 }
