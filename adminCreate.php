@@ -98,6 +98,5 @@
 
 <?php 
     include('adminFooter.php');
-?>
-
-<script type="text/javascript" src="./assets/js/password-validate.js" defer></script>
+    ?>
+<script type="text/javascript" src="./assets/js/password-toggle.js" defer></script>

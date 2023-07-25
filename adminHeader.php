@@ -113,6 +113,9 @@
             <div class="mobile-nav-item admin <?php if ($title === "Admin Site") echo "active"?>">
                 <a href="adminSite.php">Site</a>
             </div>
+            <div class="mobile-nav-item admin <?php if ($title === "Admin Local Attraction") echo "active"?>">
+                <a href="adminLocalAttraction.php">Attractions</a>
+            </div>
             <div class="mobile-nav-item admin <?php if ($title === "Admin Pitch") echo "active"?>">
                 <a href="adminPitch.php">Pitch</a>
             </div>
@@ -132,7 +135,7 @@
                 <?php
                     if ($adminId) {
                 ?>
-                <a href="adminProfile?id=<?= $adminId ?>" class="nav-user-info admin">
+                <a href="adminProfile.php?id=<?= $adminId ?>" class="nav-user-info admin">
                     <img class="nav-user-img" src="<?= $adminData['Image'] ?>" alt="<?= $adminData['Name'] ?>">
                     <span><?= $adminData['Name'] ?></span>
                 </a>
