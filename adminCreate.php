@@ -76,7 +76,7 @@
                 </div>
             </div>
 
-            <div class="signup-row pwd-no-match" id="pwdNoMatch">
+            <div class="signup-row pwd-no-match" id="password-no-match">
                 <span>Your passwords do not match. Please enter your password again to confirm it.</span>
             </div>
 
@@ -98,5 +98,8 @@
 
 <?php 
     include('adminFooter.php');
-    ?>
-<script type="text/javascript" src="./assets/js/password-toggle.js" defer></script>
+?>
+
+<script>
+$("#password-no-match").hide()
+</script>
